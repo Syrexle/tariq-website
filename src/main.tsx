@@ -78,6 +78,51 @@ const education = [
 ]
 
 const capabilities = ['GTM strategy', 'Protocol growth', 'Account research', 'Community acquisition', 'DeFi credit', 'Visual storytelling']
+
+const devProjects = [
+  {
+    title: 'base-wallet-bundler',
+    folder: 'base-wallet-bundler',
+    type: 'Base / Solidity / Aerodrome / Umbra',
+    description: 'A Base-native wallet bundling toolkit that coordinates atomic ERC-20 buys across multiple Umbra stealth addresses, pairing Foundry contracts with a terminal workflow for generation, deployment, swaps, and sponsor-funded withdrawals.',
+    highlights: ['Atomic ETH-to-token bundle buys', 'Umbra stealth address flow', 'Aerodrome routing + Foundry scripts'],
+  },
+  {
+    title: 'tradeLead AI',
+    folder: 'tradeLead-ai',
+    type: 'React / Supabase / Twilio / OpenAI',
+    description: 'A sellable MVP for Atlanta-area trade businesses that converts voicemails, missed calls, and after-hours inquiries into structured dispatcher summaries, callback-first routing, demo capture, and a private founder cockpit.',
+    highlights: ['Voicemail-first lead extraction', 'Supabase-backed lead capture', 'Founder cockpit + outreach assets'],
+  },
+  {
+    title: 'Hydrex Vote Optimizer',
+    folder: 'capacitr/hydrex-vote-optimizer',
+    type: 'Base / Ethers / Hydrex API / Automation',
+    description: 'A read-only veNFT gauge voting optimizer for Hydrex on Base that ranks live strategies by projected rewards, fee/bribe mix, earning power, and gauge validity without signing or submitting votes.',
+    highlights: ['Live Hydrex strategy ranking', 'Gauge verification checks', 'Scheduled GitHub Actions output'],
+  },
+  {
+    title: 'eclipse-memory',
+    folder: 'eclipse-memory',
+    type: 'Base / x402 / Express / Hardhat',
+    description: 'A Base-native shared memory protocol for autonomous agents, designed around paid x402 HTTP access, smart-contract commitments, and provider-neutral memory primitives that can later surface through MCP.',
+    highlights: ['Paid x402 API surface', 'Onchain memory commitments', 'Agent shared-memory primitives'],
+  },
+  {
+    title: 'hyper-agent',
+    folder: 'hyper-agent',
+    type: 'Python / Hyperliquid / Trading Automation',
+    description: 'A Python CLI daemon for Hyperliquid perpetual futures that scans configurable pairs, generates composite strategy signals, manages positions with native and software stops, and publishes Discord trade notifications.',
+    highlights: ['EMA, RSI, and funding-rate signals', 'Daily risk locks and win caps', 'Backtests, sweeps, TUI, and CSV journal'],
+  },
+  {
+    title: 'robinhood-swap-proxy',
+    folder: 'robinhood-light-executor',
+    type: 'Solidity / Foundry / Robinhood Chain',
+    description: 'A lightweight swap executor prototype for Robinhood Chain: native ETH enters a contract, optional fees are deducted, ETH wraps to WETH, SwapRouter02 executes the token purchase, and output returns directly to the caller.',
+    highlights: ['Minimal WETH-to-token executor', 'Foundry tests and deploy script', 'Terminal GUI for previewing and executing buys'],
+  },
+]
 const resumeHref = `${import.meta.env.BASE_URL}Tariq_Waseem_Resume.pdf`
 
 function App() {
@@ -104,6 +149,7 @@ function App() {
         <nav aria-label="Primary navigation">
           <a href="#profile">[ PROFILE ]</a>
           <a href="#impact">[ IMPACT ]</a>
+          <a href="#projects">[ PROJECTS ]</a>
           <a href="#experience">[ EXPERIENCE ]</a>
           <a href="#contact">[ CONTACT ]</a>
         </nav>
@@ -174,6 +220,30 @@ function App() {
           </div>
         </section>
 
+
+        <section id="projects" className="portfolio-section">
+          <p className="eyebrow">[ DEV PORTFOLIO / LOCAL PROJECT FOLDERS ]</p>
+          <div className="portfolio-intro">
+            <h2>Applied builds from my local development workspace.</h2>
+            <p>Folder names are shown exactly as they live on my computer, with product-facing descriptions based on each project README.</p>
+          </div>
+          <div className="dev-project-grid">
+            {devProjects.map((project) => (
+              <article className="dev-project-card" key={project.folder}>
+                <div className="dev-project-topline">
+                  <span>{project.type}</span>
+                  <code>{project.folder}</code>
+                </div>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <div className="mini-pill-list">
+                  {project.highlights.map((item) => <span key={item}>{item}</span>)}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section id="experience" className="timeline-section">
           <p className="eyebrow">[ EXPERIENCE ]</p>
           <div className="timeline">
@@ -229,7 +299,7 @@ function App() {
               <p>Reach out for Web3 business development, GTM strategy, account research, protocol partnerships, DeFi credit, and growth opportunities.</p>
               <div className="contact-list">
                 <a href="mailto:tariqawaseem@gmail.com">tariqawaseem@gmail.com</a>
-                <a href="tel:+17708610301">(770) 861-0301</a>
+                <a href="tel:+177****0301">(770) 861-0301</a>
                 <span>Atlanta, GA</span>
                 <span>tariqw.eth</span>
               </div>
@@ -253,3 +323,4 @@ function App() {
 }
 
 createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>)
+
