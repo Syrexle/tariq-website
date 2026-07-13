@@ -149,7 +149,7 @@ const devProjects = [
     highlights: [],
   },
   {
-    title: 'Content Creator',
+    title: 'follow me on socials',
     folder: '',
     type: '',
     description: 'I share thoughts on crypto, culture, products, markets, and the founder/operator work behind the projects I build and advise.',
