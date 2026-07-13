@@ -103,6 +103,45 @@ const education = [
 
 const capabilities = ['GTM strategy', 'Protocol growth', 'Account research', 'Community acquisition', 'DeFi credit', 'Visual storytelling']
 
+const aiSkills = [
+  {
+    name: 'Asset OpSec & EVM Executor Safety',
+    file: 'evm-trading-executor-safety',
+    summary: 'A local Hermes skill for building and reviewing small EVM trading/executor contracts with explicit wallet-flow, spend-cap, rescue, GUI, and operator-safety guardrails.',
+    examples: ['Private-key / owner-role separation', 'Per-call spend caps and rescue paths', 'README notes labeled OpSec, Management, and Rules'],
+  },
+  {
+    name: 'Onchain Transaction Tracing',
+    file: 'onchain-transaction-tracing',
+    summary: 'A forensic workflow skill for following EVM transactions, token transfers, protocol deposits, relays, bridges, and contract-side accounting without confusing direct wallet balances with credited protocol positions.',
+    examples: ['Tx-hash-first investigation', 'Wallet vs contract balance separation', 'Plain-English path diagrams for users'],
+  },
+  {
+    name: 'Token Liquidity Strategy',
+    file: 'token-liquidity-strategy',
+    summary: 'A market-quality strategy skill for comparing centralized market makers, DEX liquidity programs, ve-token incentives, LP bribes, and sustainable liquidity depth across Base and other DeFi venues.',
+    examples: ['Market quality over hype', 'Aerodrome / Hydrex incentive framing', 'WETH / USDC bribes funded by real fees'],
+  },
+  {
+    name: 'Hydrex Vote Optimizer',
+    file: 'hydrex-vote-optimizer',
+    summary: 'A task-specific agent workflow for reading live Hydrex epoch, gauge, vote, and incentive data to rank pool voting opportunities and explain expected returns for veHYDX holders.',
+    examples: ['Epoch power and pool-share checks', 'Live gauge/incentive validation', 'Wallet-sized voting return estimates'],
+  },
+  {
+    name: 'Base MCP Wallet Workflows',
+    file: 'base-mcp',
+    summary: 'A Base Account workflow skill for safely inspecting portfolios, transactions, token metadata, x402 payments, signatures, sends, swaps, and arbitrary onchain calls through the Base MCP tool surface.',
+    examples: ['Read before write', 'Approval-url transaction flow', 'Base and Base-Sepolia x402 handling'],
+  },
+  {
+    name: 'High-Context Cold DM Research',
+    file: 'cold-dm-research',
+    summary: 'A research-to-message skill for drafting short, specific, human outbound DMs from social profiles, posts, bios, company context, and user-provided relationship background.',
+    examples: ['Voice and thesis extraction', 'Specific reference before the ask', 'Permission-first paid API usage'],
+  },
+]
+
 const devProjects = [
   {
     title: 'base-wallet-bundler',
@@ -201,6 +240,7 @@ function App() {
           <a href="#profile">[ PROFILE ]</a>
           <a href="#impact">[ IMPACT ]</a>
           <a href="#projects">[ PROJECTS ]</a>
+          <a href="#ai-skills">[ AI SKILLS ]</a>
           <a href="#experience">[ EXPERIENCE ]</a>
           <a href="#contact">[ CONTACT ]</a>
         </nav>
@@ -301,6 +341,31 @@ function App() {
                     ))}
                   </div>
                 )}
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="ai-skills" className="ai-skills-section">
+          <p className="eyebrow">[ AI TASK-SPECIFIC SKILLS ]</p>
+          <div className="ai-skills-intro">
+            <h2>I build local AI skills that turn repeated expert workflows into reusable agent playbooks.</h2>
+            <p>
+              These are task-centered Hermes skills I created or heavily customized for high-context work: asset OpSec, onchain transaction inspection, liquidity strategy, vote optimization, wallet workflows, and outbound research.
+            </p>
+          </div>
+          <div className="ai-skill-grid">
+            {aiSkills.map((skill, index) => (
+              <article className="ai-skill-card" key={skill.file}>
+                <div className="ai-skill-index">{String(index + 1).padStart(2, '0')}</div>
+                <div>
+                  <code>{skill.file}</code>
+                  <h3>{skill.name}</h3>
+                  <p>{skill.summary}</p>
+                </div>
+                <div className="mini-pill-list">
+                  {skill.examples.map((item) => <span key={item}>{item}</span>)}
+                </div>
               </article>
             ))}
           </div>

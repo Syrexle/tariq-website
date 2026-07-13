@@ -42,7 +42,7 @@ a { color: inherit; text-decoration: none; }
   backdrop-filter: blur(18px);
 }
 
-.brand, nav, .mono-link, .cta-row, .eyebrow, footer, button, .contact-ribbon, .timeline-meta, .pill-list, .resume-panel span, .resume-panel a {
+.brand, nav, .mono-link, .cta-row, .eyebrow, footer, button, .contact-ribbon, .timeline-meta, .pill-list, .resume-panel span, .resume-panel a, .ai-skill-card code, .ai-skill-index {
   font-family: 'IBM Plex Mono', monospace;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -206,7 +206,7 @@ h3 { font-size: clamp(2rem, 3vw, 3.35rem); letter-spacing: -0.035em; }
   text-align: center;
 }
 
-.work-section, .services-section, .timeline-section, .skills-section, .portfolio-section { padding: clamp(4rem, 9vw, 8rem) clamp(1rem, 5vw, 5rem); }
+.work-section, .services-section, .timeline-section, .skills-section, .portfolio-section, .ai-skills-section { padding: clamp(4rem, 9vw, 8rem) clamp(1rem, 5vw, 5rem); }
 .impact-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .impact-card {
   min-height: 20rem;
@@ -236,6 +236,21 @@ h3 { font-size: clamp(2rem, 3vw, 3.35rem); letter-spacing: -0.035em; }
 .social-link-list { display: grid; gap: .55rem; margin-top: .2rem; }
 .social-link-list a { width: fit-content; border-bottom: 1px solid rgba(156,175,141,.55); color: var(--cream); font-family: 'IBM Plex Mono', monospace; font-size: .78rem; letter-spacing: .04em; text-decoration: none; }
 .social-link-list a:hover { color: var(--cyan); border-color: var(--cyan); }
+
+.ai-skills-section {
+  background:
+    radial-gradient(circle at 16% 12%, rgba(88,229,232,.10), transparent 26rem),
+    linear-gradient(180deg, rgba(7,31,24,.62), rgba(3,5,4,.92));
+  border-bottom: 1px solid var(--line);
+}
+.ai-skills-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 36rem); gap: clamp(1.5rem, 5vw, 5rem); align-items: end; margin-bottom: 3rem; }
+.ai-skills-intro p { color: var(--muted); line-height: 1.75; margin: 0; }
+.ai-skill-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.ai-skill-card { min-height: 24rem; padding: clamp(1.1rem, 2.6vw, 2rem); background: radial-gradient(circle at 92% 6%, rgba(245,164,59,.08), transparent 14rem), rgba(3,5,4,.78); display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; }
+.ai-skill-index { color: var(--sage); font-size: .72rem; }
+.ai-skill-card code { width: fit-content; max-width: 100%; display: inline-block; padding: .45rem .55rem; border: 1px solid var(--line); color: var(--cyan); background: rgba(255,255,255,.035); overflow-wrap: anywhere; text-transform: none; letter-spacing: .02em; font-size: .68rem; }
+.ai-skill-card h3 { font-size: clamp(2.15rem, 3.6vw, 4.2rem); margin: 1.1rem 0 0; }
+.ai-skill-card p { color: rgba(242,238,230,.78); line-height: 1.7; margin: 1rem 0 0; }
 
 .timeline-section { background: rgba(7, 31, 24, 0.42); }
 .timeline { display: grid; border-top: 1px solid var(--line); }
@@ -289,8 +304,8 @@ footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.25
 }
 
 @media (max-width: 980px) {
-  .section-grid, .contact-panel, .timeline-item, .portfolio-intro { grid-template-columns: 1fr; }
-  .dev-project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .section-grid, .contact-panel, .timeline-item, .portfolio-intro, .ai-skills-intro { grid-template-columns: 1fr; }
+  .dev-project-grid, .ai-skill-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .capability-strip { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
   .hide-mobile { display: none; }
   nav { overflow-x: auto; width: 100%; padding-bottom: .2rem; }
@@ -301,7 +316,7 @@ footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.25
   .site-header { align-items: flex-start; flex-direction: column; }
   .hero { padding-top: 2.5rem; }
   .terrain-card { min-height: 26rem; }
-  .impact-grid, .skill-grid, .dev-project-grid { grid-template-columns: 1fr; }
+  .impact-grid, .skill-grid, .dev-project-grid, .ai-skill-grid { grid-template-columns: 1fr; }
   .impact-card { min-height: 14rem; }
   footer { flex-direction: column; }
 }
