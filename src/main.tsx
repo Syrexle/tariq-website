@@ -148,6 +148,19 @@ const devProjects = [
     description: 'A refund-safety gateway experiment for x402 payments that authorizes or escrows funds before provider execution, captures only after verified delivery, and lets buyers reclaim unresolved payments after expiry.',
     highlights: [],
   },
+  {
+    title: 'Content Creator',
+    folder: '',
+    type: '',
+    description: 'I share thoughts on crypto, culture, products, markets, and the founder/operator work behind the projects I build and advise.',
+    highlights: [],
+    socialLinks: [
+      { label: 'X: @0x_Tariq', href: 'https://x.com/0x_Tariq' },
+      { label: 'LinkedIn: @tariqwaseem', href: 'https://www.linkedin.com/in/tariqwaseem' },
+      { label: 'Instagram: @yvs.tariq', href: 'https://www.instagram.com/yvs.tariq' },
+      { label: 'TikTok: @_tariqwaseem', href: 'https://www.tiktok.com/@_tariqwaseem' },
+    ],
+  },
 ]
 const resumeHref = `${import.meta.env.BASE_URL}Tariq_Waseem_Resume.pdf`
 
@@ -267,6 +280,13 @@ function App() {
                 {project.highlights.length > 0 && (
                   <div className="mini-pill-list">
                     {project.highlights.map((item) => <span key={item}>{item}</span>)}
+                  </div>
+                )}
+                {'socialLinks' in project && project.socialLinks && (
+                  <div className="social-link-list">
+                    {project.socialLinks.map((link) => (
+                      <a key={link.href} href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+                    ))}
                   </div>
                 )}
               </article>

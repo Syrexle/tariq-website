@@ -233,6 +233,9 @@ h3 { font-size: clamp(2rem, 3vw, 3.35rem); letter-spacing: -0.035em; }
 .dev-project-card p { color: rgba(242,238,230,.78); line-height: 1.65; }
 .mini-pill-list { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.2rem; }
 .mini-pill-list span { border: 1px solid var(--line); padding: .45rem .55rem; color: var(--muted); background: rgba(255,255,255,.025); font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .06em; font-size: .64rem; }
+.social-link-list { display: grid; gap: .55rem; margin-top: .2rem; }
+.social-link-list a { width: fit-content; border-bottom: 1px solid rgba(156,175,141,.55); color: var(--cream); font-family: 'IBM Plex Mono', monospace; font-size: .78rem; letter-spacing: .04em; text-decoration: none; }
+.social-link-list a:hover { color: var(--cyan); border-color: var(--cyan); }
 
 .timeline-section { background: rgba(7, 31, 24, 0.42); }
 .timeline { display: grid; border-top: 1px solid var(--line); }
