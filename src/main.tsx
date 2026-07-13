@@ -15,6 +15,18 @@ const impact = [
 
 const experience = [
   {
+    company: 'CAPACITR',
+    role: 'Strategic Advisor, GTM & Liquidity Systems',
+    location: 'Atlanta, GA / Remote',
+    dates: 'May 2026 – Present',
+    bullets: [
+      'Advise on GTM, token access design, and product positioning for a Base-native signal-to-position platform spanning market discovery, x402 analysis, and trading workflows.',
+      'Built operating systems for liquidity strategy, including Hydrex vote/bribe reporting, weekly pool health dashboards, Bankr/Doppler fee tracking, and sustainable incentive planning.',
+      'Created holder and community intelligence workflows that reconstruct public CAPACITR balances, enrich wallets with social/contact signals, and support respectful outreach around liquidity and app adoption.',
+      'Developed content and launch execution infrastructure across Airtable, Excalidraw, reports, alpha feedback loops, roadmap posts, token updates, and investor-facing traction narratives.',
+    ],
+  },
+  {
     company: '40Acres Finance',
     role: 'GTM, Growth & Marketing Lead',
     location: 'Atlanta, GA',
