@@ -41,6 +41,18 @@ const experience = [
     ],
   },
   {
+    company: 'SCRIB3',
+    role: 'Lead Community Manager',
+    location: 'Atlanta, GA',
+    dates: 'Nov 2025 – Present',
+    bullets: [
+      'Managed a team of 5 community associates operating across 3 time zones for highly technical DeFi protocols.',
+      'Created and ran the agency\'s first-of-its-kind community service offering.',
+      'Handled new client onboarding calls, managed client relationships, and led community audits.',
+      'Supported clients including ReadyGG, Citrea, Spectral AI, Possum Finance, and Siren Protocol.',
+    ],
+  },
+  {
     company: 'Revest Finance',
     role: 'Community Manager / Business Development',
     location: 'Atlanta, GA',
