@@ -4,28 +4,81 @@ import Lenis from 'lenis'
 import { gsap } from 'gsap'
 import './styles.css'
 
-const projects = [
+const contact = ['Atlanta, GA', '(770) 861-0301', 'tariqawaseem@gmail.com', 'tariqw.eth']
+
+const impact = [
+  'Helped drive $5M+ in assets and $3M in active loans to 40Acres Finance through a 200k OP grant, targeted marketing to high net worth individuals & funds, and retail-facing activations.',
+  'Led design, branding, and marketing execution for 40Acres, including a full brand refresh and clearer institutional DeFi credit positioning.',
+  'Organized student-led web3 events reaching 1,000+ students and 50+ blockchain clubs across the Southeast.',
+  'Collaborated with teams at Monad, Midas, Pendle, HydrexFi, Autopilot, Aerostrategy, Levva, and Aerodrome.',
+]
+
+const experience = [
   {
-    title: 'Onchain Market Intelligence',
-    tag: 'DASHBOARD',
-    copy: 'Liquidity strategy screens, token holder mapping, and incentive narratives for Base-native teams.',
-    accent: 'cyan',
+    company: '40Acres Finance',
+    role: 'GTM, Growth & Marketing Lead',
+    location: 'Atlanta, GA',
+    dates: 'Nov 2025 – May 2026',
+    bullets: [
+      'Drove $5M+ in assets through OP grant campaigns, partner education, and user activation.',
+      'Led OP grants GTM strategy across borrower/lender messaging, communications, and weekly updates.',
+      'Identified and mapped target accounts across protocols, asset issuers, vault curators, and onboarded new revenue-generating collateral types to 40Acres.',
+      'Rebuilt the brand system, positioning, visual identity, and product story for institutional DeFi credit.',
+      'Wrote outreach, launch copy, tutorials, social campaigns, and technical explainers for buyer education.',
+      'Supported integration and collateral campaigns across routing venues, ve(3,3) assets, and partner ecosystems.',
+    ],
   },
   {
-    title: 'AI Service Business Systems',
-    tag: 'PRODUCT',
-    copy: 'Revenue-focused intake flows, founder admin views, and sellable MVP demos for local operators.',
-    accent: 'amber',
+    company: 'Revest Finance',
+    role: 'Community Manager / Business Development',
+    location: 'Atlanta, GA',
+    dates: 'Jan 2023 – Sept 2023',
+    bullets: [
+      'Owned community and investor education across Revest and Resonate products.',
+      'Expanded ecosystem visibility in collaboration with Frax Finance and GMX.',
+      'Translated vaults, yield, and structured-finance concepts into clear user and partner messaging.',
+    ],
   },
   {
-    title: 'Visual Research Interfaces',
-    tag: 'STUDIO',
-    copy: 'Editorial front ends that turn technical ideas into investor, customer, and partner-ready stories.',
-    accent: 'green',
+    company: 'Atlanta Blockchain Center',
+    role: 'Co-founder & Chief Community Officer',
+    location: 'Atlanta, GA',
+    dates: 'May 2022 – Oct 2022',
+    bullets: [
+      'Incubated 2 startups and helped them raise a combined $1M in pre-seed capital across AI & Infrastructure sectors.',
+      'Managed socials, community, support, events, coworking operations, and business development.',
+      'Cultivated relationships with local teams at BitPay, Dapper Labs, CleanSpark, Coinbase Ventures, and Ledgible.',
+    ],
   },
 ]
 
-const capabilities = ['Visual systems', 'React prototypes', 'AI workflows', 'Onchain dashboards', 'Landing pages', 'Product storytelling']
+const skillGroups = [
+  {
+    title: 'BDR / Sales',
+    items: ['Outbound prospecting', 'Public speaking', 'Account mapping', 'Lead qualification', 'Discovery prep', 'Personalized messaging', 'CRM hygiene'],
+  },
+  {
+    title: 'Knowledge',
+    items: ['Revenue-based financing', 'On-chain credit markets', 'RWAs', 've(3,3)', 'Vaults', 'Protocol incentives', 'Liquidity depth strategy', 'Ecosystem grant applications', 'DAO proposals'],
+  },
+  {
+    title: 'Marketing',
+    items: ['Brand positioning', 'Campaign strategy', 'Launch copy', 'Social growth', 'Product education', 'Community acquisition', 'Field marketing'],
+  },
+  {
+    title: 'Tools',
+    items: ['Linear', 'Notion', 'GSuite', 'HubSpot', 'Pipedrive', 'Monday', 'Figma', 'Canva', 'Discord', 'Typefully', 'X Analytics', 'LinkedIn', 'X', 'Telegram'],
+  },
+]
+
+const education = [
+  'Georgia State University — B.I.S. in Media Entrepreneurship | Atlanta, GA | May 2021',
+  'Web3 Teacher Training Track — Blockchain Acceleration Foundation | 2021',
+  'Atlanta Inno 25 Under 25 — Atlanta Business Chronicle | 2022',
+]
+
+const capabilities = ['GTM strategy', 'Protocol growth', 'Account research', 'Community acquisition', 'DeFi credit', 'Visual storytelling']
+const resumeHref = `${import.meta.env.BASE_URL}Tariq_Waseem_Resume.pdf`
 
 function App() {
   useEffect(() => {
@@ -44,39 +97,42 @@ function App() {
   return (
     <>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Tariq portfolio home">
+        <a className="brand" href="#top" aria-label="Tariq Waseem portfolio home">
           <span className="brand-mark" />
-          <span>Tariq</span>
+          <span>Tariq Waseem</span>
         </a>
         <nav aria-label="Primary navigation">
-          <a href="#about">[ ABOUT ]</a>
-          <a href="#work">[ WORK ]</a>
-          <a href="#services">[ SERVICES ]</a>
+          <a href="#profile">[ PROFILE ]</a>
+          <a href="#impact">[ IMPACT ]</a>
+          <a href="#experience">[ EXPERIENCE ]</a>
           <a href="#contact">[ CONTACT ]</a>
         </nav>
-        <a className="mono-link hide-mobile" href="mailto:hello@example.com">[ START A BUILD → ]</a>
+        <a className="mono-link hide-mobile" href={resumeHref} target="_blank" rel="noreferrer">[ RESUME PDF → ]</a>
       </header>
 
       <main id="top">
         <section className="hero section-grid">
           <div className="hero-copy">
-            <p className="eyebrow">VISUAL DEVELOPMENT / PRODUCT SYSTEMS / AI-AUGMENTED EXECUTION</p>
+            <p className="eyebrow">WEB3 BUSINESS DEVELOPMENT / GTM STRATEGY / PROTOCOL GROWTH / ACCOUNT RESEARCH</p>
             <h1>
-              Interfaces<span className="dot green">.</span><br />
-              Dashboards<span className="dot amber">.</span><br />
-              Agents<span className="dot rust">.</span><br />
-              Markets<span className="dot cyan">.</span>
+              Protocol<span className="dot green">.</span><br />
+              Growth<span className="dot amber">.</span><br />
+              Markets<span className="dot rust">.</span><br />
+              Community<span className="dot cyan">.</span>
             </h1>
             <p className="hero-subcopy">
-              A portfolio environment for cinematic web experiences, onchain dashboards, and fast MVPs that make complex ideas feel obvious.
+              Business Development and GTM operator with 8+ years across DeFi, protocol growth, partnerships, education, and community-led acquisition.
             </p>
+            <div className="contact-ribbon" aria-label="Contact details">
+              {contact.map((item) => <span key={item}>{item}</span>)}
+            </div>
             <div className="cta-row">
-              <a href="#work">[ SEE SELECTED WORK → ]</a>
-              <a href="#contact">[ BUILD WITH ME → ]</a>
+              <a href="#experience">[ VIEW EXPERIENCE → ]</a>
+              <a href="mailto:tariqawaseem@gmail.com">[ EMAIL TARIQ → ]</a>
             </div>
           </div>
 
-          <div className="terrain-card" aria-label="Abstract visual development landscape">
+          <div className="terrain-card" aria-label="Abstract protocol growth landscape">
             <div className="grid-glow" />
             <div className="orb orb-one" />
             <div className="orb orb-two" />
@@ -89,70 +145,107 @@ function App() {
             <div className="tower tower-b"><span /></div>
             <div className="tower tower-c"><span /></div>
             <div className="signal-panel">
-              <span>LIVE SYSTEM</span>
-              <strong>Portfolio OS</strong>
+              <span>LIVE TRACK RECORD</span>
+              <strong>$5M+ assets driven</strong>
             </div>
           </div>
         </section>
 
-        <section id="about" className="cred-section">
-          <h2>Applied front-end craft for founders, protocols, and operators that need the prototype to sell the vision.</h2>
+        <section id="profile" className="cred-section">
+          <p className="eyebrow">[ PROFILE ]</p>
+          <h2>Web3-native GTM operator translating technical products into clear buyer messaging, partner relationships, and growth motion.</h2>
+          <p className="profile-copy">
+            Proven track record in outbound prospecting, account mapping, technical buyer messaging, and Web3-native relationship building.
+          </p>
           <div className="capability-strip">
             {capabilities.map((item) => <span key={item}>{item}</span>)}
           </div>
         </section>
 
-        <section id="work" className="work-section">
-          <p className="eyebrow">[ SELECTED DIRECTIONS ]</p>
-          <div className="project-grid">
-            {projects.map((project) => (
-              <article className={`project-card ${project.accent}`} key={project.title}>
-                <span>{project.tag}</span>
-                <h3>{project.title}</h3>
-                <p>{project.copy}</p>
-                <a href="#contact">[ DISCUSS THIS → ]</a>
+        <section id="impact" className="work-section">
+          <p className="eyebrow">[ SELECTED IMPACT ]</p>
+          <div className="impact-grid">
+            {impact.map((item, index) => (
+              <article className="impact-card" key={item}>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <p>{item}</p>
               </article>
             ))}
           </div>
         </section>
 
-        <section id="services" className="services-section section-grid">
+        <section id="experience" className="timeline-section">
+          <p className="eyebrow">[ EXPERIENCE ]</p>
+          <div className="timeline">
+            {experience.map((job) => (
+              <article className="timeline-item" key={`${job.company}-${job.dates}`}>
+                <div className="timeline-meta">
+                  <span>{job.dates}</span>
+                  <small>{job.location}</small>
+                </div>
+                <div className="timeline-content">
+                  <h3>{job.company}</h3>
+                  <p className="role">{job.role}</p>
+                  <ul>
+                    {job.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="skills" className="skills-section">
+          <p className="eyebrow">[ SKILLS ]</p>
+          <div className="skill-grid">
+            {skillGroups.map((group) => (
+              <article className="skill-card" key={group.title}>
+                <h3>{group.title}</h3>
+                <div className="pill-list">
+                  {group.items.map((item) => <span key={item}>{item}</span>)}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="education" className="services-section section-grid">
           <div>
-            <p className="eyebrow">[ HOW I HELP ]</p>
-            <h2>From vague product idea to polished web surface.</h2>
+            <p className="eyebrow">[ EDUCATION, CERTIFICATION & RECOGNITION ]</p>
+            <h2>Media entrepreneurship foundation with Web3 education and ecosystem recognition.</h2>
           </div>
           <div className="service-list">
-            <div><span>01</span><p>Design and rebuild portfolio-grade landing pages with deployable static architecture.</p></div>
-            <div><span>02</span><p>Shape dashboards and product demos around the metrics, story, and CTA that matter.</p></div>
-            <div><span>03</span><p>Package live prototypes for GitHub Pages, Vercel, or investor/customer walkthroughs.</p></div>
+            {education.map((item, index) => (
+              <div key={item}><span>{String(index + 1).padStart(2, '0')}</span><p>{item}</p></div>
+            ))}
           </div>
         </section>
 
         <section id="contact" className="contact-section">
           <div className="contact-panel">
             <div>
-              <p className="eyebrow">[ LET'S COLLABORATE ]</p>
-              <h2>Have a visual system, dashboard, or MVP to ship?</h2>
-              <p>Send the idea, constraints, and desired launch path. This static form is ready to wire to Formspree, Basin, or a custom endpoint.</p>
+              <p className="eyebrow">[ CONTACT ]</p>
+              <h2>Open to protocol growth, GTM, BD, and ecosystem roles.</h2>
+              <p>Reach out for Web3 business development, GTM strategy, account research, protocol partnerships, DeFi credit, and growth opportunities.</p>
+              <div className="contact-list">
+                <a href="mailto:tariqawaseem@gmail.com">tariqawaseem@gmail.com</a>
+                <a href="tel:+17708610301">(770) 861-0301</a>
+                <span>Atlanta, GA</span>
+                <span>tariqw.eth</span>
+              </div>
             </div>
-            <form onSubmit={(e) => e.preventDefault()}>
-              <input aria-label="Name or organization" placeholder="Name or organization" />
-              <input aria-label="Email" placeholder="Email" type="email" />
-              <select aria-label="Project type" defaultValue="">
-                <option value="" disabled>I am building...</option>
-                <option>Portfolio / personal site</option>
-                <option>Product demo / MVP</option>
-                <option>Dashboard / data interface</option>
-              </select>
-              <textarea aria-label="Project details" placeholder="Tell me what you're working on..." />
-              <button type="submit">[ SEND MESSAGE → ]</button>
-            </form>
+            <div className="resume-panel">
+              <span>Resume PDF</span>
+              <strong>Tariq_Waseem_Resume.pdf</strong>
+              <p>Download the original one-page PDF resume used to populate this site.</p>
+              <a href={resumeHref} target="_blank" rel="noreferrer">[ OPEN RESUME → ]</a>
+            </div>
           </div>
         </section>
       </main>
 
       <footer>
-        <span>© 2026 Tariq Visual Development</span>
+        <span>© 2026 Tariq Waseem</span>
         <a href="#top">Back to top</a>
       </footer>
     </>
