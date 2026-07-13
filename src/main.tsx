@@ -158,7 +158,7 @@ const devProjects = [
       { label: 'X: @0x_Tariq', href: 'https://x.com/0x_Tariq' },
       { label: 'LinkedIn: @tariqwaseem', href: 'https://www.linkedin.com/in/tariqwaseem' },
       { label: 'Instagram: @yvs.tariq', href: 'https://www.instagram.com/yvs.tariq' },
-      { label: 'TikTok: @_tariqwaseem', href: 'https://www.tiktok.com/@_tariqwaseem' },
+      { label: 'TikTok: @tariq.waseem', href: 'https://www.tiktok.com/@tariq.waseem' },
     ],
   },
 ]
