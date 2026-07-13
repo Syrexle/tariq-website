@@ -122,6 +122,20 @@ const devProjects = [
     description: 'A lightweight swap executor prototype for Robinhood Chain: native ETH enters a contract, optional fees are deducted, ETH wraps to WETH, SwapRouter02 executes the token purchase, and output returns directly to the caller.',
     highlights: ['Minimal WETH-to-token executor', 'Foundry tests and deploy script', 'Terminal GUI for previewing and executing buys'],
   },
+  {
+    title: 'hardwear-os',
+    folder: '',
+    type: '',
+    description: 'A concept system for merch-backed bonding curves where creators fund physical production through pre-drop trading, then holders can redeem finished goods or keep trading their claim on secondary markets.',
+    highlights: [],
+  },
+  {
+    title: 'reclaim402',
+    folder: '',
+    type: '',
+    description: 'A refund-safety gateway experiment for x402 payments that authorizes or escrows funds before provider execution, captures only after verified delivery, and lets buyers reclaim unresolved payments after expiry.',
+    highlights: [],
+  },
 ]
 const resumeHref = `${import.meta.env.BASE_URL}Tariq_Waseem_Resume.pdf`
 
@@ -225,20 +239,24 @@ function App() {
           <p className="eyebrow">[ DEV PORTFOLIO / LOCAL PROJECT FOLDERS ]</p>
           <div className="portfolio-intro">
             <h2>Applied builds from my local development workspace.</h2>
-            <p>Folder names are shown exactly as they live on my computer, with product-facing descriptions based on each project README.</p>
+            <p>Public-facing project cards can show folder and stack details; private or unpublished repos stay limited to title and a short product description.</p>
           </div>
           <div className="dev-project-grid">
             {devProjects.map((project) => (
-              <article className="dev-project-card" key={project.folder}>
-                <div className="dev-project-topline">
-                  <span>{project.type}</span>
-                  <code>{project.folder}</code>
-                </div>
+              <article className={`dev-project-card${project.folder ? '' : ' private-project-card'}`} key={project.title}>
+                {(project.type || project.folder) && (
+                  <div className="dev-project-topline">
+                    {project.type && <span>{project.type}</span>}
+                    {project.folder && <code>{project.folder}</code>}
+                  </div>
+                )}
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
-                <div className="mini-pill-list">
-                  {project.highlights.map((item) => <span key={item}>{item}</span>)}
-                </div>
+                {project.highlights.length > 0 && (
+                  <div className="mini-pill-list">
+                    {project.highlights.map((item) => <span key={item}>{item}</span>)}
+                  </div>
+                )}
               </article>
             ))}
           </div>

@@ -227,6 +227,9 @@ h3 { font-size: clamp(2rem, 3vw, 3.35rem); letter-spacing: -0.035em; }
 .dev-project-topline { display: flex; flex-direction: column; gap: .75rem; color: var(--sage); font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .08em; font-size: .68rem; }
 .dev-project-topline code { width: fit-content; max-width: 100%; padding: .45rem .55rem; border: 1px solid var(--line); color: var(--cream); background: rgba(255,255,255,.035); overflow-wrap: anywhere; text-transform: none; letter-spacing: .02em; }
 .dev-project-card h3 { font-size: clamp(2.1rem, 3.6vw, 4rem); margin-top: 2rem; }
+.private-project-card { justify-content: center; gap: 1.35rem; }
+.private-project-card h3 { margin-top: 0; }
+.private-project-card p { max-width: 34rem; }
 .dev-project-card p { color: rgba(242,238,230,.78); line-height: 1.65; }
 .mini-pill-list { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.2rem; }
 .mini-pill-list span { border: 1px solid var(--line); padding: .45rem .55rem; color: var(--muted); background: rgba(255,255,255,.025); font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .06em; font-size: .64rem; }
