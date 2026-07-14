@@ -7,7 +7,7 @@ import './styles.css'
 const contact = ['Atlanta, GA', '(770) 861-0301', 'tariqawaseem@gmail.com', 'tariqw.eth']
 
 const impact = [
-  'Helped drive $5M+ in assets and $3M in active loans to 40Acres Finance through a 200k OP grant, targeted marketing to high net worth individuals & funds, and retail-facing activations.',
+  'Helped drive $25M+ in assets and $3–5M+ in active loans to 40Acres Finance through a 200k OP grant, targeted marketing to high net worth individuals & funds, and retail-facing activations.',
   'Led design, branding, and marketing execution for 40Acres, including a full brand refresh and clearer institutional DeFi credit positioning.',
   'Organized student-led web3 events reaching 1,000+ students and 50+ blockchain clubs across the Southeast.',
   'Collaborated with teams at Monad, Midas, Pendle, HydrexFi, Autopilot, Aerostrategy, Levva, and Aerodrome.',
