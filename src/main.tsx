@@ -510,11 +510,11 @@ function App() {
         </section>
 
         <section className="logo-section">
-          <p className="eyebrow">[ TEAMS WORKED WITH ]</p>
+          <p className="eyebrow">[ TEAMS COLLABORATED WITH ]</p>
           <div className="logo-section-intro">
-            <h2>Protocol, media, infrastructure, and market teams I’ve worked with across my career.</h2>
+            <h2>Protocol, media, infrastructure, and market teams I’ve collaborated with in cross-functional growth, community, BD, marketing, and ecosystem roles.</h2>
           </div>
-          <div className="logo-marquee" aria-label="Teams worked with carousel">
+          <div className="logo-marquee" aria-label="Teams collaborated with carousel">
             <div className="logo-track">
               {[...workedWith, ...workedWith].map((team, index) => (
                 <div className="logo-tile" key={`${team.name}-${index}`}>
