@@ -133,11 +133,10 @@ const interestTiles = [
 ]
 
 const holdings = [
-  { asset: 'BTC', allocation: 20, color: '#f5a43b' },
-  { asset: 'AERO', allocation: 20, color: '#58e5e8' },
-  { asset: 'FLR', allocation: 20, color: '#cf6f35' },
-  { asset: 'CAPACITR', allocation: 20, color: '#9caf8d' },
-  { asset: 'ETH', allocation: 20, color: '#f2eee6' },
+  { asset: 'BTC', allocation: 80, color: '#f5a43b', note: 'Bitcoin' },
+  { asset: 'veAERO', allocation: 10, color: '#58e5e8', note: 'Locked Aerodrome exposure' },
+  { asset: 'FLR', allocation: 5, color: '#cf6f35', note: 'Flare' },
+  { asset: 'Others', allocation: 5, color: '#9caf8d', note: 'CAPACITR, ETH, USDC' },
 ]
 
 const marketTimeline = [
@@ -552,12 +551,12 @@ function App() {
               {holdings.map((holding) => (
                 <div key={holding.asset}>
                   <span style={{ background: holding.color }} />
-                  <strong>{holding.asset}</strong>
-                  <small>disclosed holding</small>
+                  <strong>{holding.asset} · {holding.allocation}%</strong>
+                  <small>{holding.note}</small>
                 </div>
               ))}
             </div>
-            <p>Current holdings disclosed for transparency. Allocation weights can be refreshed as positions move.</p>
+            <p>Current portfolio allocation disclosed for transparency. “Others” includes CAPACITR, ETH, and USDC.</p>
           </div>
         </section>
 
