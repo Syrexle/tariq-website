@@ -42,7 +42,7 @@ a { color: inherit; text-decoration: none; }
   backdrop-filter: blur(18px);
 }
 
-.brand, nav, .mono-link, .cta-row, .eyebrow, footer, button, .contact-ribbon, .timeline-meta, .pill-list, .resume-panel span, .resume-panel a, .ai-skill-card code, .ai-skill-index, .demo-link {
+.brand, nav, .mono-link, .cta-row, .eyebrow, footer, button, .contact-ribbon, .timeline-meta, .pill-list, .resume-panel span, .resume-panel a, .ai-skill-card code, .ai-skill-index, .demo-link, .project-status {
   font-family: 'IBM Plex Mono', monospace;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -227,6 +227,10 @@ h3 { font-size: clamp(2rem, 3vw, 3.35rem); letter-spacing: -0.035em; }
 .dev-project-topline { display: flex; flex-direction: column; gap: .75rem; color: var(--sage); font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .08em; font-size: .68rem; }
 .dev-project-topline code { width: fit-content; max-width: 100%; padding: .45rem .55rem; border: 1px solid var(--line); color: var(--cream); background: rgba(255,255,255,.035); overflow-wrap: anywhere; text-transform: none; letter-spacing: .02em; }
 .dev-project-card h3 { font-size: clamp(2.1rem, 3.6vw, 4rem); margin-top: 2rem; }
+.project-status { margin-top: 1.35rem; padding: .72rem .78rem; border: 1px solid rgba(245,164,59,.46); background: linear-gradient(90deg, rgba(245,164,59,.09), rgba(88,229,232,.045)); color: var(--amber); font-size: .66rem; }
+.project-status-row { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: .58rem; }
+.project-status-track { height: .42rem; border: 1px solid rgba(242,238,230,.12); background: rgba(255,255,255,.045); overflow: hidden; }
+.project-status-track span { display: block; height: 100%; background: linear-gradient(90deg, var(--amber), var(--cyan)); box-shadow: 0 0 18px rgba(88,229,232,.42); }
 .private-project-card { justify-content: center; gap: 1.35rem; }
 .private-project-card h3 { margin-top: 0; }
 .private-project-card p { max-width: 34rem; }

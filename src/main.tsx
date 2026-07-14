@@ -144,6 +144,16 @@ const aiSkills = [
 
 const devProjects = [
   {
+    title: 'robinhood-swap-proxy',
+    folder: 'robinhood-light-executor',
+    type: 'Solidity / Foundry / Robinhood Chain',
+    status: 'In progress',
+    progress: 68,
+    description: 'A lightweight swap executor prototype for Robinhood Chain: native ETH enters a contract, optional fees are deducted, ETH wraps to WETH, SwapRouter02 executes the token purchase, and output returns directly to the caller.',
+    highlights: ['Minimal WETH-to-token executor', 'Foundry tests and deploy script', 'Terminal GUI for previewing and executing buys'],
+    demoUrl: 'https://youtu.be/5_sjySPeftw',
+  },
+  {
     title: 'base-wallet-bundler',
     folder: 'base-wallet-bundler',
     type: 'Base / Solidity / Aerodrome / Umbra',
@@ -177,13 +187,6 @@ const devProjects = [
     type: 'Python / Hyperliquid / Trading Automation',
     description: 'A Python CLI daemon for Hyperliquid perpetual futures that scans configurable pairs, generates composite strategy signals, manages positions with native and software stops, and publishes Discord trade notifications.',
     highlights: ['EMA, RSI, and funding-rate signals', 'Daily risk locks and win caps', 'Backtests, sweeps, TUI, and CSV journal'],
-  },
-  {
-    title: 'robinhood-swap-proxy',
-    folder: 'robinhood-light-executor',
-    type: 'Solidity / Foundry / Robinhood Chain',
-    description: 'A lightweight swap executor prototype for Robinhood Chain: native ETH enters a contract, optional fees are deducted, ETH wraps to WETH, SwapRouter02 executes the token purchase, and output returns directly to the caller.',
-    highlights: ['Minimal WETH-to-token executor', 'Foundry tests and deploy script', 'Terminal GUI for previewing and executing buys'],
   },
   {
     title: 'hardwear-os',
@@ -325,6 +328,19 @@ function App() {
                   <div className="dev-project-topline">
                     {project.type && <span>{project.type}</span>}
                     {project.folder && <code>{project.folder}</code>}
+                  </div>
+                )}
+                {'status' in project && typeof project.status === 'string' && project.status && (
+                  <div className="project-status" aria-label={`${project.title} status: ${project.status}`}>
+                    <div className="project-status-row">
+                      <span>{project.status}</span>
+                      {'progress' in project && typeof project.progress === 'number' && <span>{project.progress}%</span>}
+                    </div>
+                    {'progress' in project && typeof project.progress === 'number' && (
+                      <div className="project-status-track">
+                        <span style={{ width: `${project.progress}%` }} />
+                      </div>
+                    )}
                   </div>
                 )}
                 <h3>{project.title}</h3>
