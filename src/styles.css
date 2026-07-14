@@ -42,7 +42,7 @@ a { color: inherit; text-decoration: none; }
   backdrop-filter: blur(18px);
 }
 
-.brand, nav, .mono-link, .cta-row, .eyebrow, footer, button, .contact-ribbon, .timeline-meta, .pill-list, .resume-panel span, .resume-panel a, .ai-skill-card code, .ai-skill-index {
+.brand, nav, .mono-link, .cta-row, .eyebrow, footer, button, .contact-ribbon, .timeline-meta, .pill-list, .resume-panel span, .resume-panel a, .ai-skill-card code, .ai-skill-index, .demo-link {
   font-family: 'IBM Plex Mono', monospace;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -233,6 +233,8 @@ h3 { font-size: clamp(2rem, 3vw, 3.35rem); letter-spacing: -0.035em; }
 .dev-project-card p { color: rgba(242,238,230,.78); line-height: 1.65; }
 .mini-pill-list { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.2rem; }
 .mini-pill-list span { border: 1px solid var(--line); padding: .45rem .55rem; color: var(--muted); background: rgba(255,255,255,.025); font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .06em; font-size: .64rem; }
+.demo-link { width: fit-content; display: inline-flex; align-items: center; margin-top: 1.1rem; padding: .72rem .86rem; border: 1px solid rgba(88,229,232,.46); color: var(--cyan); background: rgba(88,229,232,.055); font-size: .68rem; }
+.demo-link:hover { border-color: var(--cyan); background: rgba(88,229,232,.11); color: var(--cream); }
 .social-link-list { display: grid; gap: .55rem; margin-top: .2rem; }
 .social-link-list a { width: fit-content; border-bottom: 1px solid rgba(156,175,141,.55); color: var(--cream); font-family: 'IBM Plex Mono', monospace; font-size: .78rem; letter-spacing: .04em; text-decoration: none; }
 .social-link-list a:hover { color: var(--cyan); border-color: var(--cyan); }

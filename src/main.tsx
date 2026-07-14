@@ -334,6 +334,9 @@ function App() {
                     {project.highlights.map((item) => <span key={item}>{item}</span>)}
                   </div>
                 )}
+                {'demoUrl' in project && typeof project.demoUrl === 'string' && project.demoUrl && (
+                  <a className="demo-link" href={project.demoUrl} target="_blank" rel="noreferrer">[ WATCH DEMO → ]</a>
+                )}
                 {'socialLinks' in project && project.socialLinks && (
                   <div className="social-link-list">
                     {project.socialLinks.map((link) => (
@@ -366,6 +369,9 @@ function App() {
                 <div className="mini-pill-list">
                   {skill.examples.map((item) => <span key={item}>{item}</span>)}
                 </div>
+                {'demoUrl' in skill && typeof skill.demoUrl === 'string' && skill.demoUrl && (
+                  <a className="demo-link" href={skill.demoUrl} target="_blank" rel="noreferrer">[ WATCH DEMO → ]</a>
+                )}
               </article>
             ))}
           </div>
