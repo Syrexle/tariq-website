@@ -122,6 +122,16 @@ const holdings = [
   { asset: 'ETH', allocation: 20, color: '#f2eee6' },
 ]
 
+const marketTimeline = [
+  { year: '2017', event: 'Bitcoin $20K', y: 62 },
+  { year: '2018', event: 'ICO boom', y: 48 },
+  { year: '2019', event: 'Builder winter', y: 68 },
+  { year: '2020', event: 'DeFi Summer', y: 40 },
+  { year: '2021', event: 'NFT mania', y: 22 },
+  { year: '2022–2025', event: 'Trenches', y: 58 },
+  { year: '2026', event: 'Loading…', y: 28 },
+]
+
 const workedWith = [
   { name: 'Citrea', domain: 'citrea.xyz' },
   { name: 'PlayGG', domain: 'playgg.com' },
@@ -337,6 +347,21 @@ function App() {
 
           <div className="terrain-card" aria-label="Abstract protocol growth landscape">
             <div className="grid-glow" />
+            <div className="value-wave" aria-hidden="true">
+              <svg viewBox="0 0 700 420" preserveAspectRatio="none">
+                <path className="wave-fill" d="M0 332 C80 256 125 290 182 238 S286 166 364 206 S474 282 548 168 S642 64 700 110 L700 420 L0 420 Z" />
+                <path className="wave-line wave-line-one" d="M0 332 C80 256 125 290 182 238 S286 166 364 206 S474 282 548 168 S642 64 700 110" />
+                <path className="wave-line wave-line-two" d="M0 280 C88 236 124 250 190 214 S305 128 380 176 S474 236 552 132 S638 86 700 74" />
+              </svg>
+            </div>
+            <div className="journey-timeline" aria-label="Crypto market value timeline">
+              {marketTimeline.map((item) => (
+                <div className="journey-point" style={{ '--point-y': `${item.y}%` } as React.CSSProperties} key={`${item.year}-${item.event}`}>
+                  <span>{item.year}</span>
+                  <strong>{item.event}</strong>
+                </div>
+              ))}
+            </div>
             <div className="orb orb-one" />
             <div className="orb orb-two" />
             <div className="ridge ridge-back" />
@@ -349,7 +374,7 @@ function App() {
             <div className="tower tower-c"><span /></div>
             <div className="signal-panel">
               <span>LIVE TRACK RECORD</span>
-              <strong>$5M+ assets driven</strong>
+              <strong>$83M+ value influenced</strong>
             </div>
           </div>
         </section>
@@ -491,7 +516,7 @@ function App() {
             <div className="fund-stat-grid">
               <div><span>$100K+</span><small>own-capital gains</small></div>
               <div><span>9 yrs</span><small>active market history</small></div>
-              <div><span>$83M+</span><small>live track record influenced</small></div>
+              <a className="fund-email-card" href="mailto:xyexle.capital@gmail.com"><span>Email me</span><small>xyexle.capital@gmail.com</small></a>
             </div>
           </div>
           <div className="holdings-panel">
