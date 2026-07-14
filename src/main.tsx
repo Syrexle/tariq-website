@@ -114,6 +114,24 @@ const education = [
 
 const capabilities = ['GTM strategy', 'Protocol growth', 'Account research', 'Community acquisition', 'DeFi credit', 'Visual storytelling']
 
+const interestTiles = [
+  {
+    label: 'Interest',
+    title: 'Financial stealth technology',
+    copy: 'Private, under-the-radar financial infrastructure, access layers, and market systems that create strategic edge before they become obvious.',
+  },
+  {
+    label: 'Interest',
+    title: 'Financial NFT applications',
+    copy: 'NFTs as programmable financial wrappers for vesting, credit, ownership, vault access, and composable onchain agreements.',
+  },
+  {
+    label: 'Yield / niche expertise',
+    title: 'Yield-bearing assets',
+    copy: 'Revenue-based finance, ve(3,3) incentive markets, and self-repaying loan mechanisms that turn cashflow and token incentives into growth loops.',
+  },
+]
+
 const holdings = [
   { asset: 'BTC', allocation: 20, color: '#f5a43b' },
   { asset: 'AERO', allocation: 20, color: '#58e5e8' },
@@ -385,6 +403,15 @@ function App() {
           <p className="profile-copy">
             Proven track record in outbound prospecting, account mapping, technical buyer messaging, and Web3-native relationship building.
           </p>
+          <div className="interest-grid" aria-label="Interests and niche expertise">
+            {interestTiles.map((tile) => (
+              <article className="interest-card" key={tile.title}>
+                <span>{tile.label}</span>
+                <h3>{tile.title}</h3>
+                <p>{tile.copy}</p>
+              </article>
+            ))}
+          </div>
           <div className="capability-strip">
             {capabilities.map((item) => <span key={item}>{item}</span>)}
           </div>
