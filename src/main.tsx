@@ -154,11 +154,13 @@ const devProjects = [
     demoUrl: 'https://youtu.be/5_sjySPeftw',
   },
   {
-    title: 'base-wallet-bundler',
-    folder: 'base-wallet-bundler',
-    type: 'Base / Solidity / Aerodrome / Umbra',
-    description: 'A Base-native wallet bundling toolkit that coordinates atomic ERC-20 buys across multiple Umbra stealth addresses, pairing Foundry contracts with a terminal workflow for generation, deployment, swaps, and sponsor-funded withdrawals.',
-    highlights: ['Atomic ETH-to-token bundle buys', 'Umbra stealth address flow', 'Aerodrome routing + Foundry scripts'],
+    title: 'Hydrex Vote Optimizer',
+    folder: 'capacitr/hydrex-vote-optimizer',
+    type: 'Base / Ethers / Hydrex API / Automation',
+    status: 'In progress',
+    progress: 68,
+    description: 'A read-only veNFT gauge voting optimizer for Hydrex on Base that ranks live strategies by projected rewards, fee/bribe mix, earning power, and gauge validity without signing or submitting votes.',
+    highlights: ['Live Hydrex strategy ranking', 'Gauge verification checks', 'Scheduled GitHub Actions output'],
   },
   {
     title: 'tradeLead AI',
@@ -170,13 +172,11 @@ const devProjects = [
     highlights: ['Voicemail-first lead extraction', 'Supabase-backed lead capture', 'Founder cockpit + outreach assets'],
   },
   {
-    title: 'Hydrex Vote Optimizer',
-    folder: 'capacitr/hydrex-vote-optimizer',
-    type: 'Base / Ethers / Hydrex API / Automation',
-    status: 'In progress',
-    progress: 68,
-    description: 'A read-only veNFT gauge voting optimizer for Hydrex on Base that ranks live strategies by projected rewards, fee/bribe mix, earning power, and gauge validity without signing or submitting votes.',
-    highlights: ['Live Hydrex strategy ranking', 'Gauge verification checks', 'Scheduled GitHub Actions output'],
+    title: 'base-wallet-bundler',
+    folder: 'base-wallet-bundler',
+    type: 'Base / Solidity / Aerodrome / Umbra',
+    description: 'A Base-native wallet bundling toolkit that coordinates atomic ERC-20 buys across multiple Umbra stealth addresses, pairing Foundry contracts with a terminal workflow for generation, deployment, swaps, and sponsor-funded withdrawals.',
+    highlights: ['Atomic ETH-to-token bundle buys', 'Umbra stealth address flow', 'Aerodrome routing + Foundry scripts'],
   },
   {
     title: 'eclipse-memory',
@@ -328,42 +328,46 @@ function App() {
           <div className="dev-project-grid">
             {devProjects.map((project) => (
               <article className={`dev-project-card${project.folder ? '' : ' private-project-card'}`} key={project.title}>
-                {(project.type || project.folder) && (
-                  <div className="dev-project-topline">
-                    {project.type && <span>{project.type}</span>}
-                    {project.folder && <code>{project.folder}</code>}
-                  </div>
-                )}
-                {'status' in project && typeof project.status === 'string' && project.status && (
-                  <div className="project-status" aria-label={`${project.title} status: ${project.status}`}>
-                    <div className="project-status-row">
-                      <span>{project.status}</span>
-                      {'progress' in project && typeof project.progress === 'number' && <span>{project.progress}%</span>}
+                <div className="dev-project-content">
+                  {(project.type || project.folder) && (
+                    <div className="dev-project-topline">
+                      {project.type && <span>{project.type}</span>}
+                      {project.folder && <code>{project.folder}</code>}
                     </div>
-                    {'progress' in project && typeof project.progress === 'number' && (
-                      <div className="project-status-track">
-                        <span style={{ width: `${project.progress}%` }} />
+                  )}
+                  {'status' in project && typeof project.status === 'string' && project.status && (
+                    <div className="project-status" aria-label={`${project.title} status: ${project.status}`}>
+                      <div className="project-status-row">
+                        <span>{project.status}</span>
+                        {'progress' in project && typeof project.progress === 'number' && <span>{project.progress}%</span>}
                       </div>
-                    )}
-                  </div>
-                )}
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                {project.highlights.length > 0 && (
-                  <div className="mini-pill-list">
-                    {project.highlights.map((item) => <span key={item}>{item}</span>)}
-                  </div>
-                )}
-                {'demoUrl' in project && typeof project.demoUrl === 'string' && project.demoUrl && (
-                  <a className="demo-link" href={project.demoUrl} target="_blank" rel="noreferrer">[ WATCH DEMO → ]</a>
-                )}
-                {'socialLinks' in project && project.socialLinks && (
-                  <div className="social-link-list">
-                    {project.socialLinks.map((link) => (
-                      <a key={link.href} href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
-                    ))}
-                  </div>
-                )}
+                      {'progress' in project && typeof project.progress === 'number' && (
+                        <div className="project-status-track">
+                          <span style={{ width: `${project.progress}%` }} />
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                </div>
+                <div className="dev-project-actions">
+                  {project.highlights.length > 0 && (
+                    <div className="mini-pill-list">
+                      {project.highlights.map((item) => <span key={item}>{item}</span>)}
+                    </div>
+                  )}
+                  {'demoUrl' in project && typeof project.demoUrl === 'string' && project.demoUrl && (
+                    <a className="demo-link" href={project.demoUrl} target="_blank" rel="noreferrer">[ WATCH DEMO → ]</a>
+                  )}
+                  {'socialLinks' in project && project.socialLinks && (
+                    <div className="social-link-list">
+                      {project.socialLinks.map((link) => (
+                        <a key={link.href} href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </article>
             ))}
           </div>
