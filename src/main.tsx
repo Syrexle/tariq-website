@@ -7,13 +7,24 @@ import './styles.css'
 const contact = ['Atlanta, GA', '(770) 861-0301', 'tariqawaseem@gmail.com', 'tariqw.eth']
 
 const impact = [
-  'Helped drive $25M+ in assets and $3–5M+ in active loans to 40Acres Finance through a 200k OP grant, targeted marketing to high net worth individuals & funds, and retail-facing activations.',
+  'Live track record: helped drive $83M+ in asset and market value creation across protocol growth roles, with the bulk from $25M+ in 40Acres Finance assets, $3–5M+ in active loans, RVST Finance growth from $2.53M to $47.46M FDV, and another Ethereum project from $50K to $8.23M market cap.',
   'Led design, branding, and marketing execution for 40Acres, including a full brand refresh and clearer institutional DeFi credit positioning.',
   'Organized student-led web3 events reaching 1,000+ students and 50+ blockchain clubs across the Southeast.',
   'Collaborated with teams at Monad, Midas, Pendle, HydrexFi, Autopilot, Aerostrategy, Levva, and Aerodrome.',
 ]
 
 const experience = [
+  {
+    company: 'xyexle.capital',
+    role: 'Founder & Digital Asset Fund Operator',
+    location: 'Atlanta, GA / Onchain',
+    dates: '2017 – Present',
+    bullets: [
+      'Run a personal digital asset fund focused on Bitcoin, financial NFT technology, memecoins, and liquid crypto opportunities across multiple market cycles.',
+      'Generated $100K+ in realized and unrealized gains using my own capital over nine years of active research, allocation, and risk management.',
+      'Built an investing track record around early narrative discovery, onchain behavior, liquidity cycles, and community-led asset formation.',
+    ],
+  },
   {
     company: 'CAPACITR',
     role: 'Strategic Advisor, GTM & Liquidity Systems',
@@ -102,6 +113,54 @@ const education = [
 ]
 
 const capabilities = ['GTM strategy', 'Protocol growth', 'Account research', 'Community acquisition', 'DeFi credit', 'Visual storytelling']
+
+const holdings = [
+  { asset: 'BTC', allocation: 20, color: '#f5a43b' },
+  { asset: 'AERO', allocation: 20, color: '#58e5e8' },
+  { asset: 'FLR', allocation: 20, color: '#cf6f35' },
+  { asset: 'CAPACITR', allocation: 20, color: '#9caf8d' },
+  { asset: 'ETH', allocation: 20, color: '#f2eee6' },
+]
+
+const workedWith = [
+  { name: 'Citrea', domain: 'citrea.xyz' },
+  { name: 'PlayGG', domain: 'playgg.com' },
+  { name: 'Spectral AI', domain: 'spectral.finance' },
+  { name: 'Fjord Foundry', domain: 'fjordfoundry.com' },
+  { name: 'Possum Finance', domain: 'possumlabs.io' },
+  { name: 'Synonym', domain: 'synonym.finance' },
+  { name: 'Notcoin', domain: 'notcoin.org' },
+  { name: 'Moonbeam', domain: 'moonbeam.network' },
+  { name: 'Siren', domain: 'siren.xyz' },
+  { name: 'Warner Media', domain: 'warnermedia.com' },
+  { name: 'Simba Chain', domain: 'simbachain.com' },
+  { name: 'DARPA', domain: 'darpa.mil' },
+  { name: 'Pendle', domain: 'pendle.finance' },
+  { name: 'Merkle', domain: 'merkle.trade' },
+  { name: 'Hydrex', domain: 'hydrex.fi' },
+  { name: 'Frax Finance', domain: 'frax.finance' },
+  { name: 'Gainz Network', domain: 'gainz.trade' },
+  { name: 'Myx Finance', domain: 'myx.finance' },
+  { name: 'Buffer Finance', domain: 'buffer.finance' },
+  { name: 'Meteora', domain: 'meteora.ag' },
+]
+
+const interviewedWith = [
+  { name: 'Hedera', domain: 'hedera.com' },
+  { name: 'Avalanche', domain: 'avax.network' },
+  { name: 'Dune', domain: 'dune.com' },
+  { name: 'Silicon Valley Bank', domain: 'svb.com' },
+  { name: 'Arrakis Finance', domain: 'arrakis.finance' },
+  { name: 'IEEE', domain: 'ieee.org' },
+  { name: 'Hyperliquid', domain: 'hyperliquid.xyz' },
+]
+
+const logoUrl = (domain: string) => `https://icons.duckduckgo.com/ip3/${domain}.ico`
+const holdingsGradient = holdings.reduce((parts, item, index) => {
+  const start = holdings.slice(0, index).reduce((sum, entry) => sum + entry.allocation, 0)
+  const end = start + item.allocation
+  return [...parts, `${item.color} ${start}% ${end}%`]
+}, [] as string[]).join(', ')
 
 const aiSkills = [
   {
@@ -418,6 +477,66 @@ function App() {
                   </ul>
                 </div>
               </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="fund" className="fund-section section-grid">
+          <div>
+            <p className="eyebrow">[ XYEXLE.CAPITAL / FUND TRANSPARENCY ]</p>
+            <h2>Personal capital deployed across Bitcoin, financial NFT technology, memecoins, and liquid crypto markets since 2017.</h2>
+            <p className="fund-copy">
+              xyexle.capital is my long-running personal digital asset fund and market research vehicle. It reflects nine years of managing my own capital through cycle timing, narrative discovery, onchain liquidity, and high-conviction crypto allocations.
+            </p>
+            <div className="fund-stat-grid">
+              <div><span>$100K+</span><small>own-capital gains</small></div>
+              <div><span>9 yrs</span><small>active market history</small></div>
+              <div><span>$83M+</span><small>live track record influenced</small></div>
+            </div>
+          </div>
+          <div className="holdings-panel">
+            <div className="holdings-wheel" style={{ background: `conic-gradient(${holdingsGradient})` }} aria-label="Current holdings disclosure wheel" />
+            <div className="holdings-list">
+              {holdings.map((holding) => (
+                <div key={holding.asset}>
+                  <span style={{ background: holding.color }} />
+                  <strong>{holding.asset}</strong>
+                  <small>disclosed holding</small>
+                </div>
+              ))}
+            </div>
+            <p>Current holdings disclosed for transparency. Allocation weights can be refreshed as positions move.</p>
+          </div>
+        </section>
+
+        <section className="logo-section">
+          <p className="eyebrow">[ TEAMS WORKED WITH ]</p>
+          <div className="logo-section-intro">
+            <h2>Protocol, media, infrastructure, and market teams I’ve worked with across my career.</h2>
+          </div>
+          <div className="logo-marquee" aria-label="Teams worked with carousel">
+            <div className="logo-track">
+              {[...workedWith, ...workedWith].map((team, index) => (
+                <div className="logo-tile" key={`${team.name}-${index}`}>
+                  <img src={logoUrl(team.domain)} alt="" loading="lazy" onError={(event) => { event.currentTarget.style.display = 'none' }} />
+                  <span>{team.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="logo-section interview-section">
+          <p className="eyebrow">[ INTERVIEWED BY ]</p>
+          <div className="logo-section-intro">
+            <h2>Interviewed by leading teams across L1s, data, banking, DeFi infrastructure, standards, and trading.</h2>
+          </div>
+          <div className="interview-grid">
+            {interviewedWith.map((team) => (
+              <div className="logo-tile interview-tile" key={team.name}>
+                <img src={logoUrl(team.domain)} alt="" loading="lazy" onError={(event) => { event.currentTarget.style.display = 'none' }} />
+                <span>{team.name}</span>
+              </div>
             ))}
           </div>
         </section>
