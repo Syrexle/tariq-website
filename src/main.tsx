@@ -16,6 +16,7 @@ const impact = [
 const experience = [
   {
     company: 'xyexle.capital',
+    category: 'Investing',
     role: 'Founder & Digital Asset Fund Operator',
     location: 'Atlanta, GA / Onchain',
     dates: '2017 – Present',
@@ -521,7 +522,10 @@ function App() {
                   <small>{job.location}</small>
                 </div>
                 <div className="timeline-content">
-                  <h3>{job.company}</h3>
+                  <div className="timeline-title-row">
+                    <h3>{job.company}</h3>
+                    {'category' in job && typeof job.category === 'string' && job.category && <span>[ {job.category} ]</span>}
+                  </div>
                   <p className="role">{job.role}</p>
                   <ul>
                     {job.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
