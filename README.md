@@ -33,9 +33,11 @@ This repo includes `.github/workflows/deploy.yml`. After pushing to GitHub:
 2. Go to Settings → Pages.
 3. Set Source to “GitHub Actions”.
 4. Push to `main`.
-5. The site will publish at `https://syrexle.github.io/tariq-website/`.
+5. The site will publish at `https://tariqwaseem.com/`.
 
-If you rename the GitHub repo, update `base` in `vite.config.ts` and `homepage` in `package.json` to match the new repo slug.
+The custom domain is configured in GitHub under Settings → Pages. At the DNS provider, the apex domain points to GitHub Pages with the four official `A` records and `www` is a `CNAME` to `syrexle.github.io`. GitHub redirects the legacy Pages URL and the `www` variant to the canonical custom domain.
+
+Because the site is served from the root of the custom domain, Vite's `base` is `/`.
 
 ## Contact form
 
