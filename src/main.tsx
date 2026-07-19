@@ -3,15 +3,10 @@ import { createRoot } from 'react-dom/client'
 import Lenis from 'lenis'
 import { gsap } from 'gsap'
 import './styles.css'
+import { HoldingsWheel } from './components/HoldingsWheel'
+import { ImpactRail } from './components/ImpactRail'
 
 const contact = ['Atlanta, GA', 'tariqawaseem@gmail.com', 'tariqw.eth']
-
-const impact = [
-  'Live track record: helped drive $83M+ in asset and market value creation across protocol growth roles, with the bulk from $25M+ in 40Acres Finance assets, $3–5M+ in active loans, RVST Finance growth from $2.53M to $47.46M FDV, and another Ethereum project from $50K to $8.23M market cap.',
-  'Led design, branding, and marketing execution for 40Acres, including a full brand refresh and clearer institutional DeFi credit positioning.',
-  'Organized student-led web3 events reaching 1,000+ students and 50+ blockchain clubs across the Southeast.',
-  'Collaborated with teams at Monad, Midas, Pendle, HydrexFi, Autopilot, Aerostrategy, Levva, and Aerodrome.',
-]
 
 const experience = [
   {
@@ -33,7 +28,7 @@ const experience = [
     dates: 'May 2026 – Present',
     bullets: [
       'Advise on GTM, token access design, and product positioning for a Base-native signal-to-position platform spanning market discovery, x402 analysis, and trading workflows.',
-      'Built operating systems for liquidity strategy, including Hydrex vote/bribe reporting, weekly pool health dashboards, Bankr/Doppler fee tracking, and sustainable incentive planning.',
+      'Built operating systems for liquidity strategy, including Hydrex vote-incentive reporting, weekly pool health dashboards, Bankr/Doppler fee tracking, and sustainable incentive planning.',
       'Created holder and community intelligence workflows that reconstruct public CAPACITR balances, enrich wallets with social/contact signals, and support respectful outreach around liquidity and app adoption.',
       'Developed content and launch execution infrastructure across Airtable, Excalidraw, reports, alpha feedback loops, roadmap posts, token updates, and investor-facing traction narratives.',
     ],
@@ -133,13 +128,6 @@ const interestTiles = [
   },
 ]
 
-const holdings = [
-  { asset: 'BTC', allocation: 80, color: '#f5a43b', note: 'Bitcoin' },
-  { asset: 'veAERO', allocation: 10, color: '#58e5e8', note: 'Locked Aerodrome exposure' },
-  { asset: 'FLR', allocation: 5, color: '#cf6f35', note: 'Flare' },
-  { asset: 'Others', allocation: 5, color: '#9caf8d', note: 'CAPACITR, ETH, USDC' },
-]
-
 const marketTimeline = [
   { year: '2017', event: 'Bitcoin $20K', y: 62 },
   { year: '2018', event: 'ICO boom', y: 48 },
@@ -184,11 +172,6 @@ const interviewedWith = [
 ]
 
 const logoUrl = (domain: string) => `https://icons.duckduckgo.com/ip3/${domain}.ico`
-const holdingsGradient = holdings.reduce((parts, item, index) => {
-  const start = holdings.slice(0, index).reduce((sum, entry) => sum + entry.allocation, 0)
-  const end = start + item.allocation
-  return [...parts, `${item.color} ${start}% ${end}%`]
-}, [] as string[]).join(', ')
 
 const aiSkills = [
   {
@@ -206,8 +189,8 @@ const aiSkills = [
   {
     name: 'Token Liquidity Strategy',
     file: 'token-liquidity-strategy',
-    summary: 'A market-quality strategy skill for comparing centralized market makers, DEX liquidity programs, ve-token incentives, LP bribes, and sustainable liquidity depth across Base and other DeFi venues.',
-    examples: ['Market quality over hype', 'Aerodrome / Hydrex incentive framing', 'WETH / USDC bribes funded by real fees'],
+    summary: 'A market-quality strategy skill for comparing centralized market makers, DEX liquidity programs, ve-token incentives, LP incentives, and sustainable liquidity depth across Base and other DeFi venues.',
+    examples: ['Market quality over hype', 'Aerodrome / Hydrex incentive framing', 'WETH / USDC incentives funded by real fees'],
   },
   {
     name: 'Hydrex Vote Optimizer',
@@ -246,7 +229,7 @@ const devProjects = [
     type: 'Base / Ethers / Hydrex API / Automation',
     status: 'In progress',
     progress: 68,
-    description: 'A read-only veNFT gauge voting optimizer for Hydrex on Base that ranks live strategies by projected rewards, fee/bribe mix, earning power, and gauge validity without signing or submitting votes.',
+    description: 'A read-only veNFT gauge voting optimizer for Hydrex on Base that ranks live strategies by projected rewards, fee/incentive mix, earning power, and gauge validity without signing or submitting votes.',
     highlights: ['Live Hydrex strategy ranking', 'Gauge verification checks', 'Scheduled GitHub Actions output'],
   },
   {
@@ -419,14 +402,7 @@ function App() {
 
         <section id="impact" className="work-section">
           <p className="eyebrow">[ SELECTED IMPACT ]</p>
-          <div className="impact-grid">
-            {impact.map((item, index) => (
-              <article className="impact-card" key={item}>
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <p>{item}</p>
-              </article>
-            ))}
-          </div>
+          <ImpactRail />
         </section>
 
 
@@ -550,17 +526,7 @@ function App() {
             </div>
           </div>
           <div className="holdings-panel">
-            <div className="holdings-wheel" style={{ background: `conic-gradient(${holdingsGradient})` }} aria-label="Current holdings disclosure wheel" />
-            <div className="holdings-list">
-              {holdings.map((holding) => (
-                <div key={holding.asset}>
-                  <span style={{ background: holding.color }} />
-                  <strong>{holding.asset} · {holding.allocation}%</strong>
-                  <small>{holding.note}</small>
-                </div>
-              ))}
-            </div>
-            <p>Current portfolio allocation disclosed for transparency. “Others” includes CAPACITR, ETH, and USDC.</p>
+            <HoldingsWheel />
           </div>
         </section>
 
