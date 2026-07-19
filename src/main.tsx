@@ -4,7 +4,7 @@ import Lenis from 'lenis'
 import { gsap } from 'gsap'
 import './styles.css'
 
-const contact = ['Atlanta, GA', '(770) 861-0301', 'tariqawaseem@gmail.com', 'tariqw.eth']
+const contact = ['Atlanta, GA', 'tariqawaseem@gmail.com', 'tariqw.eth']
 
 const impact = [
   'Live track record: helped drive $83M+ in asset and market value creation across protocol growth roles, with the bulk from $25M+ in 40Acres Finance assets, $3–5M+ in active loans, RVST Finance growth from $2.53M to $47.46M FDV, and another Ethereum project from $50K to $8.23M market cap.',
@@ -180,7 +180,7 @@ const interviewedWith = [
   { name: 'Silicon Valley Bank', domain: 'svb.com' },
   { name: 'Arrakis Finance', domain: 'arrakis.finance' },
   { name: 'IEEE', domain: 'ieee.org' },
-  { name: 'Hyperliquid', domain: 'hyperliquid.xyz' },
+  { name: 'Hypernative', domain: 'hypernative.io' },
 ]
 
 const logoUrl = (domain: string) => `https://icons.duckduckgo.com/ip3/${domain}.ico`
@@ -630,7 +630,6 @@ function App() {
               <p>Reach out for Web3 business development, GTM strategy, account research, protocol partnerships, DeFi credit, and growth opportunities.</p>
               <div className="contact-list">
                 <a href="mailto:tariqawaseem@gmail.com">tariqawaseem@gmail.com</a>
-                <a href="tel:+177****0301">(770) 861-0301</a>
                 <span>Atlanta, GA</span>
                 <span>tariqw.eth</span>
               </div>
@@ -654,4 +653,3 @@ function App() {
 }
 
 createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>)
-
