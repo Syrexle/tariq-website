@@ -83,6 +83,7 @@ test('research links and featured Yieldverse article are safe and complete', () 
   const approvedUrls = [
     'https://spec.capacitr.xyz/',
     'https://docs.venice.ai/overview/about-venice',
+    'https://excalidraw.com/#json=ew8Q4JivYHPGJpuppUN1z,ZcTl0TrySuUiGycPDnI4PA',
     'https://yieldverse.substack.com/',
     'https://yieldverse.substack.com/p/got-eth-lets-put-it-to-work',
   ]
@@ -93,8 +94,10 @@ test('research links and featured Yieldverse article are safe and complete', () 
   assert.doesNotMatch(researchSection, /<iframe/i)
 
   const externalResearchLinks = [...researchSection.matchAll(/<a[\s\S]*?href=\{researchLinks\.[a-z]+\}[\s\S]*?>/g)]
-  assert.equal(externalResearchLinks.length, 4)
+  assert.equal(externalResearchLinks.length, 5)
   for (const [link] of externalResearchLinks) assert.match(link, /target="_blank" rel="noreferrer"/)
+  assert.match(researchSection, /className="research-overview-link"/)
+  assert.match(researchSection, /VIEW RESEARCH OVERVIEW/)
   assert.match(researchSection, /className="research-article-link"/)
   assert.match(styles, /\.research-article-link::after\s*\{[^}]*position:\s*absolute;[^}]*inset:\s*0;/)
 })
