@@ -71,6 +71,8 @@ test('research library exposes only the approved public abstraction', () => {
   const researchSection = mainSource.match(/<section id="research"[\s\S]*?<\/section>/)?.[0] ?? ''
 
   assert.match(mainSource, /href="#research"/)
+  assert.match(researchSection, /RESEARCH BRIEF 01 \/ TOKENOMICS DESIGN/)
+  assert.doesNotMatch(researchSection, /ACTIVE EXPLORATION/)
   assert.match(researchSection, /Tokenized Compute Access/)
   assert.match(researchSection, /staking CAPACITR/i)
   assert.match(researchSection, /transferable token/i)

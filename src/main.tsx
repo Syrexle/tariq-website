@@ -480,7 +480,7 @@ function App() {
 
           <div className="research-grid">
             <article className="research-card research-brief-card">
-              <span className="research-card-label">RESEARCH BRIEF 01 / ACTIVE EXPLORATION</span>
+              <span className="research-card-label">RESEARCH BRIEF 01 / TOKENOMICS DESIGN</span>
               <h3>Tokenized Compute Access</h3>
               <p>Researching how staking CAPACITR could unlock recurring compute capacity, informed by Venice AI’s VVV/DIEM dual-asset model.</p>
 
