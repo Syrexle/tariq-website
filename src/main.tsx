@@ -294,6 +294,7 @@ const devProjects = [
 const researchLinks = {
   capacitr: 'https://spec.capacitr.xyz/',
   venice: 'https://docs.venice.ai/overview/about-venice',
+  overview: 'https://excalidraw.com/#json=ew8Q4JivYHPGJpuppUN1z,ZcTl0TrySuUiGycPDnI4PA',
   yieldverse: 'https://yieldverse.substack.com/',
   article: 'https://yieldverse.substack.com/p/got-eth-lets-put-it-to-work',
   articleImage: 'https://substackcdn.com/image/fetch/$s_!IYHm!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d018b36-8735-4692-8547-0a029d0d654f_1500x500.png',
@@ -487,6 +488,11 @@ function App() {
                 <a href={researchLinks.capacitr} target="_blank" rel="noreferrer">CAPACITR ↗</a>
                 <a href={researchLinks.venice} target="_blank" rel="noreferrer">VENICE AI ↗</a>
               </div>
+
+              <a className="research-overview-link" href={researchLinks.overview} target="_blank" rel="noreferrer">
+                <span>VIEW RESEARCH OVERVIEW</span>
+                <span aria-hidden="true">→</span>
+              </a>
 
               <div className="research-question">
                 <span>OPEN DESIGN QUESTION</span>
