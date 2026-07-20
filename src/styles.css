@@ -225,7 +225,7 @@ h3 { font-size: clamp(2rem, 3vw, 3.35rem); letter-spacing: -0.035em; }
   text-align: center;
 }
 
-.work-section, .services-section, .timeline-section, .skills-section, .portfolio-section, .ai-skills-section, .fund-section, .logo-section { padding: clamp(4rem, 9vw, 8rem) clamp(1rem, 5vw, 5rem); }
+.work-section, .services-section, .timeline-section, .skills-section, .portfolio-section, .research-section, .ai-skills-section, .fund-section, .logo-section { padding: clamp(4rem, 9vw, 8rem) clamp(1rem, 5vw, 5rem); }
 .impact-experience { margin-top: clamp(2.5rem, 6vw, 5rem); }
 .impact-rail { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; }
 .impact-rail::before { content: ''; position: absolute; top: .65rem; left: 9%; right: 9%; height: 1px; background: linear-gradient(90deg, rgba(88,229,232,.2), rgba(88,229,232,.75), rgba(88,229,232,.2)); }
@@ -273,6 +273,36 @@ h3 { font-size: clamp(2rem, 3vw, 3.35rem); letter-spacing: -0.035em; }
 .social-link-list { display: grid; gap: .55rem; margin-top: .2rem; }
 .social-link-list a { width: fit-content; border-bottom: 1px solid rgba(156,175,141,.55); color: var(--cream); font-family: 'IBM Plex Mono', monospace; font-size: .78rem; letter-spacing: .04em; text-decoration: none; }
 .social-link-list a:hover { color: var(--cyan); border-color: var(--cyan); }
+
+.research-section { background: radial-gradient(circle at 82% 8%, rgba(88,229,232,.1), transparent 25rem), rgba(3,5,4,.94); border-bottom: 1px solid var(--line); }
+.research-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 34rem); gap: clamp(1.5rem, 5vw, 5rem); align-items: end; margin-bottom: 3rem; }
+.research-intro p { margin: 0; color: var(--muted); line-height: 1.75; }
+.research-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; border: 1px solid var(--line); background: var(--line); }
+.research-card { min-width: 0; min-height: 32rem; background: rgba(3,5,4,.82); }
+.research-brief-card { display: flex; flex-direction: column; gap: 1.25rem; padding: clamp(1.25rem, 3vw, 2rem); background: radial-gradient(circle at 90% 10%, rgba(88,229,232,.09), transparent 17rem), rgba(3,5,4,.82); }
+.research-card-label { color: var(--sage); font-family: 'IBM Plex Mono', monospace; font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; }
+.research-card h3 { font-size: clamp(2.5rem, 4.4vw, 5rem); line-height: .92; }
+.research-card p { margin: 0; color: rgba(242,238,230,.76); line-height: 1.7; }
+.research-context-links, .research-article-links { display: flex; flex-wrap: wrap; gap: .55rem; }
+.research-context-links a, .research-article-links a, .research-article-links span { padding: .6rem .72rem; border: 1px solid rgba(88,229,232,.42); color: var(--cyan); font-family: 'IBM Plex Mono', monospace; font-size: .68rem; letter-spacing: .06em; }
+.research-context-links a:hover, .research-article-links a:hover { border-color: var(--cyan); color: var(--cream); background: rgba(88,229,232,.08); }
+.research-context-links a:focus-visible, .research-article-links a:focus-visible, .research-article-link:focus-visible { outline: 2px solid var(--cyan); outline-offset: .25rem; }
+.research-question { margin-top: auto; padding: 1rem; border-left: 3px solid var(--amber); background: linear-gradient(90deg, rgba(245,164,59,.1), rgba(88,229,232,.04)); }
+.research-question span { color: var(--amber); font-family: 'IBM Plex Mono', monospace; font-size: .62rem; letter-spacing: .08em; }
+.research-question strong { display: block; margin: .7rem 0; color: var(--cream); font-size: 1.05rem; }
+.research-question p { font-size: .9rem; }
+.research-article-card { position: relative; display: grid; grid-template-rows: auto 1fr; overflow: hidden; }
+.research-article-cover { display: block; aspect-ratio: 16 / 9; background: linear-gradient(135deg, rgba(245,164,59,.18), rgba(88,229,232,.12)); overflow: hidden; }
+.research-article-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease, opacity .35s ease; }
+.research-article-card:hover .research-article-cover img { transform: scale(1.025); opacity: .9; }
+.research-article-content { display: flex; flex-direction: column; gap: 1.15rem; padding: clamp(1.25rem, 3vw, 2rem); }
+.research-article-content h3 { font-size: clamp(2rem, 3.5vw, 3.8rem); }
+.research-article-content h3 a:hover { color: var(--cyan); }
+.research-article-link::after { content: ''; position: absolute; inset: 0; }
+.research-article-card:has(.research-article-link:focus-visible) { outline: 2px solid var(--cyan); outline-offset: .25rem; }
+.research-article-links { position: relative; z-index: 1; margin-top: auto; pointer-events: none; }
+.research-article-links .research-newsletter-link { pointer-events: auto; }
+.research-expansion-note { margin: 1.2rem 0 0; color: var(--sage); font-family: 'IBM Plex Mono', monospace; font-size: .68rem; letter-spacing: .06em; }
 
 .ai-skills-section {
   background:
@@ -395,7 +425,8 @@ footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.25
 }
 
 @media (max-width: 980px) {
-  .section-grid, .contact-panel, .timeline-item, .portfolio-intro, .ai-skills-intro { grid-template-columns: 1fr; }
+  .research-section { scroll-margin-top: 9rem; }
+  .section-grid, .contact-panel, .timeline-item, .portfolio-intro, .research-intro, .ai-skills-intro { grid-template-columns: 1fr; }
   .dev-project-grid, .ai-skill-grid, .interview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .fund-stat-grid { grid-template-columns: 1fr; }
   .capability-strip { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
@@ -408,7 +439,7 @@ footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.25
   .site-header { align-items: flex-start; flex-direction: column; }
   .hero { padding-top: 2.5rem; }
   .terrain-card { min-height: 26rem; }
-  .skill-grid, .dev-project-grid, .ai-skill-grid, .interview-grid { grid-template-columns: 1fr; }
+  .skill-grid, .dev-project-grid, .research-grid, .ai-skill-grid, .interview-grid { grid-template-columns: 1fr; }
   .logo-tile { min-width: 10rem; }
   footer { flex-direction: column; }
 }
@@ -427,5 +458,5 @@ footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.25
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .impact-node, .holdings-segment { transition: none; }
+  .impact-node, .holdings-segment, .research-article-cover img { transition: none; }
 }

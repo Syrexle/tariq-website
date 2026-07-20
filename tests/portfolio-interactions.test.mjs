@@ -16,6 +16,7 @@ const source = [
 ].join('\n')
 const styles = read('src/styles.css')
 const impactComponent = read('src/components/ImpactRail.tsx')
+const mainSource = read('src/main.tsx')
 
 test('allocation disclosure is manual, ratio-only, and totals 100 percent', () => {
   assert.match(source, /portfolioAsOf\s*=\s*'July 19, 2026'/)
@@ -64,4 +65,43 @@ test('allocation focus and tap use durable state that clears on blur', () => {
 test('public liquidity language avoids bribe terminology', () => {
   assert.doesNotMatch(source, /\bbrib(?:e|ing)\b/i)
   assert.match(source, /vote-directed incentives/)
+})
+
+test('research library exposes only the approved public abstraction', () => {
+  const researchSection = mainSource.match(/<section id="research"[\s\S]*?<\/section>/)?.[0] ?? ''
+
+  assert.match(mainSource, /href="#research"/)
+  assert.match(researchSection, /Tokenized Compute Access/)
+  assert.match(researchSection, /staking CAPACITR/i)
+  assert.match(researchSection, /transferable token/i)
+  assert.match(researchSection, /non-transferable internal credit system/i)
+  assert.doesNotMatch(researchSection, /CRG|COGS|liability|FDV|buyback|burn|capacity tier|token threshold|capacitr-charge-model/i)
+})
+
+test('research links and featured Yieldverse article are safe and complete', () => {
+  const researchSection = mainSource.match(/<section id="research"[\s\S]*?<\/section>/)?.[0] ?? ''
+  const approvedUrls = [
+    'https://spec.capacitr.xyz/',
+    'https://docs.venice.ai/overview/about-venice',
+    'https://yieldverse.substack.com/',
+    'https://yieldverse.substack.com/p/got-eth-lets-put-it-to-work',
+  ]
+
+  for (const url of approvedUrls) assert.match(mainSource, new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
+  assert.match(researchSection, /Got \$ETH\? Let’s put it to work!/)
+  assert.match(researchSection, /alt="Yieldverse article cover for Got \$ETH\? Let’s put it to work!"/)
+  assert.doesNotMatch(researchSection, /<iframe/i)
+
+  const externalResearchLinks = [...researchSection.matchAll(/<a[\s\S]*?href=\{researchLinks\.[a-z]+\}[\s\S]*?>/g)]
+  assert.equal(externalResearchLinks.length, 4)
+  for (const [link] of externalResearchLinks) assert.match(link, /target="_blank" rel="noreferrer"/)
+  assert.match(researchSection, /className="research-article-link"/)
+  assert.match(styles, /\.research-article-link::after\s*\{[^}]*position:\s*absolute;[^}]*inset:\s*0;/)
+})
+
+test('research anchor clears the taller mobile header', () => {
+  assert.match(
+    styles,
+    /@media\s*\(max-width:\s*980px\)\s*\{[\s\S]*?\.research-section\s*\{[^}]*scroll-margin-top:\s*9rem;?[^}]*\}/,
+  )
 })
