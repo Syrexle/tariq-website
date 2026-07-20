@@ -490,22 +490,22 @@ function App() {
 
               <div className="research-question">
                 <span>OPEN DESIGN QUESTION</span>
-                <strong>Transferable token or internal credit system?</strong>
-                <p>The research weighs composability against a simpler capacity layer that stays inside the product.</p>
+                <strong>Transferable token or non-transferable internal credit system?</strong>
+                <p>The research weighs composability against a simpler, non-transferable capacity layer that stays inside the product.</p>
               </div>
             </article>
 
             <article className="research-card research-article-card">
-              <a className="research-article-cover" href={researchLinks.article} target="_blank" rel="noreferrer">
+              <div className="research-article-cover">
                 <img src={researchLinks.articleImage} alt="Yieldverse article cover for Got $ETH? Let’s put it to work!" loading="lazy" />
-              </a>
+              </div>
               <div className="research-article-content">
                 <span className="research-card-label">FEATURED ARTICLE / YIELDVERSE</span>
-                <h3><a href={researchLinks.article} target="_blank" rel="noreferrer">Got $ETH? Let’s put it to work!</a></h3>
+                <h3><a className="research-article-link" href={researchLinks.article} target="_blank" rel="noreferrer">Got $ETH? Let’s put it to work!</a></h3>
                 <p>ultrasound passive income go brrrrrrr</p>
                 <div className="research-article-links">
-                  <a href={researchLinks.article} target="_blank" rel="noreferrer">[ READ ARTICLE → ]</a>
-                  <a href={researchLinks.yieldverse} target="_blank" rel="noreferrer">[ VISIT YIELDVERSE → ]</a>
+                  <span>[ READ ARTICLE → ]</span>
+                  <a className="research-newsletter-link" href={researchLinks.yieldverse} target="_blank" rel="noreferrer">[ VISIT YIELDVERSE → ]</a>
                 </div>
               </div>
             </article>

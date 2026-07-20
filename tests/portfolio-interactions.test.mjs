@@ -74,7 +74,7 @@ test('research library exposes only the approved public abstraction', () => {
   assert.match(researchSection, /Tokenized Compute Access/)
   assert.match(researchSection, /staking CAPACITR/i)
   assert.match(researchSection, /transferable token/i)
-  assert.match(researchSection, /internal credit system/i)
+  assert.match(researchSection, /non-transferable internal credit system/i)
   assert.doesNotMatch(researchSection, /CRG|COGS|liability|FDV|buyback|burn|capacity tier|token threshold|capacitr-charge-model/i)
 })
 
@@ -93,8 +93,10 @@ test('research links and featured Yieldverse article are safe and complete', () 
   assert.doesNotMatch(researchSection, /<iframe/i)
 
   const externalResearchLinks = [...researchSection.matchAll(/<a[\s\S]*?href=\{researchLinks\.[a-z]+\}[\s\S]*?>/g)]
-  assert.equal(externalResearchLinks.length, 6)
+  assert.equal(externalResearchLinks.length, 4)
   for (const [link] of externalResearchLinks) assert.match(link, /target="_blank" rel="noreferrer"/)
+  assert.match(researchSection, /className="research-article-link"/)
+  assert.match(styles, /\.research-article-link::after\s*\{[^}]*position:\s*absolute;[^}]*inset:\s*0;/)
 })
 
 test('research anchor clears the taller mobile header', () => {

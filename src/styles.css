@@ -284,21 +284,24 @@ h3 { font-size: clamp(2rem, 3vw, 3.35rem); letter-spacing: -0.035em; }
 .research-card h3 { font-size: clamp(2.5rem, 4.4vw, 5rem); line-height: .92; }
 .research-card p { margin: 0; color: rgba(242,238,230,.76); line-height: 1.7; }
 .research-context-links, .research-article-links { display: flex; flex-wrap: wrap; gap: .55rem; }
-.research-context-links a, .research-article-links a { padding: .6rem .72rem; border: 1px solid rgba(88,229,232,.42); color: var(--cyan); font-family: 'IBM Plex Mono', monospace; font-size: .68rem; letter-spacing: .06em; }
+.research-context-links a, .research-article-links a, .research-article-links span { padding: .6rem .72rem; border: 1px solid rgba(88,229,232,.42); color: var(--cyan); font-family: 'IBM Plex Mono', monospace; font-size: .68rem; letter-spacing: .06em; }
 .research-context-links a:hover, .research-article-links a:hover { border-color: var(--cyan); color: var(--cream); background: rgba(88,229,232,.08); }
-.research-context-links a:focus-visible, .research-article-links a:focus-visible, .research-article-card h3 a:focus-visible, .research-article-cover:focus-visible { outline: 2px solid var(--cyan); outline-offset: .25rem; }
+.research-context-links a:focus-visible, .research-article-links a:focus-visible, .research-article-link:focus-visible { outline: 2px solid var(--cyan); outline-offset: .25rem; }
 .research-question { margin-top: auto; padding: 1rem; border-left: 3px solid var(--amber); background: linear-gradient(90deg, rgba(245,164,59,.1), rgba(88,229,232,.04)); }
 .research-question span { color: var(--amber); font-family: 'IBM Plex Mono', monospace; font-size: .62rem; letter-spacing: .08em; }
 .research-question strong { display: block; margin: .7rem 0; color: var(--cream); font-size: 1.05rem; }
 .research-question p { font-size: .9rem; }
-.research-article-card { display: grid; grid-template-rows: auto 1fr; overflow: hidden; }
+.research-article-card { position: relative; display: grid; grid-template-rows: auto 1fr; overflow: hidden; }
 .research-article-cover { display: block; aspect-ratio: 16 / 9; background: linear-gradient(135deg, rgba(245,164,59,.18), rgba(88,229,232,.12)); overflow: hidden; }
 .research-article-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease, opacity .35s ease; }
-.research-article-cover:hover img { transform: scale(1.025); opacity: .9; }
+.research-article-card:hover .research-article-cover img { transform: scale(1.025); opacity: .9; }
 .research-article-content { display: flex; flex-direction: column; gap: 1.15rem; padding: clamp(1.25rem, 3vw, 2rem); }
 .research-article-content h3 { font-size: clamp(2rem, 3.5vw, 3.8rem); }
 .research-article-content h3 a:hover { color: var(--cyan); }
-.research-article-links { margin-top: auto; }
+.research-article-link::after { content: ''; position: absolute; inset: 0; }
+.research-article-card:has(.research-article-link:focus-visible) { outline: 2px solid var(--cyan); outline-offset: .25rem; }
+.research-article-links { position: relative; z-index: 1; margin-top: auto; pointer-events: none; }
+.research-article-links .research-newsletter-link { pointer-events: auto; }
 .research-expansion-note { margin: 1.2rem 0 0; color: var(--sage); font-family: 'IBM Plex Mono', monospace; font-size: .68rem; letter-spacing: .06em; }
 
 .ai-skills-section {
