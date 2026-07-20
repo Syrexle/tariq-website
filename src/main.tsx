@@ -193,10 +193,10 @@ const aiSkills = [
     examples: ['Market quality over hype', 'Aerodrome / Hydrex incentive framing', 'WETH / USDC incentives funded by real fees'],
   },
   {
-    name: 'Hydrex Vote Optimizer',
-    file: 'hydrex-vote-optimizer',
-    summary: 'A task-specific agent workflow for reading live Hydrex epoch, gauge, vote, and incentive data to rank pool voting opportunities and explain expected returns for veHYDX holders.',
-    examples: ['Epoch power and pool-share checks', 'Live gauge/incentive validation', 'Wallet-sized voting return estimates'],
+    name: 'Lock Voting Performance Assessment',
+    file: 'lock-voting-performance-assessment',
+    summary: 'A read-only assessment skill that accepts a supplied wallet, resolves the veHYDX lock NFTs it controls, and reports current-epoch voting power, allocations, incentives, and estimated voting performance.',
+    examples: ['CURRENT ASSET: veHYDX', 'Wallet → lock NFT performance', 'PLANNED: veAERO / veNEST'],
   },
   {
     name: 'Base MCP Wallet Workflows',
