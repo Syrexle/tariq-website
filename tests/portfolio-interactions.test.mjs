@@ -67,6 +67,18 @@ test('public liquidity language avoids bribe terminology', () => {
   assert.match(source, /vote-directed incentives/)
 })
 
+test('lock voting skill tile states its current veHYDX scope and expansion plan', () => {
+  const aiSkillsSource = mainSource.match(/const aiSkills = \[[\s\S]*?\n\]/)?.[0] ?? ''
+
+  assert.match(aiSkillsSource, /name: 'Lock Voting Performance Assessment'/)
+  assert.match(aiSkillsSource, /file: 'lock-voting-performance-assessment'/)
+  assert.match(aiSkillsSource, /supplied wallet/i)
+  assert.match(aiSkillsSource, /veHYDX lock NFTs/i)
+  assert.match(aiSkillsSource, /CURRENT ASSET: veHYDX/)
+  assert.match(aiSkillsSource, /PLANNED: veAERO \/ veNEST/)
+  assert.doesNotMatch(aiSkillsSource, /name: 'Hydrex Vote Optimizer'/)
+})
+
 test('research library exposes only the approved public abstraction', () => {
   const researchSection = mainSource.match(/<section id="research"[\s\S]*?<\/section>/)?.[0] ?? ''
 
