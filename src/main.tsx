@@ -290,6 +290,15 @@ const devProjects = [
     ],
   },
 ]
+
+const researchLinks = {
+  capacitr: 'https://spec.capacitr.xyz/',
+  venice: 'https://docs.venice.ai/overview/about-venice',
+  yieldverse: 'https://yieldverse.substack.com/',
+  article: 'https://yieldverse.substack.com/p/got-eth-lets-put-it-to-work',
+  articleImage: 'https://substackcdn.com/image/fetch/$s_!IYHm!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d018b36-8735-4692-8547-0a029d0d654f_1500x500.png',
+}
+
 const resumeHref = `${import.meta.env.BASE_URL}Tariq_Waseem_Resume.pdf`
 
 function App() {
@@ -317,6 +326,7 @@ function App() {
           <a href="#profile">[ PROFILE ]</a>
           <a href="#impact">[ IMPACT ]</a>
           <a href="#projects">[ PROJECTS ]</a>
+          <a href="#research">[ RESEARCH ]</a>
           <a href="#ai-skills">[ AI SKILLS ]</a>
           <a href="#experience">[ EXPERIENCE ]</a>
           <a href="#contact">[ CONTACT ]</a>
@@ -458,6 +468,50 @@ function App() {
               </article>
             ))}
           </div>
+        </section>
+
+        <section id="research" className="research-section">
+          <p className="eyebrow">[ RESEARCH & WRITING ]</p>
+          <div className="research-intro">
+            <h2>Systems I’m thinking through.</h2>
+            <p>An expanding library of mechanism research and market writing focused on token utility, compute access, and productive onchain capital.</p>
+          </div>
+
+          <div className="research-grid">
+            <article className="research-card research-brief-card">
+              <span className="research-card-label">RESEARCH BRIEF 01 / ACTIVE EXPLORATION</span>
+              <h3>Tokenized Compute Access</h3>
+              <p>Researching how staking CAPACITR could unlock recurring compute capacity, informed by Venice AI’s VVV/DIEM dual-asset model.</p>
+
+              <div className="research-context-links" aria-label="Research context">
+                <a href={researchLinks.capacitr} target="_blank" rel="noreferrer">CAPACITR ↗</a>
+                <a href={researchLinks.venice} target="_blank" rel="noreferrer">VENICE AI ↗</a>
+              </div>
+
+              <div className="research-question">
+                <span>OPEN DESIGN QUESTION</span>
+                <strong>Transferable token or internal credit system?</strong>
+                <p>The research weighs composability against a simpler capacity layer that stays inside the product.</p>
+              </div>
+            </article>
+
+            <article className="research-card research-article-card">
+              <a className="research-article-cover" href={researchLinks.article} target="_blank" rel="noreferrer">
+                <img src={researchLinks.articleImage} alt="Yieldverse article cover for Got $ETH? Let’s put it to work!" loading="lazy" />
+              </a>
+              <div className="research-article-content">
+                <span className="research-card-label">FEATURED ARTICLE / YIELDVERSE</span>
+                <h3><a href={researchLinks.article} target="_blank" rel="noreferrer">Got $ETH? Let’s put it to work!</a></h3>
+                <p>ultrasound passive income go brrrrrrr</p>
+                <div className="research-article-links">
+                  <a href={researchLinks.article} target="_blank" rel="noreferrer">[ READ ARTICLE → ]</a>
+                  <a href={researchLinks.yieldverse} target="_blank" rel="noreferrer">[ VISIT YIELDVERSE → ]</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <p className="research-expansion-note">More mechanism research and writing will be added as the library grows.</p>
         </section>
 
         <section id="ai-skills" className="ai-skills-section">
