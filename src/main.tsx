@@ -182,10 +182,10 @@ const logoUrl = (domain: string) => `https://icons.duckduckgo.com/ip3/${domain}.
 
 const aiSkills = [
   {
-    name: 'Asset OpSec & EVM Executor Safety',
-    file: 'evm-trading-executor-safety',
-    summary: 'A local Hermes skill for building and reviewing small EVM trading/executor contracts with explicit wallet-flow, spend-cap, rescue, GUI, and operator-safety guardrails.',
-    examples: ['Private-key / owner-role separation', 'Per-call spend caps and rescue paths', 'README notes labeled OpSec, Management, and Rules'],
+    name: 'Excalidraw This',
+    file: 'creative/excalidraw-this',
+    summary: 'A local Hermes skill for turning markdown, docs, notes, and architecture descriptions into durable .excalidraw visual guides with connected flow diagrams, boundaries, and glossary panels.',
+    examples: ['Markdown-to-diagram workflows', 'Architecture flow arrows and trust boundaries', 'Standalone .excalidraw files with glossary panels'],
   },
   {
     name: 'Onchain Transaction Tracing',
@@ -465,7 +465,7 @@ function App() {
           <div className="ai-skills-intro">
             <h2>I build local AI skills that turn repeated expert workflows into reusable agent playbooks.</h2>
             <p>
-              These are task-centered Hermes skills I created or heavily customized for high-context work: asset OpSec, onchain transaction inspection, liquidity strategy, vote optimization, wallet workflows, and outbound research.
+              These are task-centered Hermes skills I created or heavily customized for high-context work: diagramming architecture docs, onchain transaction inspection, liquidity strategy, vote optimization, wallet workflows, and outbound research.
             </p>
           </div>
           <div className="ai-skill-grid">
