@@ -194,22 +194,10 @@ const aiSkills = [
     examples: ['Tx-hash-first investigation', 'Wallet vs contract balance separation', 'Plain-English path diagrams for users'],
   },
   {
-    name: 'Token Liquidity Strategy',
-    file: 'token-liquidity-strategy',
-    summary: 'A market-quality strategy skill for comparing centralized market makers, DEX liquidity programs, ve-token incentives, LP incentives, and sustainable liquidity depth across Base and other DeFi venues.',
-    examples: ['Market quality over hype', 'Aerodrome / Hydrex incentive framing', 'WETH / USDC incentives funded by real fees'],
-  },
-  {
     name: 'Lock Voting Performance Assessment',
     file: 'lock-voting-performance-assessment',
     summary: 'A read-only assessment skill that accepts a supplied wallet, resolves the veHYDX lock NFTs it controls, and reports current-epoch voting power, allocations, incentives, and estimated voting performance.',
     examples: ['CURRENT ASSET: veHYDX', 'Wallet → lock NFT performance', 'PLANNED: veAERO / veNEST'],
-  },
-  {
-    name: 'Base MCP Wallet Workflows',
-    file: 'base-mcp',
-    summary: 'A Base Account workflow skill for safely inspecting portfolios, transactions, token metadata, x402 payments, signatures, sends, swaps, and arbitrary onchain calls through the Base MCP tool surface.',
-    examples: ['Read before write', 'Approval-url transaction flow', 'Base and Base-Sepolia x402 handling'],
   },
   {
     name: 'High-Context Cold DM Research',
