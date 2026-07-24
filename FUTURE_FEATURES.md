@@ -17,11 +17,11 @@ Add an interactive hover state to each dot in the synthetic value timeline in th
 | Period | Market label | Tooltip description draft |
 | --- | --- | --- |
 | 2017 | Bitcoin $20K | Began actively studying Bitcoin, digital assets, market cycles, and the early crypto investment landscape as BTC entered mainstream attention. |
-| 2018 | ICO boom | Followed token launches, community-led fundraising, whitepaper-driven narratives, and the early shift from speculation toward usable networks. |
+| 2018 | ICO boom | Followed token launches, ecosystem-led fundraising, whitepaper-driven narratives, and the early shift from speculation toward usable networks. |
 | 2019 | Builder winter | Continued learning through the bear market, tracking infrastructure, wallets, exchanges, and the teams still building after hype cooled off. |
 | 2020 | DeFi Summer | Studied DeFi primitives, liquidity mining, vaults, AMMs, yield markets, and the first wave of protocol-native growth loops. |
-| 2021 | NFT mania | Built community and market intuition around NFTs, creator economies, social coordination, and retail onboarding into web3. |
-| 2022–2025 | Trenches | Worked across community, GTM, protocol growth, BD, DeFi credit, partner education, and ecosystem relationships during difficult market conditions. |
+| 2021 | NFT mania | Built ecosystem and market intuition around NFTs, creator economies, social coordination, and retail onboarding into web3. |
+| 2022–2025 | Trenches | Worked across ecosystem operations, GTM, protocol growth, BD, DeFi credit, partner education, and ecosystem relationships during difficult market conditions. |
 | 2026 | Loading… | Current chapter: CAPACITR, liquidity strategy, Hydrex/Aerodrome-style incentive design, AI-assisted workflows, and xyexle.capital fund transparency. |
 
 ### Implementation notes

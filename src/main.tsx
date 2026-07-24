@@ -25,7 +25,7 @@ const experience = [
     bullets: [
       'Run a personal digital asset fund focused on Bitcoin, financial NFT technology, memecoins, and liquid crypto opportunities across multiple market cycles.',
       'Generated $100K+ in realized and unrealized gains using my own capital over nine years of active research, allocation, and risk management.',
-      'Built an investing track record around early narrative discovery, onchain behavior, liquidity cycles, and community-led asset formation.',
+      'Built an investing track record around early narrative discovery, onchain behavior, liquidity cycles, and ecosystem-led asset formation.',
     ],
   },
   {
@@ -36,7 +36,7 @@ const experience = [
     bullets: [
       'Advise on GTM, token access design, and product positioning for a Base-native signal-to-position platform spanning market discovery, x402 analysis, and trading workflows.',
       'Built operating systems for liquidity strategy, including Hydrex vote-incentive reporting, weekly pool health dashboards, Bankr/Doppler fee tracking, and sustainable incentive planning.',
-      'Created holder and community intelligence workflows that reconstruct public CAPACITR balances, enrich wallets with social/contact signals, and support respectful outreach around liquidity and app adoption.',
+      'Created holder and ecosystem intelligence workflows that reconstruct public CAPACITR balances, enrich wallets with social/contact signals, and support respectful outreach around liquidity and app adoption.',
       'Developed content and launch execution infrastructure across Airtable, Excalidraw, reports, alpha feedback loops, roadmap posts, token updates, and investor-facing traction narratives.',
     ],
   },
@@ -56,35 +56,35 @@ const experience = [
   },
   {
     company: 'SCRIB3',
-    role: 'Lead Community Manager',
+    role: 'Senior Community Manager',
     location: 'Atlanta, GA',
     dates: 'Nov 2025 – Present',
     bullets: [
-      'Managed a team of 5 community associates operating across 3 time zones for highly technical DeFi protocols.',
-      'Created and ran the agency\'s first-of-its-kind community service offering.',
-      'Handled new client onboarding calls, managed client relationships, and led community audits.',
+      'Managed a team of 5 ecosystem associates operating across 3 time zones for highly technical DeFi protocols.',
+      'Created and ran the agency\'s first-of-its-kind ecosystem operations service offering.',
+      'Handled new client onboarding calls, managed client relationships, and led ecosystem audits.',
       'Supported clients including ReadyGG, Citrea, Spectral AI, Possum Finance, and Siren Protocol.',
     ],
   },
   {
     company: 'Revest Finance',
-    role: 'Community Manager / Business Development',
+    role: 'Head of Ecosystem / Business Development',
     location: 'Atlanta, GA',
     dates: 'Jan 2023 – Sept 2023',
     bullets: [
-      'Owned community and investor education across Revest and Resonate products.',
+      'Owned ecosystem and investor education across Revest and Resonate products.',
       'Expanded ecosystem visibility in collaboration with Frax Finance and GMX.',
       'Translated vaults, yield, and structured-finance concepts into clear user and partner messaging.',
     ],
   },
   {
     company: 'Atlanta Blockchain Center',
-    role: 'Co-founder & Chief Community Officer',
+    role: 'Co-founder & Chief Operating Officer',
     location: 'Atlanta, GA',
     dates: 'May 2022 – Oct 2022',
     bullets: [
       'Incubated 2 startups and helped them raise a combined $1M in pre-seed capital across AI & Infrastructure sectors.',
-      'Managed socials, community, support, events, coworking operations, and business development.',
+      'Managed socials, ecosystem operations, support, events, coworking operations, and business development.',
       'Cultivated relationships with local teams at BitPay, Dapper Labs, CleanSpark, Coinbase Ventures, and Ledgible.',
     ],
   },
@@ -101,7 +101,7 @@ const skillGroups = [
   },
   {
     title: 'Marketing',
-    items: ['Brand positioning', 'Campaign strategy', 'Launch copy', 'Social growth', 'Product education', 'Community acquisition', 'Field marketing'],
+    items: ['Brand positioning', 'Campaign strategy', 'Launch copy', 'Social growth', 'Product education', 'Ecosystem acquisition', 'Field marketing'],
   },
   {
     title: 'Tools',
@@ -115,7 +115,7 @@ const education = [
   'Atlanta Inno 25 Under 25 — Atlanta Business Chronicle | 2022',
 ]
 
-const capabilities = ['GTM strategy', 'Protocol growth', 'Account research', 'Community acquisition', 'DeFi credit', 'Visual storytelling']
+const capabilities = ['GTM strategy', 'Protocol growth', 'Account research', 'Ecosystem acquisition', 'DeFi credit', 'Visual storytelling']
 
 const interestTiles = [
   {
@@ -290,10 +290,10 @@ function App() {
               Protocol<span className="dot green">.</span><br />
               Growth<span className="dot amber">.</span><br />
               Markets<span className="dot rust">.</span><br />
-              Community<span className="dot cyan">.</span>
+              Ecosystem<span className="dot cyan">.</span>
             </h1>
             <p className="hero-subcopy">
-              Business Development and GTM operator with 8+ years across DeFi, protocol growth, partnerships, education, and community-led acquisition.
+              Business Development and GTM operator with 8+ years across DeFi, protocol growth, partnerships, education, and ecosystem-led acquisition.
             </p>
             <div className="contact-ribbon" aria-label="Contact details">
               {contact.map((item) => <span key={item}>{item}</span>)}
@@ -533,7 +533,7 @@ function App() {
         <section className="logo-section">
           <p className="eyebrow">[ TEAMS COLLABORATED WITH ]</p>
           <div className="logo-section-intro">
-            <h2>Protocol, media, infrastructure, and market teams I’ve collaborated with in cross-functional growth, community, BD, marketing, and ecosystem roles.</h2>
+            <h2>Protocol, media, infrastructure, and market teams I’ve collaborated with in cross-functional growth, ecosystem development, BD, marketing, and partner-facing roles.</h2>
           </div>
           <div className="logo-marquee" aria-label="Teams collaborated with carousel">
             <div className="logo-track">
