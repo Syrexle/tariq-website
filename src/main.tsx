@@ -8,6 +8,13 @@ import { ImpactRail } from './components/ImpactRail'
 
 const contact = ['Atlanta, GA', 'tariqawaseem@gmail.com', 'tariqw.eth']
 
+const socialLinks = [
+  { label: 'X: @0x_Tariq', href: 'https://x.com/0x_Tariq' },
+  { label: 'LinkedIn: @tariqwaseem', href: 'https://www.linkedin.com/in/tariqwaseem' },
+  { label: 'Instagram: @yvs.tariq', href: 'https://www.instagram.com/yvs.tariq' },
+  { label: 'TikTok: @tariq.waseem', href: 'https://www.tiktok.com/@tariq.waseem' },
+]
+
 const experience = [
   {
     company: 'xyexle.capital',
@@ -241,54 +248,6 @@ const devProjects = [
     description: 'A sellable MVP for Atlanta-area trade businesses that converts voicemails, missed calls, and after-hours inquiries into structured dispatcher summaries, callback-first routing, demo capture, and a private founder cockpit.',
     highlights: ['Voicemail-first lead extraction', 'Supabase-backed lead capture', 'Founder cockpit + outreach assets'],
   },
-  {
-    title: 'base-wallet-bundler',
-    folder: 'base-wallet-bundler',
-    type: 'Base / Solidity / Aerodrome / Umbra',
-    description: 'A Base-native wallet bundling toolkit that coordinates atomic ERC-20 buys across multiple Umbra stealth addresses, pairing Foundry contracts with a terminal workflow for generation, deployment, swaps, and sponsor-funded withdrawals.',
-    highlights: ['Atomic ETH-to-token bundle buys', 'Umbra stealth address flow', 'Aerodrome routing + Foundry scripts'],
-  },
-  {
-    title: 'eclipse-memory',
-    folder: 'eclipse-memory',
-    type: 'Base / x402 / Express / Hardhat',
-    description: 'A Base-native shared memory protocol for autonomous agents, designed around paid x402 HTTP access, smart-contract commitments, and provider-neutral memory primitives that can later surface through MCP.',
-    highlights: ['Paid x402 API surface', 'Onchain memory commitments', 'Agent shared-memory primitives'],
-  },
-  {
-    title: 'hyper-agent',
-    folder: 'hyper-agent',
-    type: 'Python / Hyperliquid / Trading Automation',
-    description: 'A Python CLI daemon for Hyperliquid perpetual futures that scans configurable pairs, generates composite strategy signals, manages positions with native and software stops, and publishes Discord trade notifications.',
-    highlights: ['EMA, RSI, and funding-rate signals', 'Daily risk locks and win caps', 'Backtests, sweeps, TUI, and CSV journal'],
-  },
-  {
-    title: 'hardwear-os',
-    folder: '',
-    type: '',
-    description: 'A concept system for merch-backed bonding curves where creators fund physical production through pre-drop trading, then holders can redeem finished goods or keep trading their claim on secondary markets.',
-    highlights: [],
-  },
-  {
-    title: 'reclaim402',
-    folder: '',
-    type: '',
-    description: 'A refund-safety gateway experiment for x402 payments that authorizes or escrows funds before provider execution, captures only after verified delivery, and lets buyers reclaim unresolved payments after expiry.',
-    highlights: [],
-  },
-  {
-    title: 'follow me on socials',
-    folder: '',
-    type: '',
-    description: 'I share thoughts on crypto, culture, products, markets, and the founder/operator work behind the projects I build and advise.',
-    highlights: [],
-    socialLinks: [
-      { label: 'X: @0x_Tariq', href: 'https://x.com/0x_Tariq' },
-      { label: 'LinkedIn: @tariqwaseem', href: 'https://www.linkedin.com/in/tariqwaseem' },
-      { label: 'Instagram: @yvs.tariq', href: 'https://www.instagram.com/yvs.tariq' },
-      { label: 'TikTok: @tariq.waseem', href: 'https://www.tiktok.com/@tariq.waseem' },
-    ],
-  },
 ]
 
 const researchLinks = {
@@ -457,13 +416,6 @@ function App() {
                   )}
                   {'demoUrl' in project && typeof project.demoUrl === 'string' && project.demoUrl && (
                     <a className="demo-link" href={project.demoUrl} target="_blank" rel="noreferrer">[ WATCH DEMO → ]</a>
-                  )}
-                  {'socialLinks' in project && project.socialLinks && (
-                    <div className="social-link-list">
-                      {project.socialLinks.map((link) => (
-                        <a key={link.href} href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
-                      ))}
-                    </div>
                   )}
                 </div>
               </article>
@@ -658,6 +610,11 @@ function App() {
                 <a href="mailto:tariqawaseem@gmail.com">tariqawaseem@gmail.com</a>
                 <span>Atlanta, GA</span>
                 <span>tariqw.eth</span>
+              </div>
+              <div className="social-link-list contact-social-links" aria-label="Social links">
+                {socialLinks.map((link) => (
+                  <a key={link.href} href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+                ))}
               </div>
             </div>
             <div className="resume-panel">

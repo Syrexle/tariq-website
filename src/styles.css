@@ -273,6 +273,7 @@ h3 { font-size: clamp(2rem, 3vw, 3.35rem); letter-spacing: -0.035em; }
 .social-link-list { display: grid; gap: .55rem; margin-top: .2rem; }
 .social-link-list a { width: fit-content; border-bottom: 1px solid rgba(156,175,141,.55); color: var(--cream); font-family: 'IBM Plex Mono', monospace; font-size: .78rem; letter-spacing: .04em; text-decoration: none; }
 .social-link-list a:hover { color: var(--cyan); border-color: var(--cyan); }
+.contact-social-links { margin-top: 1.35rem; }
 
 .research-section { background: radial-gradient(circle at 82% 8%, rgba(88,229,232,.1), transparent 25rem), rgba(3,5,4,.94); border-bottom: 1px solid var(--line); }
 .research-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 34rem); gap: clamp(1.5rem, 5vw, 5rem); align-items: end; margin-bottom: 3rem; }
