@@ -110,9 +110,21 @@ const skillGroups = [
 ]
 
 const education = [
-  'Georgia State University — B.I.S. in Media Entrepreneurship | Atlanta, GA | May 2021',
-  'Web3 Teacher Training Track — Blockchain Acceleration Foundation | 2021',
-  'Atlanta Inno 25 Under 25 — Atlanta Business Chronicle | 2022',
+  {
+    item: 'Georgia State University — B.I.S. in Media Entrepreneurship | Atlanta, GA | May 2021',
+    label: 'GSU',
+    mark: 'gsu',
+  },
+  {
+    item: 'Web3 Teacher Training Track — Blockchain Acceleration Foundation | 2021',
+    label: 'BAF',
+    mark: 'baf',
+  },
+  {
+    item: 'Atlanta Inno 25 Under 25 — Atlanta Business Chronicle | 2022',
+    label: '25 Under 25',
+    mark: 'inno',
+  },
 ]
 
 const capabilities = ['GTM strategy', 'Protocol growth', 'Account research', 'Ecosystem acquisition', 'DeFi credit', 'Visual storytelling']
@@ -579,10 +591,38 @@ function App() {
         <section id="education" className="services-section section-grid">
           <div>
             <p className="eyebrow">[ EDUCATION, CERTIFICATION & RECOGNITION ]</p>
+            <div className="education-logo-board" aria-label="Education, certification, and recognition logos">
+              {education.map((entry) => (
+                <div className="education-logo-card" key={entry.label}>
+                  {entry.mark === 'gsu' && (
+                    <div className="education-mark gsu-mark" aria-label="GSU logo mark">
+                      <strong>GSU</strong>
+                      <small>GEORGIA STATE</small>
+                    </div>
+                  )}
+                  {entry.mark === 'baf' && (
+                    <div className="education-mark baf-mark" aria-label="BAF logo mark">
+                      <span className="baf-node node-one" />
+                      <span className="baf-node node-two" />
+                      <span className="baf-node node-three" />
+                      <strong>BAF</strong>
+                    </div>
+                  )}
+                  {entry.mark === 'inno' && (
+                    <div className="education-mark atlanta-inno-mark" aria-label="Atlanta Inno 25 Under 25 badge">
+                      <span>ATL</span>
+                      <strong>25</strong>
+                      <small>UNDER 25</small>
+                    </div>
+                  )}
+                  <span>{entry.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="service-list">
             {education.map((item, index) => (
-              <div key={item}><span>{String(index + 1).padStart(2, '0')}</span><p>{item}</p></div>
+              <div key={item.item}><span>{String(index + 1).padStart(2, '0')}</span><p>{item.item}</p></div>
             ))}
           </div>
         </section>
