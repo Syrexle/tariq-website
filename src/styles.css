@@ -394,6 +394,7 @@ li + li { margin-top: .45rem; }
 .services-section { background: rgba(7, 31, 24, 0.55); align-items: start; }
 .education-logo-board { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin-top: 1.6rem; border: 1px solid var(--line); background: var(--line); }
 .education-logo-card { min-height: 10.5rem; display: grid; align-content: center; justify-items: center; gap: .85rem; padding: 1rem; background: radial-gradient(circle at 75% 15%, rgba(88,229,232,.12), transparent 9rem), rgba(3,5,4,.74); }
+.education-logo-image { width: clamp(4.3rem, 7vw, 6rem); height: clamp(4.3rem, 7vw, 6rem); object-fit: cover; border-radius: 1.1rem; border: 1px solid rgba(242,238,230,.18); box-shadow: 0 0 28px rgba(111,35,235,.28); }
 .education-logo-card > span { color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: .64rem; letter-spacing: .09em; text-transform: uppercase; text-align: center; }
 .education-mark { position: relative; width: clamp(4.3rem, 7vw, 6rem); height: clamp(4.3rem, 7vw, 6rem); display: grid; place-items: center; padding: .55rem; overflow: hidden; border-radius: 1.1rem; }
 .education-mark strong, .education-mark small, .education-mark span { position: relative; z-index: 1; }

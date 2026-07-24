@@ -118,7 +118,8 @@ const education = [
   {
     item: 'Web3 Teacher Training Track — Blockchain Acceleration Foundation | 2021',
     label: 'BAF',
-    mark: 'baf',
+    mark: 'baf-logo',
+    logo: `${import.meta.env.BASE_URL}assets/BAFLogo.jpeg`,
   },
   {
     item: 'Atlanta Inno 25 Under 25 — Atlanta Business Chronicle | 2022',
@@ -600,13 +601,8 @@ function App() {
                       <small>GEORGIA STATE</small>
                     </div>
                   )}
-                  {entry.mark === 'baf' && (
-                    <div className="education-mark baf-mark" aria-label="BAF logo mark">
-                      <span className="baf-node node-one" />
-                      <span className="baf-node node-two" />
-                      <span className="baf-node node-three" />
-                      <strong>BAF</strong>
-                    </div>
+                  {entry.mark === 'baf-logo' && 'logo' in entry && (
+                    <img className="education-logo-image baf-logo-image" src={entry.logo} alt="BAF logo" loading="lazy" />
                   )}
                   {entry.mark === 'inno' && (
                     <div className="education-mark atlanta-inno-mark" aria-label="Atlanta Inno 25 Under 25 badge">
