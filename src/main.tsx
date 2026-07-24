@@ -579,7 +579,6 @@ function App() {
         <section id="education" className="services-section section-grid">
           <div>
             <p className="eyebrow">[ EDUCATION, CERTIFICATION & RECOGNITION ]</p>
-            <h2>Media entrepreneurship foundation with Web3 education and ecosystem recognition.</h2>
           </div>
           <div className="service-list">
             {education.map((item, index) => (
