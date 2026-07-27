@@ -139,12 +139,12 @@ const interestTiles = [
   {
     label: 'Interest',
     title: 'Financial NFT applications',
-    copy: 'NFTs as programmable financial wrappers for vesting, credit, ownership, vault access, and composable onchain agreements.',
+    copy: 'Revenue-based finance, ve(3,3) incentive markets, and self-repaying loan mechanisms that turn cashflow and token incentives into growth loops.',
   },
   {
     label: 'Yield / niche expertise',
-    title: 'Yield-bearing assets',
-    copy: 'Revenue-based finance, ve(3,3) incentive markets, and self-repaying loan mechanisms that turn cashflow and token incentives into growth loops.',
+    title: 'Yield-bearing RWA assets',
+    copy: 'Assets like mHYPER, tokenized yield funds, T-bill products, bond wrappers, and CD-backed instruments backed by mixes of tokenized off-chain CDs, tokenized bonds, treasuries, private credit, and real-world cashflow collateral.',
   },
 ]
 
