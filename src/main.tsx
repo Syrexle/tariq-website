@@ -241,6 +241,15 @@ const devProjects = [
     highlights: ['Live Hydrex strategy ranking', 'Gauge verification checks', 'Scheduled GitHub Actions output'],
   },
   {
+    title: 'Enso × CAPACITR Explorer',
+    folder: 'enso-builds',
+    type: 'Base / Enso API / Python / EVM',
+    status: 'Working prototype',
+    progress: 85,
+    description: 'A local, read-only developer explorer for testing Enso on Base with CAPACITR: live token discovery and routing quotes, onchain allowance checks, unsigned approval previews, and signer-ready Route and Bundle calldata inspection.',
+    highlights: ['Live CAPACITR/WETH routing quotes', 'Allowance + unsigned approval preview', 'Route vs Bundle transaction inspection'],
+  },
+  {
     title: 'tradeLead AI',
     folder: 'tradeLead-ai',
     type: 'React / Supabase / Twilio / OpenAI',
