@@ -439,7 +439,7 @@ function App() {
                   {'liveUrl' in project && typeof project.liveUrl === 'string' && project.liveUrl && (
                     <a className="demo-link global-live-link" href={project.liveUrl} target="_blank" rel="noreferrer">
                       <GlobalInternetIcon />
-                      <span>[ OPEN LIVE EXPLORER → ]</span>
+                      <span>[ PASSWORD PROTECTED → ]</span>
                     </a>
                   )}
                   {'postUrl' in project && typeof project.postUrl === 'string' && project.postUrl && (
