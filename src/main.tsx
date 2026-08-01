@@ -248,6 +248,7 @@ const devProjects = [
     progress: 85,
     description: 'A local, read-only developer explorer for testing Enso on Base with CAPACITR: live token discovery and routing quotes, onchain allowance checks, unsigned approval previews, and signer-ready Route and Bundle calldata inspection.',
     highlights: ['Live CAPACITR/WETH routing quotes', 'Allowance + unsigned approval preview', 'Route vs Bundle transaction inspection'],
+    postUrl: 'https://x.com/0x_Tariq/status/2083603771716747724?s=20',
   },
   {
     title: 'tradeLead AI',
@@ -426,6 +427,9 @@ function App() {
                   )}
                   {'demoUrl' in project && typeof project.demoUrl === 'string' && project.demoUrl && (
                     <a className="demo-link" href={project.demoUrl} target="_blank" rel="noreferrer">[ WATCH DEMO → ]</a>
+                  )}
+                  {'postUrl' in project && typeof project.postUrl === 'string' && project.postUrl && (
+                    <a className="demo-link" href={project.postUrl} target="_blank" rel="noreferrer">[ VIEW BUILD THREAD → ]</a>
                   )}
                 </div>
               </article>
