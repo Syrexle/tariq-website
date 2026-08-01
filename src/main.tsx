@@ -8,6 +8,13 @@ import { ImpactRail } from './components/ImpactRail'
 
 const contact = ['Atlanta, GA', 'tariqawaseem@gmail.com', 'tariqw.eth']
 
+const GlobalInternetIcon = () => (
+  <svg className="global-link-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle cx="12" cy="12" r="9" />
+    <path d="M3 12h18M12 3c2.3 2.45 3.5 5.45 3.5 9S14.3 18.55 12 21M12 3C9.7 5.45 8.5 8.45 8.5 12S9.7 18.55 12 21" />
+  </svg>
+)
+
 const socialLinks = [
   { label: 'X: @0x_Tariq', href: 'https://x.com/0x_Tariq' },
   { label: 'LinkedIn: @tariqwaseem', href: 'https://www.linkedin.com/in/tariqwaseem' },
@@ -248,6 +255,7 @@ const devProjects = [
     progress: 85,
     description: 'A local, read-only developer explorer for testing Enso on Base with CAPACITR: live token discovery and routing quotes, onchain allowance checks, unsigned approval previews, and signer-ready Route and Bundle calldata inspection.',
     highlights: ['Live CAPACITR/WETH routing quotes', 'Allowance + unsigned approval preview', 'Route vs Bundle transaction inspection'],
+    liveUrl: 'https://enso-capacitr-explorer.vercel.app',
     postUrl: 'https://x.com/0x_Tariq/status/2083603771716747724?s=20',
   },
   {
@@ -427,6 +435,12 @@ function App() {
                   )}
                   {'demoUrl' in project && typeof project.demoUrl === 'string' && project.demoUrl && (
                     <a className="demo-link" href={project.demoUrl} target="_blank" rel="noreferrer">[ WATCH DEMO → ]</a>
+                  )}
+                  {'liveUrl' in project && typeof project.liveUrl === 'string' && project.liveUrl && (
+                    <a className="demo-link global-live-link" href={project.liveUrl} target="_blank" rel="noreferrer">
+                      <GlobalInternetIcon />
+                      <span>[ OPEN LIVE EXPLORER → ]</span>
+                    </a>
                   )}
                   {'postUrl' in project && typeof project.postUrl === 'string' && project.postUrl && (
                     <a className="demo-link" href={project.postUrl} target="_blank" rel="noreferrer">[ VIEW BUILD THREAD → ]</a>

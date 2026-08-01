@@ -270,6 +270,8 @@ h3 { font-size: clamp(2rem, 3vw, 3.35rem); letter-spacing: -0.035em; }
 .mini-pill-list span { border: 1px solid var(--line); padding: .45rem .55rem; color: var(--muted); background: rgba(255,255,255,.025); font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .06em; font-size: .64rem; }
 .demo-link { width: fit-content; display: inline-flex; align-items: center; margin-top: 0; padding: .72rem .86rem; border: 1px solid rgba(88,229,232,.46); color: var(--cyan); background: rgba(88,229,232,.055); font-size: .68rem; }
 .demo-link:hover { border-color: var(--cyan); background: rgba(88,229,232,.11); color: var(--cream); }
+.global-live-link { gap: .48rem; }
+.global-link-icon { width: .92rem; height: .92rem; flex: 0 0 auto; stroke: currentColor; stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
 .social-link-list { display: grid; gap: .55rem; margin-top: .2rem; }
 .social-link-list a { width: fit-content; border-bottom: 1px solid rgba(156,175,141,.55); color: var(--cream); font-family: 'IBM Plex Mono', monospace; font-size: .78rem; letter-spacing: .04em; text-decoration: none; }
 .social-link-list a:hover { color: var(--cyan); border-color: var(--cyan); }
