@@ -255,7 +255,6 @@ const devProjects = [
     progress: 85,
     description: 'A local, read-only developer explorer for testing Enso on Base with CAPACITR: live token discovery and routing quotes, onchain allowance checks, unsigned approval previews, and signer-ready Route and Bundle calldata inspection.',
     highlights: ['Live CAPACITR/WETH routing quotes', 'Allowance + unsigned approval preview', 'Route vs Bundle transaction inspection'],
-    liveUrl: 'https://enso-capacitr-explorer.vercel.app',
     postUrl: 'https://x.com/0x_Tariq/status/2083603771716747724?s=20',
   },
   {
