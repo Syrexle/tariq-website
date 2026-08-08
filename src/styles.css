@@ -281,17 +281,17 @@ h3 { font-size: clamp(2rem, 3vw, 3.35rem); letter-spacing: -0.035em; }
 .research-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 34rem); gap: clamp(1.5rem, 5vw, 5rem); align-items: end; margin-bottom: 3rem; }
 .research-intro p { margin: 0; color: var(--muted); line-height: 1.75; }
 .research-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; border: 1px solid var(--line); background: var(--line); }
-.research-card { min-width: 0; min-height: 32rem; background: rgba(3,5,4,.82); }
-.research-brief-card { display: flex; flex-direction: column; gap: 1.45rem; padding: clamp(1.5rem, 3.2vw, 2.35rem); background: radial-gradient(circle at 90% 10%, rgba(88,229,232,.09), transparent 17rem), rgba(3,5,4,.82); }
+.research-card { min-width: 0; min-height: 24rem; background: rgba(3,5,4,.82); }
+.research-brief-card { display: flex; flex-direction: column; gap: 1.15rem; padding: clamp(1.35rem, 2.8vw, 2rem); background: radial-gradient(circle at 90% 10%, rgba(88,229,232,.09), transparent 17rem), rgba(3,5,4,.82); }
 .research-card-label { color: var(--sage); font-family: 'IBM Plex Mono', monospace; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; }
-.research-card h3 { max-width: 11ch; font-size: clamp(2.45rem, 4vw, 4.35rem); line-height: .95; }
+.research-card h3 { max-width: 11ch; font-size: clamp(2.25rem, 3.8vw, 4rem); line-height: .95; }
 .research-card p { max-width: 42rem; margin: 0; color: rgba(242,238,230,.8); line-height: 1.72; }
 .research-context-links, .research-article-links { display: flex; flex-wrap: wrap; gap: .8rem; }
 .research-context-links { padding-top: .35rem; }
 .research-context-links a, .research-article-links a, .research-article-links span { padding: .78rem 1rem; border: 1px solid rgba(88,229,232,.5); color: var(--cyan); background: rgba(88,229,232,.035); font-family: 'IBM Plex Mono', monospace; font-size: .84rem; font-weight: 600; letter-spacing: .07em; }
 .research-context-links a:hover, .research-article-links a:hover { border-color: var(--cyan); color: var(--cream); background: rgba(88,229,232,.1); }
 .research-context-links a:focus-visible, .research-overview-link:focus-visible, .research-article-links a:focus-visible, .research-article-link:focus-visible { outline: 2px solid var(--cyan); outline-offset: .25rem; }
-.research-overview-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.1rem; border: 1px solid var(--cyan); color: var(--cream); background: rgba(88,229,232,.08); font-family: 'IBM Plex Mono', monospace; font-size: .82rem; font-weight: 600; letter-spacing: .08em; }
+.research-overview-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: auto; padding: 1rem 1.1rem; border: 1px solid var(--cyan); color: var(--cream); background: rgba(88,229,232,.08); font-family: 'IBM Plex Mono', monospace; font-size: .82rem; font-weight: 600; letter-spacing: .08em; }
 .research-overview-link:hover { color: var(--cyan); background: rgba(88,229,232,.14); }
 .research-question { margin-top: auto; padding: 1.15rem; border-left: 4px solid var(--amber); background: linear-gradient(90deg, rgba(245,164,59,.12), rgba(88,229,232,.045)); }
 .research-question span { color: var(--amber); font-family: 'IBM Plex Mono', monospace; font-size: .72rem; font-weight: 600; letter-spacing: .09em; }

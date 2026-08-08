@@ -484,11 +484,6 @@ function App() {
                 <span aria-hidden="true">→</span>
               </a>
 
-              <div className="research-question">
-                <span>OPEN DESIGN QUESTION</span>
-                <strong>Transferable token or non-transferable internal credit system?</strong>
-                <p>The research weighs composability against a simpler, non-transferable capacity layer that stays inside the product.</p>
-              </div>
             </article>
 
             <article className="research-card research-brief-card">
@@ -506,11 +501,6 @@ function App() {
                 <span aria-hidden="true">→</span>
               </a>
 
-              <div className="research-question">
-                <span>ORIGINAL THESIS</span>
-                <strong>Bank-branded stablecoins are a defensive patch. Tokenized deposits are the strategic answer.</strong>
-                <p>A stablecoin can preserve payment flow, but it can also move money out of lendable deposits and into Treasury-backed reserves. JPMD points to the sharper strategy: tokenize the deposit itself so bank money can become programmable without surrendering the lending franchise.</p>
-              </div>
             </article>
           </div>
 
