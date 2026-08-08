@@ -229,6 +229,14 @@ const aiSkills = [
 
 const devProjects = [
   {
+    title: 'Xbox Clip Content Pipeline',
+    type: 'Python / Azure App Service / Microsoft Graph',
+    status: 'Azure-hosted staging backend',
+    progress: 74,
+    description: 'A private media pipeline that moved beyond static preview hosting into a real hosted backend: Microsoft OneDrive authentication, token refresh, clip ingestion, staging storage, and manual approval before publishing.',
+    highlights: ['Azure App Service backend', 'OneDrive OAuth + refresh tokens', 'Staging dashboard with manual approval'],
+  },
+  {
     title: 'robinhood-swap-proxy',
     folder: 'robinhood-light-executor',
     type: 'Solidity / Foundry / Robinhood Chain',
