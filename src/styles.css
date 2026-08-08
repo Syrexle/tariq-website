@@ -282,7 +282,7 @@ h3 { font-size: clamp(2rem, 3vw, 3.35rem); letter-spacing: -0.035em; }
 .research-intro p { margin: 0; color: var(--muted); line-height: 1.75; }
 .research-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; border: 1px solid var(--line); background: var(--line); }
 .research-card { min-width: 0; min-height: 24rem; background: rgba(3,5,4,.82); }
-.research-brief-card { display: flex; flex-direction: column; gap: 1.15rem; padding: clamp(1.35rem, 2.8vw, 2rem); background: radial-gradient(circle at 90% 10%, rgba(88,229,232,.09), transparent 17rem), rgba(3,5,4,.82); }
+.research-brief-card { display: grid; grid-template-rows: auto 10.25rem 5.8rem auto auto; align-content: start; gap: 1.15rem; padding: clamp(1.35rem, 2.8vw, 2rem); background: radial-gradient(circle at 90% 10%, rgba(88,229,232,.09), transparent 17rem), rgba(3,5,4,.82); }
 .research-card-label { color: var(--sage); font-family: 'IBM Plex Mono', monospace; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; }
 .research-card h3 { max-width: 11ch; font-size: clamp(2.25rem, 3.8vw, 4rem); line-height: .95; }
 .research-card p { max-width: 42rem; margin: 0; color: rgba(242,238,230,.8); line-height: 1.72; }
@@ -291,7 +291,7 @@ h3 { font-size: clamp(2rem, 3vw, 3.35rem); letter-spacing: -0.035em; }
 .research-context-links a, .research-article-links a, .research-article-links span { padding: .78rem 1rem; border: 1px solid rgba(88,229,232,.5); color: var(--cyan); background: rgba(88,229,232,.035); font-family: 'IBM Plex Mono', monospace; font-size: .84rem; font-weight: 600; letter-spacing: .07em; }
 .research-context-links a:hover, .research-article-links a:hover { border-color: var(--cyan); color: var(--cream); background: rgba(88,229,232,.1); }
 .research-context-links a:focus-visible, .research-overview-link:focus-visible, .research-article-links a:focus-visible, .research-article-link:focus-visible { outline: 2px solid var(--cyan); outline-offset: .25rem; }
-.research-overview-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: auto; padding: 1rem 1.1rem; border: 1px solid var(--cyan); color: var(--cream); background: rgba(88,229,232,.08); font-family: 'IBM Plex Mono', monospace; font-size: .82rem; font-weight: 600; letter-spacing: .08em; }
+.research-overview-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.1rem; border: 1px solid var(--cyan); color: var(--cream); background: rgba(88,229,232,.08); font-family: 'IBM Plex Mono', monospace; font-size: .82rem; font-weight: 600; letter-spacing: .08em; }
 .research-overview-link:hover { color: var(--cyan); background: rgba(88,229,232,.14); }
 .research-question { margin-top: auto; padding: 1.15rem; border-left: 4px solid var(--amber); background: linear-gradient(90deg, rgba(245,164,59,.12), rgba(88,229,232,.045)); }
 .research-question span { color: var(--amber); font-family: 'IBM Plex Mono', monospace; font-size: .72rem; font-weight: 600; letter-spacing: .09em; }
