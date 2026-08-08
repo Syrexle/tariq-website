@@ -280,6 +280,9 @@ const researchLinks = {
   capacitr: 'https://spec.capacitr.xyz/',
   venice: 'https://docs.venice.ai/overview/about-venice',
   overview: 'https://excalidraw.com/#json=ew8Q4JivYHPGJpuppUN1z,ZcTl0TrySuUiGycPDnI4PA',
+  bankDepositOverview: 'https://excalidraw.com/#json=kzvC7LB2sL6faQmlmXMnj,SYvSqRTRtkwjdDkyWfw3Ew',
+  jpmd: 'https://www.jpmorgan.com/payments/newsroom/jpm-coin-usd-deposit-token-institutional-clients',
+  usdc: 'https://www.circle.com/usdc',
   yieldverse: 'https://yieldverse.substack.com/',
   article: 'https://yieldverse.substack.com/p/got-eth-lets-put-it-to-work',
   articleImage: 'https://substackcdn.com/image/fetch/$s_!IYHm!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d018b36-8735-4692-8547-0a029d0d654f_1500x500.png',
@@ -488,6 +491,30 @@ function App() {
               </div>
             </article>
 
+            <article className="research-card research-brief-card">
+              <span className="research-card-label">RESEARCH BRIEF 02 / BANK MONEY DESIGN</span>
+              <h3>Tokenized Deposits vs Stablecoins</h3>
+              <p>Researching the bank strategy split between fully reserved stablecoins and JPMD-style tokenized deposits that keep customer money inside the bank balance-sheet relationship.</p>
+
+              <div className="research-context-links" aria-label="Research context">
+                <a href={researchLinks.jpmd} target="_blank" rel="noreferrer">JPMD ↗</a>
+                <a href={researchLinks.usdc} target="_blank" rel="noreferrer">USDC ↗</a>
+              </div>
+
+              <a className="research-overview-link" href={researchLinks.bankDepositOverview} target="_blank" rel="noreferrer">
+                <span>VIEW RESEARCH OVERVIEW</span>
+                <span aria-hidden="true">→</span>
+              </a>
+
+              <div className="research-question">
+                <span>ORIGINAL THESIS</span>
+                <strong>Bank-branded stablecoins are a defensive patch. Tokenized deposits are the strategic answer.</strong>
+                <p>A stablecoin can preserve payment flow, but it can also move money out of lendable deposits and into Treasury-backed reserves. JPMD points to the sharper strategy: tokenize the deposit itself so bank money can become programmable without surrendering the lending franchise.</p>
+              </div>
+            </article>
+          </div>
+
+          <div className="research-article-module" aria-label="Featured Yieldverse article">
             <article className="research-card research-article-card">
               <div className="research-article-cover">
                 <img src={researchLinks.articleImage} alt="Yieldverse article cover for Got $ETH? Let’s put it to work!" loading="lazy" />

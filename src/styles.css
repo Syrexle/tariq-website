@@ -307,6 +307,9 @@ h3 { font-size: clamp(2rem, 3vw, 3.35rem); letter-spacing: -0.035em; }
 .research-article-card:has(.research-article-link:focus-visible) { outline: 2px solid var(--cyan); outline-offset: .25rem; }
 .research-article-links { position: relative; z-index: 1; margin-top: auto; pointer-events: none; }
 .research-article-links .research-newsletter-link { pointer-events: auto; }
+.research-article-module { margin-top: 1px; border: 1px solid var(--line); background: var(--line); }
+.research-article-module .research-article-card { min-height: 24rem; grid-template-columns: minmax(16rem, .85fr) minmax(0, 1.15fr); grid-template-rows: 1fr; }
+.research-article-module .research-article-cover { aspect-ratio: auto; min-height: 24rem; }
 .research-expansion-note { margin: 1.2rem 0 0; color: var(--sage); font-family: 'IBM Plex Mono', monospace; font-size: .68rem; letter-spacing: .06em; }
 
 .ai-skills-section {
@@ -466,6 +469,8 @@ footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.25
   .hero { padding-top: 2.5rem; }
   .terrain-card { min-height: 26rem; }
   .skill-grid, .dev-project-grid, .research-grid, .ai-skill-grid, .interview-grid, .education-logo-board { grid-template-columns: 1fr; }
+  .research-article-module .research-article-card { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  .research-article-module .research-article-cover { aspect-ratio: 16 / 9; min-height: 0; }
   .logo-tile { min-width: 10rem; }
   footer { flex-direction: column; }
 }
