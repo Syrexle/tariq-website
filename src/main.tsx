@@ -112,7 +112,7 @@ const skillGroups = [
   },
   {
     title: 'Tools',
-    items: ['Linear', 'Notion', 'GSuite', 'HubSpot', 'Pipedrive', 'Monday', 'Figma', 'Canva', 'Discord', 'Typefully', 'X Analytics', 'LinkedIn', 'X', 'Telegram'],
+    items: ['Azure App Service', 'Azure Portal', 'Azure App Registrations', 'Microsoft Graph', 'OAuth callbacks', 'Refresh tokens', 'GitHub Actions', 'Linear', 'Notion', 'GSuite', 'HubSpot', 'Pipedrive', 'Monday', 'Figma', 'Canva', 'Discord', 'Typefully', 'X Analytics', 'LinkedIn', 'X', 'Telegram'],
   },
 ]
 
