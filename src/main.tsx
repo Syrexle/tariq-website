@@ -150,7 +150,7 @@ const interestTiles = [
   },
   {
     label: 'Yield / niche expertise',
-    title: 'Yield-bearing RWA assets + loan underwriting',
+    title: "Yield-bearing RWA's + loan underwriting",
     copy: 'Assets like mHYPER, tokenized yield funds, T-bill products, bond wrappers, CD-backed instruments, and loan underwriting models backed by mixes of tokenized off-chain CDs, tokenized bonds, treasuries, private credit, and real-world cashflow collateral.',
   },
 ]
