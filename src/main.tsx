@@ -297,7 +297,7 @@ const researchLinks = {
   articleImage: 'https://substackcdn.com/image/fetch/$s_!IYHm!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d018b36-8735-4692-8547-0a029d0d654f_1500x500.png',
 }
 
-const resumeFileName = 'TariqWaseem_PM_GTM_Glider_Resume_V3.pdf'
+const resumeFileName = 'TariqWaseem_PM_GTM_Resume_V3.pdf'
 const resumeHref = `${import.meta.env.BASE_URL}${resumeFileName}`
 
 function App() {
