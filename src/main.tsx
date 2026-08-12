@@ -266,6 +266,15 @@ const devProjects = [
     postUrl: 'https://x.com/0x_Tariq/status/2083603771716747724?s=20',
   },
   {
+    title: 'PT-USD3 Zapper',
+    folder: 'enso-builds/pt-usd3-v2-zapper',
+    type: 'Ethereum / Solidity / Foundry / Enso',
+    status: 'Private V2 canary build',
+    progress: 76,
+    description: 'A Solidity zapper for PT-USD3 V2 that packages route-scoped Enso calldata, token approvals, Pendle entry, reinvest legs, and dust-sweep controls into a safer one-transaction fixed-yield workflow.',
+    highlights: ['PT fixed-yield entry flow', 'Pinned route + selector allowlist', 'Fork-first canary discipline'],
+  },
+  {
     title: 'tradeLead AI',
     folder: 'tradeLead-ai',
     type: 'React / Supabase / Twilio / OpenAI',
