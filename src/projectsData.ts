@@ -25,8 +25,8 @@ export type ProjectGroup = {
 
 export const profile = {
   name: 'Tariq Waseem',
-  /** Drop the real file at public/assets/pfp.png; a monogram renders until then. */
-  avatarSrc: '/assets/pfp.png',
+  /** Square crop; a monogram renders if the file is ever missing. */
+  avatarSrc: '/assets/pfp.webp',
   avatarAlt: 'Tariq’s avatar: a cartoon donkey in a chef’s hat holding a ladle',
   tagline: 'Things I’ve built — onchain tooling, trading infrastructure, and agent skills.',
 }

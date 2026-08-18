@@ -104,13 +104,14 @@
   overflow: hidden;
 }
 
+/* The artwork carries its own background, so it fills the window rather than
+   floating inside it the way a cutout would. */
 .pp-pfp {
   position: absolute;
-  top: 9.3%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 84%;
-  height: auto;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 

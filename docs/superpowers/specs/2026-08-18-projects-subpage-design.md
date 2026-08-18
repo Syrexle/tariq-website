@@ -75,8 +75,10 @@ is neither a link nor a tooltip label.
 
 ## Supplied later by the user
 
-- Avatar image at `public/assets/pfp.png`. Until it exists the card renders an
-  inline monogram fallback, so the page is never broken.
+- Avatar image, supplied as `TariqChef.png` and committed as
+  `public/assets/pfp.webp` — cropped square and resized to 700px, 2.4MB to 47KB.
+  If the file is ever missing the card renders an inline monogram fallback, so
+  the page is never broken.
 - Additional tweets for the bubble, as `[text, tweetId, 'MM-DD-YY']` in
   `projectsData.ts`. Seeded with the one real post already in the repo.
 
