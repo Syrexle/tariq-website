@@ -389,6 +389,110 @@ function TweetEmbed({ url }: { url: string }) {
   )
 }
 
+/**
+ * Growth layer for the content portfolio. Every figure here already appears
+ * elsewhere in this repo; anything marked `needsInput` is a placeholder for Tariq
+ * to fill or delete before this ships.
+ */
+const growthOutcomes = [
+  { value: '$5M', label: 'new AUM from a 200K OP incentive budget', sub: 'Velodrome on Optimism, Aerodrome on Base' },
+  { value: '$3–5M', label: 'loan originations from the same program', sub: 'Borrower and lender activation' },
+  { value: '$25M+', label: 'AUM contributed to across ve(3,3) locks', sub: 'Aerodrome, Velodrome, Blackhole, Pharaoh' },
+  { value: '399K', label: 'combined reach across 9 protocol accounts', sub: 'Top of the same funnel' },
+]
+
+const funnelStages = [
+  {
+    stage: 'Acquisition',
+    owned: 'Grant programs, partner co-marketing, ecosystem audits, outbound',
+    evidence: '200K OP grant GTM across borrower and lender segments; account mapping across protocols, asset issuers, and vault curators',
+  },
+  {
+    stage: 'Activation',
+    owned: 'Docs, tutorials, technical explainers, product education',
+    evidence: 'Mintlify documentation system; long-form mechanism explainers; 1,000+ students taught across five years of blockchain curriculum',
+  },
+  {
+    stage: 'Retention',
+    owned: 'Incentive design, vote-directed rewards, liquidity depth strategy',
+    evidence: 'Hydrex vote-incentive reporting, weekly pool health dashboards, sustainable incentive planning at CAPACITR',
+  },
+  {
+    stage: 'Monetization',
+    owned: 'Fee tracking, collateral onboarding, revenue-generating integrations',
+    evidence: 'Doppler fee tracking; onboarded new revenue-generating collateral types to 40Acres',
+  },
+]
+
+type CaseStudy = {
+  id: string
+  title: string
+  org: string
+  context: string
+  constraint: string
+  hypothesis: string
+  intervention: string[]
+  result: string
+  generalizes: string
+  needsInput?: string
+}
+
+const growthCaseStudies: CaseStudy[] = [
+  {
+    id: 'op-grants',
+    title: 'Turning a fixed incentive budget into durable AUM',
+    org: '40Acres Finance / Optimism',
+    context: 'An onchain credit protocol with a 200K OP grant to deploy across two ve(3,3) ecosystems.',
+    constraint: 'Incentives attract mercenary liquidity that leaves the moment emissions stop, so the budget had to buy retained deposits rather than a TVL spike.',
+    hypothesis: 'Segmenting borrower and lender messaging, and pairing emissions with education, would convert a one-time budget into positions that persist after the program ends.',
+    intervention: [
+      'Split GTM by borrower and lender segment with distinct messaging and comms',
+      'Ran partner education alongside emissions instead of after them',
+      'Published weekly program updates to keep allocation decisions legible',
+      'Mapped and onboarded revenue-generating collateral types',
+    ],
+    result: '$5M in new AUM and $3–5M in loan originations, while maintaining efficient token allocation.',
+    generalizes: 'Incentive spend behaves like paid acquisition: it buys a first action, and only education and product fit buy the second one.',
+    needsInput: 'Program duration, retained AUM at 30/90 days post-program, and the OP-to-AUM ratio you are comfortable publishing.',
+  },
+  {
+    id: 'holder-intelligence',
+    title: 'Rebuilding a holder graph to make outreach targeted',
+    org: 'CAPACITR',
+    context: 'A Base-native protocol with onchain holders but no view of who they were or how to reach them.',
+    constraint: 'Token balances are public but pseudonymous, so there was no list to segment and no way to prioritise conversations.',
+    hypothesis: 'Reconstructing balances from public data and enriching wallets with social and contact signals would turn an anonymous holder base into a segmentable audience.',
+    intervention: [
+      'Reconstructed public CAPACITR balances into a holder set',
+      'Enriched wallets with social and contact signals',
+      'Built liquidity dashboards to tie holder behaviour to pool health',
+      'Ran respectful outreach around liquidity and app adoption',
+    ],
+    result: 'A working holder and ecosystem intelligence pipeline feeding outreach and liquidity strategy.',
+    generalizes: 'In crypto the CRM has to be built before it can be used; the wallet graph is the customer list.',
+    needsInput: 'Holders enriched, outreach reply rate, and any downstream conversion you can attribute.',
+  },
+]
+
+const experimentLog = [
+  { hypothesis: 'Borrower and lender need separate messaging, not one protocol narrative', channel: 'OP grant comms', result: '$5M new AUM, $3–5M originations', learning: '' },
+  { hypothesis: 'Public balances can be reconstructed into a segmentable holder list', channel: 'Onchain data + enrichment', result: 'Holder intelligence pipeline shipped', learning: '' },
+  { hypothesis: 'Vote-directed incentives beat flat emissions for pool health', channel: 'Hydrex vote incentives', result: 'Weekly pool health reporting', learning: '' },
+  { hypothesis: 'Technical docs convert better than campaign copy for builder audiences', channel: 'Mintlify docs system', result: '', learning: '' },
+]
+
+const instrumentation = [
+  'Vote-incentive reporting (Hydrex)',
+  'Weekly pool health dashboards',
+  'Doppler fee tracking',
+  'Holder balance reconstruction',
+  'Wallet enrichment (social + contact)',
+  'Airtable content and launch ops',
+  'Excalidraw mechanism diagrams',
+  'X Analytics / LinkedIn',
+]
+
+
 function ContentPortfolioShowcase() {
   useEffect(() => {
     const renderTweets = () => {
@@ -416,6 +520,7 @@ function ContentPortfolioShowcase() {
           <span>Tariq Waseem</span>
         </a>
         <nav aria-label="Content portfolio navigation">
+          <a href="#growth">[ GROWTH ]</a>
           <a href="#social-proof">[ SOCIAL PROOF ]</a>
           <a href="#longform">[ LONGFORM ]</a>
           <a href="/">[ MAIN SITE ]</a>
@@ -471,6 +576,95 @@ function ContentPortfolioShowcase() {
               <li>Comfortable with memetic social energy and serious DeFi education.</li>
             </ul>
           </aside>
+        </section>
+
+        <section id="growth" className="growth-section">
+          <p className="eyebrow">[ GROWTH / OUTCOMES ]</p>
+          <div className="research-intro">
+            <h2>What the content was in service of.</h2>
+            <p>Reach is the top of a funnel, not the result. These are the outcomes the campaigns, docs, and incentive programs were measured against.</p>
+          </div>
+
+          <div className="growth-outcome-grid">
+            {growthOutcomes.map((item) => (
+              <div className="growth-outcome" key={item.label}>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+                <small>{item.sub}</small>
+              </div>
+            ))}
+          </div>
+
+          <div className="growth-funnel" aria-label="Funnel stages owned">
+            {funnelStages.map((stage) => (
+              <article className="growth-funnel-stage" key={stage.stage}>
+                <span className="growth-stage-label">{stage.stage}</span>
+                <p className="growth-stage-owned">{stage.owned}</p>
+                <p className="growth-stage-evidence">{stage.evidence}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="case-studies" className="growth-section growth-cases">
+          <p className="eyebrow">[ CASE STUDIES ]</p>
+          <div className="growth-case-grid">
+            {growthCaseStudies.map((study) => (
+              <article className="growth-case" key={study.id}>
+                <span className="growth-case-org">{study.org}</span>
+                <h3>{study.title}</h3>
+                <dl>
+                  <div><dt>Context</dt><dd>{study.context}</dd></div>
+                  <div><dt>Constraint</dt><dd>{study.constraint}</dd></div>
+                  <div><dt>Hypothesis</dt><dd>{study.hypothesis}</dd></div>
+                  <div>
+                    <dt>What I did</dt>
+                    <dd>
+                      <ul>{study.intervention.map((step) => <li key={step}>{step}</li>)}</ul>
+                    </dd>
+                  </div>
+                  <div><dt>Result</dt><dd className="growth-case-result">{study.result}</dd></div>
+                  <div><dt>What generalizes</dt><dd>{study.generalizes}</dd></div>
+                </dl>
+                {study.needsInput && (
+                  <p className="growth-needs-input">[ NEEDS YOUR INPUT ] {study.needsInput}</p>
+                )}
+              </article>
+            ))}
+          </div>
+
+          <div className="growth-experiments">
+            <h3>Experiment log</h3>
+            <div className="growth-table-scroll">
+              <table>
+                <thead>
+                  <tr><th>Hypothesis</th><th>Channel</th><th>Result</th><th>Learning</th></tr>
+                </thead>
+                <tbody>
+                  {experimentLog.map((row) => (
+                    <tr key={row.hypothesis}>
+                      <td>{row.hypothesis}</td>
+                      <td>{row.channel}</td>
+                      <td>{row.result || <span className="growth-blank">[ NEEDS YOUR INPUT ]</span>}</td>
+                      <td>{row.learning || <span className="growth-blank">[ NEEDS YOUR INPUT ]</span>}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="growth-stack">
+            <h3>Instrumentation I built or ran</h3>
+            <div className="mini-pill-list">
+              {instrumentation.map((tool) => <span key={tool}>{tool}</span>)}
+            </div>
+            <p className="growth-attribution">
+              Attribution note: the AUM and origination figures above are program-level outcomes I contributed to as GTM lead, not
+              single-channel attribution. Where a number reflects a team effort I have said so. Detailed campaign economics are
+              available on request.
+            </p>
+          </div>
         </section>
 
         <section id="social-proof" className="content-showcase-section">
