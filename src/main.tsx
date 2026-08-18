@@ -300,8 +300,263 @@ const researchLinks = {
 const resumeFileName = 'TariqWaseem_PM_GTM_Resume_V3.pdf'
 const resumeHref = `${import.meta.env.BASE_URL}${resumeFileName}`
 
-function App() {
+
+type ShowcaseClient = {
+  name: string
+  handle: string
+  accountUrl: string
+  role: string
+  summary: string
+  posts: string[]
+}
+
+const showcaseClients: ShowcaseClient[] = [
+  {
+    name: 'Atlanta Blockchain Center',
+    handle: '@AtlantaChain',
+    accountUrl: 'https://x.com/AtlantaChain',
+    role: 'Ecosystem launch, local community, event/content operations',
+    summary: 'Built early social proof for Atlanta’s Web3 hub through founder-facing education, event momentum, and community-led blockchain storytelling.',
+    posts: [
+      'https://x.com/AtlantaChain/status/1568368491853484034',
+      'https://x.com/AtlantaChain/status/1564772933503012865',
+      'https://x.com/AtlantaChain/status/1560723403283525632',
+    ],
+  },
+  {
+    name: 'Revest Finance',
+    handle: '@RevestFinance',
+    accountUrl: 'https://x.com/RevestFinance',
+    role: 'Ecosystem education, partner-facing content, DeFi product messaging',
+    summary: 'Translated structured DeFi, yield, FNFTs, and partner narratives into social content that could educate both users and protocol collaborators.',
+    posts: [
+      'https://x.com/RevestFinance/status/1693654354354487784',
+      'https://x.com/RevestFinance/status/1676295179412832256',
+      'https://x.com/RevestFinance/status/1671911301340360706',
+    ],
+  },
+  {
+    name: 'Liquid Agent AI',
+    handle: '@LiquidAgentAI',
+    accountUrl: 'https://x.com/LiquidAgentAI',
+    role: 'AI + DeFi product storytelling, content calendar, launch education',
+    summary: 'Packaged an automated USDC yield product into simple “money working on autopilot” hooks across social, product education, and user-facing rollout content.',
+    posts: [
+      'https://x.com/LiquidAgentAI/status/1973480954158010541',
+      'https://x.com/LiquidAgentAI/status/1972050842833526882',
+      'https://x.com/LiquidAgentAI/status/1969401890254311843',
+    ],
+  },
+  {
+    name: '40acres Finance',
+    handle: '@40acres_Finance',
+    accountUrl: 'https://x.com/40acres_Finance',
+    role: 'GTM, grant activation, institutional DeFi credit education',
+    summary: 'Turned a technical revenue-based lending product into launch posts, borrower/lender education, grant updates, and institutional-facing positioning.',
+    posts: [
+      'https://x.com/40acres_Finance/status/1998127571909906756',
+      'https://x.com/40acres_Finance/status/1997772481172570357',
+      'https://x.com/40acres_Finance/status/2009361609563754615',
+    ],
+  },
+  {
+    name: 'CAPACITR',
+    handle: '@capacitr_xyz',
+    accountUrl: 'https://x.com/capacitr_xyz',
+    role: 'AI finance positioning, ecosystem updates, product education',
+    summary: 'Built social and builder-facing content systems that package AI financial intelligence, launch updates, demos, and ecosystem narratives into public-facing momentum.',
+    posts: [
+      'https://x.com/capacitr_xyz/status/2087549904507843053',
+      'https://x.com/capacitr_xyz/status/2082625731666817434',
+      'https://x.com/capacitr_xyz/status/2075982892790890722',
+    ],
+  },
+]
+
+const longformPieces = [
+  {
+    title: 'Borrow More, Do More, Worry Less',
+    url: 'https://40acresfinance.substack.com/p/borrow-more-do-more-worry-less?r=7lye5i&utm_campaign=post-expanded-share&utm_medium=post%20viewer',
+    label: 'Technical product education / borrower positioning',
+    summary: 'Explains how a credit product can increase borrower flexibility while keeping the underlying lending model understandable for users and partners.',
+  },
+  {
+    title: 'A Utilization-Based Lending Model',
+    url: 'https://40acresfinance.substack.com/p/a-utilization-based-lending-model?r=7lye5i&utm_campaign=post-expanded-share&utm_medium=post%20viewer',
+    label: 'Technical writing / mechanism design',
+    summary: 'Breaks down utilization-driven lending mechanics in plain language for an audience that needs both product clarity and DeFi-native detail.',
+  },
+]
+
+const tweetIdFromUrl = (url: string) => url.match(/status\/(\d+)/)?.[1] ?? url
+
+function TweetEmbed({ url }: { url: string }) {
+  const tweetId = tweetIdFromUrl(url)
+
+  return (
+    <div className="tweet-shell" data-tweet-id={tweetId}>
+      <div className="tweet-placeholder" aria-hidden="true">
+        <span>X POST EMBED</span>
+        <strong>{tweetId}</strong>
+        <small>Loads through X widgets when allowed; direct post link remains available.</small>
+      </div>
+      <blockquote className="twitter-tweet" data-theme="dark" data-dnt="true">
+        <a href={url}>View post on X</a>
+      </blockquote>
+      <a className="tweet-fallback" href={url} target="_blank" rel="noreferrer">[ OPEN POST → ]</a>
+    </div>
+  )
+}
+
+function BankrContentShowcase() {
   useEffect(() => {
+    const renderTweets = () => {
+      const widgets = (window as unknown as { twttr?: { widgets?: { load: () => void } } }).twttr?.widgets
+      widgets?.load()
+    }
+
+    if (!document.querySelector('script[src="https://platform.twitter.com/widgets.js"]')) {
+      const script = document.createElement('script')
+      script.src = 'https://platform.twitter.com/widgets.js'
+      script.async = true
+      script.charset = 'utf-8'
+      script.onload = renderTweets
+      document.body.appendChild(script)
+    } else {
+      renderTweets()
+    }
+  }, [])
+
+  return (
+    <>
+      <header className="site-header showcase-header">
+        <a className="brand" href="/" aria-label="Tariq Waseem portfolio home">
+          <span className="brand-mark" />
+          <span>Tariq Waseem</span>
+        </a>
+        <nav aria-label="Bankr content showcase navigation">
+          <a href="#social-proof">[ SOCIAL PROOF ]</a>
+          <a href="#longform">[ LONGFORM ]</a>
+          <a href="/">[ MAIN SITE ]</a>
+        </nav>
+        <a className="mono-link hide-mobile" href="mailto:tariqawaseem@gmail.com">[ EMAIL → ]</a>
+      </header>
+
+      <main id="top" className="showcase-page">
+        <section className="showcase-hero section-grid">
+          <div className="hero-copy">
+            <p className="eyebrow">[ BANKR CONTENT MARKETING SHOWCASE ]</p>
+            <h1>
+              Crypto<br />Content<span className="dot cyan">.</span><br />That<br />Ships<span className="dot amber">.</span>
+            </h1>
+            <p className="hero-subcopy">
+              A curated sample of social campaigns, ecosystem posts, product education, and technical writing I created across Atlanta Blockchain Center, Revest Finance, Liquid Agent AI, 40acres Finance, and CAPACITR.
+            </p>
+            <div className="contact-ribbon" aria-label="Content proof summary">
+              <span>5 client/operator contexts</span>
+              <span>15 selected X posts</span>
+              <span>2 long-form technical pieces</span>
+            </div>
+            <div className="cta-row">
+              <a href="#social-proof">[ VIEW SOCIAL WORK → ]</a>
+              <a href="#longform">[ VIEW TECHNICAL WRITING → ]</a>
+            </div>
+          </div>
+          <aside className="showcase-proof-card" aria-label="Role fit summary for Bankr">
+            <span>ROLE FIT</span>
+            <h2>Built for the exact Bankr brief.</h2>
+            <ul>
+              <li>Coordinated social channels and multi-client calendars.</li>
+              <li>Turned technical crypto products into shareable content.</li>
+              <li>Created ecosystem, builder, partner, and user-facing narratives.</li>
+              <li>Comfortable with memetic social energy and serious DeFi education.</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section id="social-proof" className="content-showcase-section">
+          <p className="eyebrow">[ SELECTED SOCIAL CONTENT ]</p>
+          <div className="showcase-intro">
+            <h2>Three representative posts from each account.</h2>
+            <p>These embeds show the range Bankr is asking for: account-level coordination, launch content, product education, ecosystem updates, and builder-facing storytelling.</p>
+          </div>
+          <div className="client-showcase-list">
+            {showcaseClients.map((client, index) => (
+              <article className="client-showcase-card" key={client.name}>
+                <div className="client-showcase-meta">
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <a href={client.accountUrl} target="_blank" rel="noreferrer">{client.handle}</a>
+                </div>
+                <div className="client-showcase-copy">
+                  <h3>{client.name}</h3>
+                  <p className="role">{client.role}</p>
+                  <p>{client.summary}</p>
+                </div>
+                <div className="tweet-grid" aria-label={`${client.name} selected X posts`}>
+                  {client.posts.map((post) => <TweetEmbed key={post} url={post} />)}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="longform" className="longform-section">
+          <p className="eyebrow">[ TECHNICAL WRITING / 40ACRES FINANCE ]</p>
+          <div className="showcase-intro">
+            <h2>Long-form product education for technical DeFi credit.</h2>
+            <p>Two Substack pieces written to show the other half of the Bankr role: not just posts, but deeper product narrative, mechanism explanation, and user education.</p>
+          </div>
+          <div className="longform-grid">
+            {longformPieces.map((piece) => (
+              <article className="longform-card" key={piece.url}>
+                <span>{piece.label}</span>
+                <h3>{piece.title}</h3>
+                <p>{piece.summary}</p>
+                <div className="substack-preview" aria-label={`${piece.title} Substack article embed`}>
+                  <span>40ACRES FINANCE SUBSTACK</span>
+                  <strong>{piece.title}</strong>
+                  <small>{piece.label}</small>
+                </div>
+                <a className="research-overview-link" href={piece.url} target="_blank" rel="noreferrer">
+                  <span>READ ON SUBSTACK</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="showcase-close contact-section">
+          <div className="contact-panel">
+            <div>
+              <p className="eyebrow">[ WHY THIS MATTERS FOR BANKR ]</p>
+              <h2>I can market the agent economy in its native language.</h2>
+              <p>Bankr needs someone who can coordinate social calendars, create content for Bankr, support builders in the ecosystem, and move between memes, launch copy, technical docs, and product education. This page is the proof set.</p>
+            </div>
+            <div className="resume-panel">
+              <span>Contact</span>
+              <strong>tariqawaseem@gmail.com</strong>
+              <p>Available for content marketing, product marketing, ecosystem content, and builder-facing growth.</p>
+              <a href="mailto:tariqawaseem@gmail.com">[ EMAIL TARIQ → ]</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <span>© 2026 Tariq Waseem</span>
+        <a href="#top">Back to top</a>
+      </footer>
+    </>
+  )
+}
+
+function App() {
+  const isBankrContentPage = window.location.pathname.replace(/\/$/, '') === '/bankr-content'
+
+  useEffect(() => {
+    if (isBankrContentPage) return
+
     const lenis = new Lenis({ lerp: 0.08, smoothWheel: true })
     const raf = (time: number) => {
       lenis.raf(time)
@@ -312,7 +567,9 @@ function App() {
     gsap.fromTo('.hero-copy > *', { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.12, ease: 'power3.out' })
     gsap.fromTo('.terrain-card', { scale: 0.96, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.2 })
     return () => lenis.destroy()
-  }, [])
+  }, [isBankrContentPage])
+
+  if (isBankrContentPage) return <BankrContentShowcase />
 
   return (
     <>
@@ -326,6 +583,7 @@ function App() {
           <a href="#impact">[ IMPACT ]</a>
           <a href="#projects">[ PROJECTS ]</a>
           <a href="#research">[ RESEARCH ]</a>
+          <a href="/bankr-content/">[ CONTENT WORK ]</a>
           <a href="#ai-skills">[ AI SKILLS ]</a>
           <a href="#experience">[ EXPERIENCE ]</a>
           <a href="#contact">[ CONTACT ]</a>

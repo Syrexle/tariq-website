@@ -492,3 +492,111 @@ footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.25
 @media (prefers-reduced-motion: reduce) {
   .impact-node, .holdings-segment, .research-article-cover img { transition: none; }
 }
+
+
+.showcase-page {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 14% 9%, rgba(88,229,232,.14), transparent 26rem),
+    radial-gradient(circle at 86% 18%, rgba(245,164,59,.12), transparent 25rem),
+    linear-gradient(180deg, rgba(3,5,4,.98), rgba(7,31,24,.82) 46%, rgba(3,5,4,.98));
+}
+
+.showcase-header nav { flex-wrap: wrap; }
+.showcase-hero { min-height: calc(100vh - 64px); padding: clamp(3rem, 8vw, 7rem) clamp(1rem, 5vw, 5rem); }
+.showcase-proof-card {
+  min-height: 34rem;
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  border: 1px solid var(--line);
+  border-radius: 1.2rem;
+  background:
+    radial-gradient(circle at 84% 12%, rgba(88,229,232,.16), transparent 18rem),
+    linear-gradient(145deg, rgba(7,31,24,.92), rgba(3,5,4,.88));
+  box-shadow: 0 32px 90px rgba(0,0,0,.46);
+}
+.showcase-proof-card > span, .client-showcase-meta, .longform-card > span {
+  color: var(--sage);
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .72rem;
+}
+.showcase-proof-card h2 { margin: 1.2rem 0 1.6rem; font-size: clamp(2.6rem, 5.4vw, 5.8rem); }
+.showcase-proof-card ul { padding-left: 1.2rem; color: rgba(242,238,230,.82); }
+
+.content-showcase-section, .longform-section { padding: clamp(4rem, 9vw, 8rem) clamp(1rem, 5vw, 5rem); border-top: 1px solid var(--line); }
+.content-showcase-section { background: rgba(3,5,4,.76); }
+.longform-section { background: radial-gradient(circle at 78% 14%, rgba(245,164,59,.12), transparent 26rem), rgba(7,31,24,.52); }
+.showcase-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 35rem); gap: clamp(1.5rem, 5vw, 5rem); align-items: end; margin-bottom: 3rem; }
+.showcase-intro p { margin: 0; color: var(--muted); line-height: 1.75; }
+
+.client-showcase-list { display: grid; gap: 1.5rem; }
+.client-showcase-card {
+  display: grid;
+  grid-template-columns: minmax(14rem, .42fr) minmax(18rem, .72fr) minmax(0, 1.65fr);
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+.client-showcase-meta, .client-showcase-copy, .tweet-grid { background: rgba(3,5,4,.78); }
+.client-showcase-meta { display: flex; flex-direction: column; justify-content: space-between; gap: 1.2rem; padding: 1.25rem; }
+.client-showcase-meta span { color: var(--amber); font-size: 1rem; }
+.client-showcase-meta a { color: var(--cyan); overflow-wrap: anywhere; }
+.client-showcase-meta a:hover { color: var(--cream); }
+.client-showcase-copy { padding: clamp(1.25rem, 2.6vw, 2rem); }
+.client-showcase-copy h3 { font-size: clamp(2.35rem, 4vw, 4.8rem); }
+.client-showcase-copy > p:not(.role) { color: rgba(242,238,230,.78); line-height: 1.7; margin: 0; }
+.tweet-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; align-items: start; padding: 1px; }
+.tweet-shell { position: relative; min-width: 0; height: 28rem; padding: .8rem; background: rgba(255,255,255,.026); overflow: auto; }
+.tweet-shell iframe { position: relative; z-index: 2; max-width: 100% !important; min-width: 0 !important; }
+.tweet-shell .twitter-tweet { position: relative; z-index: 2; margin: 0 auto !important; }
+.tweet-placeholder { position: absolute; inset: .8rem; z-index: 1; display: grid; align-content: center; gap: .7rem; padding: 1rem; border: 1px dashed rgba(88,229,232,.32); background: linear-gradient(145deg, rgba(7,31,24,.42), rgba(3,5,4,.72)); color: var(--muted); }
+.tweet-placeholder span, .tweet-placeholder small { font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .08em; font-size: .58rem; }
+.tweet-placeholder strong { color: var(--cream); font-family: 'IBM Plex Mono', monospace; overflow-wrap: anywhere; }
+.tweet-fallback { position: sticky; bottom: 0; z-index: 3; display: inline-flex; margin-top: .6rem; color: var(--cyan); font-family: 'IBM Plex Mono', monospace; font-size: .62rem; letter-spacing: .06em; background: rgba(3,5,4,.84); padding: .45rem .2rem; }
+.tweet-fallback:hover { color: var(--cream); }
+
+.longform-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; border: 1px solid var(--line); background: var(--line); }
+.longform-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  padding: clamp(1.25rem, 2.8vw, 2rem);
+  background: radial-gradient(circle at 88% 10%, rgba(88,229,232,.09), transparent 18rem), rgba(3,5,4,.82);
+}
+.longform-card h3 { max-width: 12ch; font-size: clamp(2.4rem, 4.4vw, 5rem); }
+.longform-card p { color: rgba(242,238,230,.8); line-height: 1.72; margin: 0; }
+.substack-preview {
+  min-height: 19rem;
+  display: grid;
+  align-content: end;
+  gap: .85rem;
+  padding: 1.15rem;
+  border: 1px solid rgba(245,164,59,.38);
+  border-radius: .6rem;
+  background:
+    linear-gradient(180deg, rgba(3,5,4,.12), rgba(3,5,4,.86)),
+    radial-gradient(circle at 82% 18%, rgba(245,164,59,.24), transparent 12rem),
+    radial-gradient(circle at 12% 82%, rgba(88,229,232,.18), transparent 14rem),
+    rgba(7,31,24,.72);
+}
+.substack-preview span, .substack-preview small { color: var(--sage); font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .08em; font-size: .64rem; }
+.substack-preview strong { max-width: 14ch; color: var(--cream); font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(2rem, 4vw, 4rem); line-height: .96; }
+.showcase-close { border-top: 1px solid var(--line); }
+
+@media (max-width: 1180px) {
+  .client-showcase-card { grid-template-columns: 1fr; }
+  .tweet-grid { grid-template-columns: repeat(3, minmax(15rem, 1fr)); overflow-x: auto; }
+}
+
+@media (max-width: 980px) {
+  .showcase-intro, .showcase-hero { grid-template-columns: 1fr; }
+  .longform-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .tweet-grid { grid-template-columns: 1fr; overflow: visible; }
+  .tweet-shell { min-height: 14rem; }
+  .substack-preview { min-height: 16rem; }
+}
