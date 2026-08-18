@@ -47,13 +47,19 @@ export const quotes: Quote[] = [
 
 export const projectGroups: ProjectGroup[] = [
   {
-    label: 'builds',
-    tip: 'Shipped and in-progress software: contracts, executors, dashboards, and pipelines.',
+    label: 'on-chain',
+    tip: 'Built around blockchain mechanics: contracts, routing, and onchain positions.',
     items: [
-      { name: 'robinhood-swap-proxy', href: 'https://youtu.be/5_sjySPeftw' },
+      { name: 'robinhood-remote-swap', href: 'https://youtu.be/5_sjySPeftw' },
+      { name: 'CAPACITR Swap Route Visualizer', href: 'https://x.com/0x_Tariq/status/2083603771716747724?s=20' },
+      { name: 'PT-USD3 Zapper', href: 'https://lnkd.in/p/e66NyCNd' },
       { name: 'Hydrex Vote Optimizer', href: '/#projects' },
-      { name: 'Enso × CAPACITR Explorer', href: 'https://x.com/0x_Tariq/status/2083603771716747724?s=20' },
-      { name: 'PT-USD3 Zapper', href: '/#projects' },
+    ],
+  },
+  {
+    label: 'off-chain',
+    tip: 'Needs no blockchain at all: ordinary apps, pipelines, and tools.',
+    items: [
       { name: 'tradeLead AI', href: '/#projects' },
       { name: 'Xbox Clip Pipeline', href: '/#projects' },
     ],
@@ -62,7 +68,7 @@ export const projectGroups: ProjectGroup[] = [
     label: 'skills',
     tip: 'Agent skills I wrote to do research, tracing, and outbound work repeatably.',
     items: [
-      { name: 'Excalidraw This', href: '/#ai-skills' },
+      { name: 'Excalidraw This', href: 'https://docs.google.com/document/d/1J3cGuCIVG7rxaq-smeYUNlTI1MGIBajgUIefQ3t4eqU/edit?tab=t.0' },
       { name: 'Onchain Transaction Tracing', href: '/#ai-skills' },
       { name: 'Lock Voting Performance', href: '/#ai-skills' },
       { name: 'Cold DM Research', href: '/#ai-skills' },

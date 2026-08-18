@@ -65,9 +65,8 @@ test('page styles cannot reach the rest of the site', () => {
 })
 
 test('both project groups render every entry', () => {
-  assert.deepEqual(projectGroups.map((group) => group.label), ['builds', 'skills'])
-  assert.equal(projectGroups[0].items.length, 6)
-  assert.equal(projectGroups[1].items.length, 4)
+  assert.deepEqual(projectGroups.map((group) => group.label), ['on-chain', 'off-chain', 'skills'])
+  assert.deepEqual(projectGroups.map((group) => group.items.length), [4, 2, 4])
   for (const group of projectGroups) {
     assert.ok(group.tip.length > 20, `${group.label} needs a tooltip`)
     for (const item of group.items) assert.match(item.href, /^(https:\/\/|\/#)/)
