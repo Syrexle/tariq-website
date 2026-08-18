@@ -53,7 +53,6 @@ export const projectGroups: ProjectGroup[] = [
       { name: 'robinhood-remote-swap', href: 'https://youtu.be/5_sjySPeftw' },
       { name: 'CAPACITR Swap Route Visualizer', href: 'https://x.com/0x_Tariq/status/2083603771716747724?s=20' },
       { name: 'PT-USD3 Zapper', href: 'https://lnkd.in/p/e66NyCNd' },
-      { name: 'Hydrex Vote Optimizer', href: '/#projects' },
     ],
   },
   {
@@ -61,7 +60,6 @@ export const projectGroups: ProjectGroup[] = [
     tip: 'Needs no blockchain at all: ordinary apps, pipelines, and tools.',
     items: [
       { name: 'tradeLead AI', href: '/#projects' },
-      { name: 'Xbox Clip Pipeline', href: '/#projects' },
     ],
   },
   {
