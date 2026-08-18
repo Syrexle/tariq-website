@@ -544,7 +544,6 @@ function ContentPortfolioShowcase() {
         <nav aria-label="Content portfolio navigation">
           <a href="#social-proof">[ SOCIAL PROOF ]</a>
           <a href="#longform">[ LONGFORM ]</a>
-          <a href="#documentation">[ DOCS ]</a>
           <a href="/">[ MAIN SITE ]</a>
         </nav>
         <a className="mono-link hide-mobile" href="mailto:tariqawaseem@gmail.com">[ EMAIL → ]</a>
@@ -586,7 +585,6 @@ function ContentPortfolioShowcase() {
             <div className="cta-row">
               <a href="#social-proof">[ VIEW SOCIAL WORK → ]</a>
               <a href="#longform">[ VIEW TECHNICAL WRITING → ]</a>
-              <a href="#documentation">[ VIEW DOCUMENTATION → ]</a>
             </div>
           </div>
           <aside className="showcase-proof-card" aria-label="Content role fit summary">
@@ -656,30 +654,6 @@ function ContentPortfolioShowcase() {
               </li>
             ))}
           </ul>
-        </section>
-
-        <section id="documentation" className="documentation-section">
-          <p className="eyebrow">[ PRODUCT DOCUMENTATION / MINTLIFY ]</p>
-          <div className="showcase-intro">
-            <h2>Documentation systems for users, partners, and protocol teams.</h2>
-            <p>Beyond campaigns and essays, I also created public-facing product documentation that helps users understand how a protocol works, where to start, and how to navigate the product.</p>
-          </div>
-          <article className="documentation-card">
-            <div>
-              <span>40ACRES FINANCE DOCS</span>
-              <h3>Mintlify documentation hub</h3>
-              <p>A structured docs experience covering the 40acres product surface: onboarding, core concepts, protocol education, and user-facing navigation in a clean Mintlify stack.</p>
-            </div>
-            <div className="docs-stack-panel">
-              <span>STACK</span>
-              <strong>Mintlify</strong>
-              <p>Docs-as-product: searchable, polished, and built for self-serve user education.</p>
-              <a className="research-overview-link" href="https://docs.40acres.finance/home-page" target="_blank" rel="noreferrer">
-                <span>OPEN DOCUMENTATION</span>
-                <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
         </section>
 
         <section className="showcase-close contact-section">
