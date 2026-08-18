@@ -219,10 +219,22 @@ const researchLinks = {
   bankDepositOverview: 'https://excalidraw.com/#json=kzvC7LB2sL6faQmlmXMnj,SYvSqRTRtkwjdDkyWfw3Ew',
   jpmd: 'https://www.jpmorgan.com/payments/newsroom/jpm-coin-usd-deposit-token-institutional-clients',
   usdc: 'https://www.circle.com/usdc',
-  yieldverse: 'https://yieldverse.substack.com/',
-  article: 'https://yieldverse.substack.com/p/got-eth-lets-put-it-to-work',
-  articleImage: 'https://substackcdn.com/image/fetch/$s_!IYHm!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d018b36-8735-4692-8547-0a029d0d654f_1500x500.png',
 }
+
+const researchPieces = [
+  {
+    title: 'Tokenized Compute Access',
+    url: researchLinks.overview,
+    label: 'Tokenomics design / staking for recurring compute capacity',
+    source: 'RESEARCH BRIEF 01',
+  },
+  {
+    title: 'Tokenized Deposits vs Stablecoins',
+    url: researchLinks.bankDepositOverview,
+    label: 'Bank money design / deposit tokens vs reserved stablecoins',
+    source: 'RESEARCH BRIEF 02',
+  },
+]
 
 const resumeFileName = 'TariqWaseem_PM_GTM_Resume_V3.pdf'
 const resumeHref = `${import.meta.env.BASE_URL}${resumeFileName}`
@@ -830,22 +842,21 @@ function App() {
             </article>
           </div>
 
-          <div className="research-article-module" aria-label="Featured Yieldverse article">
-            <article className="research-card research-article-card">
-              <div className="research-article-cover">
-                <img src={researchLinks.articleImage} alt="Yieldverse article cover for Got $ETH? Let’s put it to work!" loading="lazy" />
-              </div>
-              <div className="research-article-content">
-                <span className="research-card-label">FEATURED ARTICLE / YIELDVERSE</span>
-                <h3><a className="research-article-link" href={researchLinks.article} target="_blank" rel="noreferrer">Got $ETH? Let’s put it to work!</a></h3>
-                <p>ultrasound passive income go brrrrrrr</p>
-                <div className="research-article-links">
-                  <span>[ READ ARTICLE → ]</span>
-                  <a className="research-newsletter-link" href={researchLinks.yieldverse} target="_blank" rel="noreferrer">[ VISIT YIELDVERSE → ]</a>
-                </div>
-              </div>
-            </article>
-          </div>
+          <ul className="research-file-list" aria-label="Research pieces">
+            {researchPieces.map((piece, index) => (
+              <li key={piece.url}>
+                <a href={piece.url} target="_blank" rel="noreferrer">
+                  <span className="file-index">{String(index + 1).padStart(2, '0')}</span>
+                  <span className="file-main">
+                    <strong>{piece.title}</strong>
+                    <small>{piece.label}</small>
+                  </span>
+                  <span className="file-source">{piece.source}</span>
+                  <span className="file-arrow" aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))}
+          </ul>
 
           <p className="research-expansion-note">More mechanism research and writing will be added as the library grows.</p>
         </section>
