@@ -336,6 +336,42 @@ const showcaseClients: ShowcaseClient[] = [
     ],
   },
   {
+    name: 'PLAY Network',
+    handle: '@0xplay_network',
+    accountUrl: 'https://x.com/0xplay_network',
+    role: 'Gaming infrastructure, ecosystem content, technical community campaigns',
+    summary: 'Created ecosystem-facing content around modular gaming infrastructure, helping translate technical network ideas into accessible social narratives for builders, users, and partners.',
+    posts: [
+      'https://x.com/0xplay_network/status/1755306823391813700',
+      'https://x.com/0xplay_network/status/1758068826648789466',
+      'https://x.com/0xplay_network/status/1759971560104817032',
+    ],
+  },
+  {
+    name: 'Citrea',
+    handle: '@citrea_xyz',
+    accountUrl: 'https://x.com/citrea_xyz',
+    role: 'Bitcoin L2 ecosystem content, technical launch support, builder education',
+    summary: 'Supported content and ecosystem storytelling for Bitcoin-native infrastructure, making ZK/L2 concepts clearer for technical communities and broader crypto audiences.',
+    posts: [
+      'https://x.com/citrea_xyz/status/1765415296935006475',
+      'https://x.com/citrea_xyz/status/1760363771946836240',
+      'https://x.com/citrea_xyz/status/1771205265255448632',
+    ],
+  },
+  {
+    name: 'Possum Finance',
+    handle: '@Possum_Finance',
+    accountUrl: 'https://x.com/Possum_Finance',
+    role: 'DeFi protocol education, social content, community-facing product narratives',
+    summary: 'Helped package DeFi mechanics and protocol updates into social-first educational content that could serve community members, partners, and ecosystem followers.',
+    posts: [
+      'https://x.com/Possum_Finance/status/1770269048481448245',
+      'https://x.com/Possum_Finance/status/1772352804730102031',
+      'https://x.com/Possum_Finance/status/1774904611008327791',
+    ],
+  },
+  {
     name: 'Liquid Agent AI',
     handle: '@LiquidAgentAI',
     accountUrl: 'https://x.com/LiquidAgentAI',
@@ -453,8 +489,8 @@ function ContentPortfolioShowcase() {
               A curated sample of social campaigns, ecosystem posts, product education, and technical writing I created across Atlanta Blockchain Center, Revest Finance, Liquid Agent AI, 40acres Finance, and CAPACITR.
             </p>
             <div className="contact-ribbon" aria-label="Content proof summary">
-              <span>5 client/operator contexts</span>
-              <span>15 selected X posts</span>
+              <span>8 client/operator contexts</span>
+              <span>24 selected X posts</span>
               <span>2 long-form technical pieces</span>
             </div>
             <div className="cta-row">
