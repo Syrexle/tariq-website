@@ -59,7 +59,8 @@ export const projectGroups: ProjectGroup[] = [
     label: 'off-chain',
     tip: 'Needs no blockchain at all: ordinary apps, pipelines, and tools.',
     items: [
-      { name: 'tradeLead AI', href: '/#projects' },
+      { name: 'tradeLead AI', href: 'https://tradelead-ai.vercel.app/' },
+      { name: 'Tweetframe', href: 'https://tweet-frame-print.vercel.app/' },
     ],
   },
   {
