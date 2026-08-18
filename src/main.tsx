@@ -304,6 +304,8 @@ const resumeHref = `${import.meta.env.BASE_URL}${resumeFileName}`
 type ShowcaseClient = {
   name: string
   handle: string
+  followers: string
+  followerCount: number
   accountUrl: string
   role: string
   summary: string
@@ -314,6 +316,8 @@ const showcaseClients: ShowcaseClient[] = [
   {
     name: 'Atlanta Blockchain Center',
     handle: '@AtlantaChain',
+    followers: '2,229 followers',
+    followerCount: 2229,
     accountUrl: 'https://x.com/AtlantaChain',
     role: 'Ecosystem launch, local community, event/content operations',
     summary: 'Built early social proof for Atlanta’s Web3 hub through founder-facing education, event momentum, and community-led blockchain storytelling.',
@@ -326,6 +330,8 @@ const showcaseClients: ShowcaseClient[] = [
   {
     name: 'Revest Finance',
     handle: '@RevestFinance',
+    followers: '25.8K followers',
+    followerCount: 25800,
     accountUrl: 'https://x.com/RevestFinance',
     role: 'Ecosystem education, partner-facing content, DeFi product messaging',
     summary: 'Translated structured DeFi, yield, FNFTs, and partner narratives into social content that could educate both users and protocol collaborators.',
@@ -338,6 +344,8 @@ const showcaseClients: ShowcaseClient[] = [
   {
     name: 'PLAY Network',
     handle: '@0xplay_network',
+    followers: '135.4K followers',
+    followerCount: 135400,
     accountUrl: 'https://x.com/0xplay_network',
     role: 'Gaming infrastructure, ecosystem content, technical community campaigns',
     summary: 'Created ecosystem-facing content around modular gaming infrastructure, helping translate technical network ideas into accessible social narratives for builders, users, and partners.',
@@ -350,6 +358,8 @@ const showcaseClients: ShowcaseClient[] = [
   {
     name: 'Citrea',
     handle: '@citrea_xyz',
+    followers: '70.4K followers',
+    followerCount: 70400,
     accountUrl: 'https://x.com/citrea_xyz',
     role: 'Bitcoin L2 ecosystem content, technical launch support, builder education',
     summary: 'Supported content and ecosystem storytelling for Bitcoin-native infrastructure, making ZK/L2 concepts clearer for technical communities and broader crypto audiences.',
@@ -362,6 +372,8 @@ const showcaseClients: ShowcaseClient[] = [
   {
     name: 'Possum Finance',
     handle: '@Possum_Finance',
+    followers: '1,731 followers',
+    followerCount: 1731,
     accountUrl: 'https://x.com/Possum_Finance',
     role: 'DeFi protocol education, social content, community-facing product narratives',
     summary: 'Helped package DeFi mechanics and protocol updates into social-first educational content that could serve community members, partners, and ecosystem followers.',
@@ -374,6 +386,8 @@ const showcaseClients: ShowcaseClient[] = [
   {
     name: 'Liquid Agent AI',
     handle: '@LiquidAgentAI',
+    followers: '1,512 followers',
+    followerCount: 1512,
     accountUrl: 'https://x.com/LiquidAgentAI',
     role: 'AI + DeFi product storytelling, content calendar, launch education',
     summary: 'Packaged an automated USDC yield product into simple “money working on autopilot” hooks across social, product education, and user-facing rollout content.',
@@ -386,6 +400,8 @@ const showcaseClients: ShowcaseClient[] = [
   {
     name: '40acres Finance',
     handle: '@40acres_Finance',
+    followers: '1,889 followers',
+    followerCount: 1889,
     accountUrl: 'https://x.com/40acres_Finance',
     role: 'GTM, grant activation, institutional DeFi credit education',
     summary: 'Turned a technical revenue-based lending product into launch posts, borrower/lender education, grant updates, and institutional-facing positioning.',
@@ -398,6 +414,8 @@ const showcaseClients: ShowcaseClient[] = [
   {
     name: 'CAPACITR',
     handle: '@capacitr_xyz',
+    followers: '1,427 followers',
+    followerCount: 1427,
     accountUrl: 'https://x.com/capacitr_xyz',
     role: 'AI finance positioning, ecosystem updates, product education',
     summary: 'Built social and builder-facing content systems that package AI financial intelligence, launch updates, demos, and ecosystem narratives into public-facing momentum.',
@@ -423,6 +441,11 @@ const longformPieces = [
     summary: 'Breaks down utilization-driven lending mechanics in plain language for an audience that needs both product clarity and DeFi-native detail.',
   },
 ]
+
+
+const combinedFollowerReach = showcaseClients.reduce((sum, client) => sum + client.followerCount, 0)
+const combinedFollowerReachLabel = `${Math.floor(combinedFollowerReach / 1000)}K+`
+const combinedFollowerReachExact = new Intl.NumberFormat('en-US').format(combinedFollowerReach)
 
 const tweetIdFromUrl = (url: string) => url.match(/status\/(\d+)/)?.[1] ?? url
 
@@ -486,8 +509,13 @@ function ContentPortfolioShowcase() {
               Crypto<br />Content<span className="dot cyan">.</span><br />That<br />Ships<span className="dot amber">.</span>
             </h1>
             <p className="hero-subcopy">
-              A curated sample of social campaigns, ecosystem posts, product education, and technical writing I created across Atlanta Blockchain Center, Revest Finance, Liquid Agent AI, 40acres Finance, and CAPACITR.
+              A curated sample of social campaigns, ecosystem posts, product education, and technical writing I created across eight crypto-native communities and protocols.
             </p>
+            <div className="content-reach-counter" aria-label="Combined follower reach">
+              <span>Combined follower reach</span>
+              <strong>{combinedFollowerReachLabel}</strong>
+              <p>{combinedFollowerReachExact} current followers across accounts I’ve helped market.</p>
+            </div>
             <div className="contact-ribbon" aria-label="Content proof summary">
               <span>8 client/operator contexts</span>
               <span>24 selected X posts</span>
@@ -522,7 +550,10 @@ function ContentPortfolioShowcase() {
                 <div className="client-showcase-header">
                   <div className="client-showcase-meta">
                     <span>{String(index + 1).padStart(2, '0')}</span>
-                    <a href={client.accountUrl} target="_blank" rel="noreferrer">{client.handle}</a>
+                    <div className="client-follow-block">
+                      <strong>{client.followers}</strong>
+                      <a href={client.accountUrl} target="_blank" rel="noreferrer">{client.handle}</a>
+                    </div>
                   </div>
                   <div className="client-showcase-copy">
                     <h3>{client.name}</h3>
