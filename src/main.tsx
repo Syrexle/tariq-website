@@ -42,7 +42,7 @@ const experience = [
     dates: 'May 2026 – Present',
     bullets: [
       'Advise on GTM, token access design, and product positioning for a Base-native signal-to-position platform spanning market discovery, x402 analysis, and trading workflows.',
-      'Built operating systems for liquidity strategy, including Hydrex vote-incentive reporting, weekly pool health dashboards, Bankr/Doppler fee tracking, and sustainable incentive planning.',
+      'Built operating systems for liquidity strategy, including Hydrex vote-incentive reporting, weekly pool health dashboards, Doppler fee tracking, and sustainable incentive planning.',
       'Created holder and ecosystem intelligence workflows that reconstruct public CAPACITR balances, enrich wallets with social/contact signals, and support respectful outreach around liquidity and app adoption.',
       'Developed content and launch execution infrastructure across Airtable, Excalidraw, reports, alpha feedback loops, roadmap posts, token updates, and investor-facing traction narratives.',
     ],
@@ -408,7 +408,7 @@ function TweetEmbed({ url }: { url: string }) {
   )
 }
 
-function BankrContentShowcase() {
+function ContentPortfolioShowcase() {
   useEffect(() => {
     const renderTweets = () => {
       const widgets = (window as unknown as { twttr?: { widgets?: { load: () => void } } }).twttr?.widgets
@@ -434,7 +434,7 @@ function BankrContentShowcase() {
           <span className="brand-mark" />
           <span>Tariq Waseem</span>
         </a>
-        <nav aria-label="Bankr content showcase navigation">
+        <nav aria-label="Content portfolio navigation">
           <a href="#social-proof">[ SOCIAL PROOF ]</a>
           <a href="#longform">[ LONGFORM ]</a>
           <a href="/">[ MAIN SITE ]</a>
@@ -445,7 +445,7 @@ function BankrContentShowcase() {
       <main id="top" className="showcase-page">
         <section className="showcase-hero section-grid">
           <div className="hero-copy">
-            <p className="eyebrow">[ BANKR CONTENT MARKETING SHOWCASE ]</p>
+            <p className="eyebrow">[ CONTENT MARKETING PORTFOLIO ]</p>
             <h1>
               Crypto<br />Content<span className="dot cyan">.</span><br />That<br />Ships<span className="dot amber">.</span>
             </h1>
@@ -462,9 +462,9 @@ function BankrContentShowcase() {
               <a href="#longform">[ VIEW TECHNICAL WRITING → ]</a>
             </div>
           </div>
-          <aside className="showcase-proof-card" aria-label="Role fit summary for Bankr">
-            <span>ROLE FIT</span>
-            <h2>Built for the exact Bankr brief.</h2>
+          <aside className="showcase-proof-card" aria-label="Content role fit summary">
+            <span>CONTENT FIT</span>
+            <h2>Built for crypto content teams.</h2>
             <ul>
               <li>Coordinated social channels and multi-client calendars.</li>
               <li>Turned technical crypto products into shareable content.</li>
@@ -478,19 +478,21 @@ function BankrContentShowcase() {
           <p className="eyebrow">[ SELECTED SOCIAL CONTENT ]</p>
           <div className="showcase-intro">
             <h2>Three representative posts from each account.</h2>
-            <p>These embeds show the range Bankr is asking for: account-level coordination, launch content, product education, ecosystem updates, and builder-facing storytelling.</p>
+            <p>These examples show account-level coordination, launch content, product education, ecosystem updates, and builder-facing storytelling across crypto-native teams.</p>
           </div>
           <div className="client-showcase-list">
             {showcaseClients.map((client, index) => (
               <article className="client-showcase-card" key={client.name}>
-                <div className="client-showcase-meta">
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  <a href={client.accountUrl} target="_blank" rel="noreferrer">{client.handle}</a>
-                </div>
-                <div className="client-showcase-copy">
-                  <h3>{client.name}</h3>
-                  <p className="role">{client.role}</p>
-                  <p>{client.summary}</p>
+                <div className="client-showcase-header">
+                  <div className="client-showcase-meta">
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    <a href={client.accountUrl} target="_blank" rel="noreferrer">{client.handle}</a>
+                  </div>
+                  <div className="client-showcase-copy">
+                    <h3>{client.name}</h3>
+                    <p className="role">{client.role}</p>
+                    <p>{client.summary}</p>
+                  </div>
                 </div>
                 <div className="tweet-grid" aria-label={`${client.name} selected X posts`}>
                   {client.posts.map((post) => <TweetEmbed key={post} url={post} />)}
@@ -504,7 +506,7 @@ function BankrContentShowcase() {
           <p className="eyebrow">[ TECHNICAL WRITING / 40ACRES FINANCE ]</p>
           <div className="showcase-intro">
             <h2>Long-form product education for technical DeFi credit.</h2>
-            <p>Two Substack pieces written to show the other half of the Bankr role: not just posts, but deeper product narrative, mechanism explanation, and user education.</p>
+            <p>Two Substack pieces showing the other half of the portfolio: not just posts, but deeper product narrative, mechanism explanation, and user education.</p>
           </div>
           <div className="longform-grid">
             {longformPieces.map((piece) => (
@@ -529,9 +531,9 @@ function BankrContentShowcase() {
         <section className="showcase-close contact-section">
           <div className="contact-panel">
             <div>
-              <p className="eyebrow">[ WHY THIS MATTERS FOR BANKR ]</p>
-              <h2>I can market the agent economy in its native language.</h2>
-              <p>Bankr needs someone who can coordinate social calendars, create content for Bankr, support builders in the ecosystem, and move between memes, launch copy, technical docs, and product education. This page is the proof set.</p>
+              <p className="eyebrow">[ WHY THIS CONTENT WORKS ]</p>
+              <h2>I can market technical crypto products in their native language.</h2>
+              <p>This portfolio shows the ability to coordinate social calendars, support ecosystem teams, and move between memes, launch copy, technical docs, and product education.</p>
             </div>
             <div className="resume-panel">
               <span>Contact</span>
@@ -552,10 +554,10 @@ function BankrContentShowcase() {
 }
 
 function App() {
-  const isBankrContentPage = window.location.pathname.replace(/\/$/, '') === '/bankr-content'
+  const isContentPortfolioPage = window.location.pathname.replace(/\/$/, '') === '/content-portfolio'
 
   useEffect(() => {
-    if (isBankrContentPage) return
+    if (isContentPortfolioPage) return
 
     const lenis = new Lenis({ lerp: 0.08, smoothWheel: true })
     const raf = (time: number) => {
@@ -567,9 +569,9 @@ function App() {
     gsap.fromTo('.hero-copy > *', { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.12, ease: 'power3.out' })
     gsap.fromTo('.terrain-card', { scale: 0.96, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.2 })
     return () => lenis.destroy()
-  }, [isBankrContentPage])
+  }, [isContentPortfolioPage])
 
-  if (isBankrContentPage) return <BankrContentShowcase />
+  if (isContentPortfolioPage) return <ContentPortfolioShowcase />
 
   return (
     <>
@@ -583,7 +585,7 @@ function App() {
           <a href="#impact">[ IMPACT ]</a>
           <a href="#projects">[ PROJECTS ]</a>
           <a href="#research">[ RESEARCH ]</a>
-          <a href="/bankr-content/">[ CONTENT WORK ]</a>
+          <a href="/content-portfolio/">[ CONTENT WORK ]</a>
           <a href="#ai-skills">[ AI SKILLS ]</a>
           <a href="#experience">[ EXPERIENCE ]</a>
           <a href="#contact">[ CONTACT ]</a>
