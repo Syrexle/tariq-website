@@ -602,6 +602,37 @@ footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.25
   .substack-preview { min-height: 16rem; }
 }
 
+.chain-context-strip {
+  max-width: min(100%, 39rem);
+  display: grid;
+  gap: .65rem;
+  margin: 1.15rem 0 .85rem;
+}
+.chain-context-strip > span {
+  color: var(--sage);
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .66rem;
+}
+.chain-context-strip > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+}
+.chain-context-strip strong {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(88,229,232,.32);
+  background: rgba(88,229,232,.055);
+  color: var(--cream);
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  font-size: .68rem;
+  line-height: 1;
+  padding: .55rem .66rem;
+}
 
 .content-reach-counter {
   width: fit-content;

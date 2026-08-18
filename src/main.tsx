@@ -457,6 +457,8 @@ const longformPieces = [
 ]
 
 
+const chainContexts = ['Arbitrum', 'Polygon', 'Optimism', 'Base', 'Avalanche', 'Ethereum', 'Custom L2s']
+
 const combinedFollowerReach = showcaseClients.reduce((sum, client) => sum + client.followerCount, 0)
 const combinedFollowerReachLabel = `${Math.floor(combinedFollowerReach / 1000)}K+`
 const combinedFollowerReachExact = new Intl.NumberFormat('en-US').format(combinedFollowerReach)
@@ -523,6 +525,12 @@ function ContentPortfolioShowcase() {
             <p className="hero-subcopy">
               A curated sample of social campaigns, ecosystem posts, product education, and technical writing I created across eight crypto-native communities and protocols.
             </p>
+            <div className="chain-context-strip" aria-label="Chains and ecosystems worked across">
+              <span>Chains worked across</span>
+              <div>
+                {chainContexts.map((chain) => <strong key={chain}>{chain}</strong>)}
+              </div>
+            </div>
             <div className="content-reach-counter" aria-label="Combined follower reach">
               <span>Combined follower reach</span>
               <strong>{combinedFollowerReachLabel}</strong>
