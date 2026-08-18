@@ -9,13 +9,6 @@ import { resolveRoute } from './routes'
 
 const contact = ['Atlanta, GA', 'tariqawaseem@gmail.com', 'tariqw.eth']
 
-const GlobalInternetIcon = () => (
-  <svg className="global-link-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <circle cx="12" cy="12" r="9" />
-    <path d="M3 12h18M12 3c2.3 2.45 3.5 5.45 3.5 9S14.3 18.55 12 21M12 3C9.7 5.45 8.5 8.45 8.5 12S9.7 18.55 12 21" />
-  </svg>
-)
-
 const socialLinks = [
   { label: 'X: @0x_Tariq', href: 'https://x.com/0x_Tariq' },
   { label: 'LinkedIn: @tariqwaseem', href: 'https://www.linkedin.com/in/tariqwaseem' },
@@ -151,64 +144,6 @@ const aiSkills = [
     file: 'cold-dm-research',
     summary: 'A research-to-message skill for drafting short, specific, human outbound DMs from social profiles, posts, bios, company context, and user-provided relationship background.',
     examples: ['Voice and thesis extraction', 'Specific reference before the ask', 'Permission-first paid API usage'],
-  },
-]
-
-const devProjects = [
-  {
-    title: 'Xbox Clip Content Pipeline',
-    type: 'Python / Azure App Service / Microsoft Graph',
-    status: 'Azure-hosted staging backend',
-    progress: 74,
-    description: 'A private media pipeline that moved beyond static preview hosting into a real hosted backend: Microsoft OneDrive authentication, token refresh, clip ingestion, staging storage, and manual approval before publishing.',
-    highlights: ['Azure App Service backend', 'OneDrive OAuth + refresh tokens', 'Staging dashboard with manual approval'],
-  },
-  {
-    title: 'robinhood-swap-proxy',
-    folder: 'robinhood-light-executor',
-    type: 'Solidity / Foundry / Robinhood Chain',
-    status: 'In progress',
-    progress: 68,
-    description: 'A lightweight swap executor prototype for Robinhood Chain: native ETH enters a contract, optional fees are deducted, ETH wraps to WETH, SwapRouter02 executes the token purchase, and output returns directly to the caller.',
-    highlights: ['Minimal WETH-to-token executor', 'Foundry tests and deploy script', 'Terminal GUI for previewing and executing buys'],
-    demoUrl: 'https://youtu.be/5_sjySPeftw',
-  },
-  {
-    title: 'Hydrex Vote Optimizer',
-    folder: 'capacitr/hydrex-vote-optimizer',
-    type: 'Base / Ethers / Hydrex API / Automation',
-    status: 'In progress',
-    progress: 68,
-    description: 'A read-only veNFT gauge voting optimizer for Hydrex on Base that ranks live strategies by projected rewards, fee/incentive mix, earning power, and gauge validity without signing or submitting votes.',
-    highlights: ['Live Hydrex strategy ranking', 'Gauge verification checks', 'Scheduled GitHub Actions output'],
-  },
-  {
-    title: 'Enso × CAPACITR Explorer',
-    folder: 'enso-builds',
-    type: 'Base / Enso API / Python / EVM',
-    status: 'Working prototype',
-    progress: 85,
-    description: 'A local, read-only developer explorer for testing Enso on Base with CAPACITR: live token discovery and routing quotes, onchain allowance checks, unsigned approval previews, and signer-ready Route and Bundle calldata inspection.',
-    highlights: ['Live CAPACITR/WETH routing quotes', 'Allowance + unsigned approval preview', 'Route vs Bundle transaction inspection'],
-    postUrl: 'https://x.com/0x_Tariq/status/2083603771716747724?s=20',
-  },
-  {
-    title: 'PT-USD3 Zapper',
-    folder: 'enso-builds/pt-usd3-v2-zapper',
-    type: 'Ethereum / Solidity / Foundry / Enso',
-    status: 'Private V2 canary build',
-    progress: 76,
-    description: 'A Solidity zapper for PT-USD3 V2 that packages route-scoped Enso calldata, token approvals, Pendle entry, reinvest legs, and dust-sweep controls into a safer one-transaction fixed-yield workflow.',
-    highlights: ['PT fixed-yield entry flow', 'Pinned route + selector allowlist', 'Fork-first canary discipline'],
-  },
-  {
-    title: 'tradeLead AI',
-    folder: 'tradeLead-ai',
-    type: 'React / Supabase / Twilio / OpenAI',
-    status: 'In progress',
-    progress: 68,
-    description: 'A sellable MVP for Atlanta-area trade businesses that converts voicemails, missed calls, and after-hours inquiries into structured dispatcher summaries, callback-first routing, demo capture, and a private founder cockpit.',
-    highlights: ['Voicemail-first lead extraction', 'Supabase-backed lead capture', 'Founder cockpit + outreach assets'],
   },
 ]
 
@@ -652,7 +587,6 @@ function App() {
         <nav aria-label="Primary navigation">
           <a href="#profile">[ PROFILE ]</a>
           <a href="#impact">[ IMPACT ]</a>
-          <a href="#projects">[ PROJECTS ]</a>
           <a href="#research">[ RESEARCH ]</a>
           <a href="#ai-skills">[ AI SKILLS ]</a>
           <a href="#contact">[ CONTACT ]</a>
@@ -742,62 +676,6 @@ function App() {
           <ImpactRail />
         </section>
 
-
-        <section id="projects" className="portfolio-section">
-          <p className="eyebrow">[ DEV PORTFOLIO / LOCAL PROJECT FOLDERS ]</p>
-          <div className="portfolio-intro">
-            <h2>Applied builds from my local development workspace.</h2>
-            <p>Public-facing project cards can show folder and stack details; private or unpublished repos stay limited to title and a short product description.</p>
-          </div>
-          <div className="dev-project-grid">
-            {devProjects.map((project) => (
-              <article className={`dev-project-card${project.folder ? '' : ' private-project-card'}`} key={project.title}>
-                <div className="dev-project-content">
-                  {(project.type || project.folder) && (
-                    <div className="dev-project-topline">
-                      {project.type && <span>{project.type}</span>}
-                      {project.folder && <code>{project.folder}</code>}
-                    </div>
-                  )}
-                  {'status' in project && typeof project.status === 'string' && project.status && (
-                    <div className="project-status" aria-label={`${project.title} status: ${project.status}`}>
-                      <div className="project-status-row">
-                        <span>{project.status}</span>
-                        {'progress' in project && typeof project.progress === 'number' && <span>{project.progress}%</span>}
-                      </div>
-                      {'progress' in project && typeof project.progress === 'number' && (
-                        <div className="project-status-track">
-                          <span style={{ width: `${project.progress}%` }} />
-                        </div>
-                      )}
-                    </div>
-                  )}
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                </div>
-                <div className="dev-project-actions">
-                  {project.highlights.length > 0 && (
-                    <div className="mini-pill-list">
-                      {project.highlights.map((item) => <span key={item}>{item}</span>)}
-                    </div>
-                  )}
-                  {'demoUrl' in project && typeof project.demoUrl === 'string' && project.demoUrl && (
-                    <a className="demo-link" href={project.demoUrl} target="_blank" rel="noreferrer">[ WATCH DEMO → ]</a>
-                  )}
-                  {'liveUrl' in project && typeof project.liveUrl === 'string' && project.liveUrl && (
-                    <a className="demo-link global-live-link" href={project.liveUrl} target="_blank" rel="noreferrer">
-                      <GlobalInternetIcon />
-                      <span>[ PASSWORD PROTECTED → ]</span>
-                    </a>
-                  )}
-                  {'postUrl' in project && typeof project.postUrl === 'string' && project.postUrl && (
-                    <a className="demo-link" href={project.postUrl} target="_blank" rel="noreferrer">[ VIEW BUILD THREAD → ]</a>
-                  )}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
 
         <section id="research" className="research-section">
           <p className="eyebrow">[ RESEARCH & WRITING ]</p>
