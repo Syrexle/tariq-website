@@ -520,9 +520,6 @@ function ContentPortfolioShowcase() {
         <section className="showcase-hero section-grid">
           <div className="hero-copy">
             <p className="eyebrow">[ CONTENT MARKETING PORTFOLIO ]</p>
-            <h1>
-              Crypto<br />Content<span className="dot cyan">.</span><br />That<br />Ships<span className="dot amber">.</span>
-            </h1>
             <p className="hero-subcopy">
               A curated sample of social campaigns, ecosystem posts, product education, and technical writing I created across eight crypto-native communities and protocols.
             </p>
