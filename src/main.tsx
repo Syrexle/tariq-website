@@ -440,6 +440,20 @@ const longformPieces = [
     label: 'Technical writing / mechanism design',
     summary: 'Breaks down utilization-driven lending mechanics in plain language for an audience that needs both product clarity and DeFi-native detail.',
   },
+  {
+    title: 'The Great Migration',
+    url: 'https://40acresfinance.substack.com/p/the-great-migration',
+    label: 'Ecosystem narrative / migration thesis',
+    publication: '40ACRES FINANCE SUBSTACK',
+    summary: 'Frames a protocol and user migration story in plain-language market context, connecting product direction to a broader DeFi movement.',
+  },
+  {
+    title: 'Got ETH? Let’s Put It To Work',
+    url: 'https://yieldverse.substack.com/p/got-eth-lets-put-it-to-work',
+    label: 'Yield education / user activation',
+    publication: 'YIELDVERSE SUBSTACK',
+    summary: 'Turns ETH yield strategy into approachable user-facing education: clear premise, practical hook, and a path from passive asset to productive capital.',
+  },
 ]
 
 
@@ -496,6 +510,7 @@ function ContentPortfolioShowcase() {
         <nav aria-label="Content portfolio navigation">
           <a href="#social-proof">[ SOCIAL PROOF ]</a>
           <a href="#longform">[ LONGFORM ]</a>
+          <a href="#documentation">[ DOCS ]</a>
           <a href="/">[ MAIN SITE ]</a>
         </nav>
         <a className="mono-link hide-mobile" href="mailto:tariqawaseem@gmail.com">[ EMAIL → ]</a>
@@ -519,11 +534,13 @@ function ContentPortfolioShowcase() {
             <div className="contact-ribbon" aria-label="Content proof summary">
               <span>8 client/operator contexts</span>
               <span>24 selected X posts</span>
-              <span>2 long-form technical pieces</span>
+              <span>4 long-form technical pieces</span>
+              <span>1 Mintlify docs system</span>
             </div>
             <div className="cta-row">
               <a href="#social-proof">[ VIEW SOCIAL WORK → ]</a>
               <a href="#longform">[ VIEW TECHNICAL WRITING → ]</a>
+              <a href="#documentation">[ VIEW DOCUMENTATION → ]</a>
             </div>
           </div>
           <aside className="showcase-proof-card" aria-label="Content role fit summary">
@@ -573,7 +590,7 @@ function ContentPortfolioShowcase() {
           <p className="eyebrow">[ TECHNICAL WRITING / 40ACRES FINANCE ]</p>
           <div className="showcase-intro">
             <h2>Long-form product education for technical DeFi credit.</h2>
-            <p>Two Substack pieces showing the other half of the portfolio: not just posts, but deeper product narrative, mechanism explanation, and user education.</p>
+            <p>Four long-form pieces showing the other half of the portfolio: not just posts, but deeper product narrative, mechanism explanation, yield education, and user education.</p>
           </div>
           <div className="longform-grid">
             {longformPieces.map((piece) => (
@@ -582,7 +599,7 @@ function ContentPortfolioShowcase() {
                 <h3>{piece.title}</h3>
                 <p>{piece.summary}</p>
                 <div className="substack-preview" aria-label={`${piece.title} Substack article embed`}>
-                  <span>40ACRES FINANCE SUBSTACK</span>
+                  <span>{piece.publication ?? '40ACRES FINANCE SUBSTACK'}</span>
                   <strong>{piece.title}</strong>
                   <small>{piece.label}</small>
                 </div>
@@ -593,6 +610,30 @@ function ContentPortfolioShowcase() {
               </article>
             ))}
           </div>
+        </section>
+
+        <section id="documentation" className="documentation-section">
+          <p className="eyebrow">[ PRODUCT DOCUMENTATION / MINTLIFY ]</p>
+          <div className="showcase-intro">
+            <h2>Documentation systems for users, partners, and protocol teams.</h2>
+            <p>Beyond campaigns and essays, I also created public-facing product documentation that helps users understand how a protocol works, where to start, and how to navigate the product.</p>
+          </div>
+          <article className="documentation-card">
+            <div>
+              <span>40ACRES FINANCE DOCS</span>
+              <h3>Mintlify documentation hub</h3>
+              <p>A structured docs experience covering the 40acres product surface: onboarding, core concepts, protocol education, and user-facing navigation in a clean Mintlify stack.</p>
+            </div>
+            <div className="docs-stack-panel">
+              <span>STACK</span>
+              <strong>Mintlify</strong>
+              <p>Docs-as-product: searchable, polished, and built for self-serve user education.</p>
+              <a className="research-overview-link" href="https://docs.40acres.finance/home-page" target="_blank" rel="noreferrer">
+                <span>OPEN DOCUMENTATION</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
         </section>
 
         <section className="showcase-close contact-section">
