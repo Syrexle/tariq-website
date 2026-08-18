@@ -27,7 +27,7 @@ export const profile = {
   name: 'Tariq Waseem',
   /** Square crop; a monogram renders if the file is ever missing. */
   avatarSrc: '/assets/pfp.webp',
-  avatarAlt: 'Portrait photograph of Tariq Waseem',
+  avatarAlt: 'A round, contented alligator figurine sitting on a carpet',
   tagline: 'Things I’ve built — onchain tooling, trading infrastructure, and agent skills.',
 }
 
