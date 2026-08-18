@@ -290,9 +290,7 @@ h3 { font-size: clamp(2rem, 3vw, 3.35rem); letter-spacing: -0.035em; }
 .research-context-links { padding-top: .35rem; }
 .research-context-links a { padding: .78rem 1rem; border: 1px solid rgba(88,229,232,.5); color: var(--cyan); background: rgba(88,229,232,.035); font-family: 'IBM Plex Mono', monospace; font-size: .84rem; font-weight: 600; letter-spacing: .07em; }
 .research-context-links a:hover { border-color: var(--cyan); color: var(--cream); background: rgba(88,229,232,.1); }
-.research-context-links a:focus-visible, .research-overview-link:focus-visible { outline: 2px solid var(--cyan); outline-offset: .25rem; }
-.research-overview-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.1rem; border: 1px solid var(--cyan); color: var(--cream); background: rgba(88,229,232,.08); font-family: 'IBM Plex Mono', monospace; font-size: .82rem; font-weight: 600; letter-spacing: .08em; }
-.research-overview-link:hover { color: var(--cyan); background: rgba(88,229,232,.14); }
+.research-context-links a:focus-visible { outline: 2px solid var(--cyan); outline-offset: .25rem; }
 .research-question { margin-top: auto; padding: 1.15rem; border-left: 4px solid var(--amber); background: linear-gradient(90deg, rgba(245,164,59,.12), rgba(88,229,232,.045)); }
 .research-question span { color: var(--amber); font-family: 'IBM Plex Mono', monospace; font-size: .72rem; font-weight: 600; letter-spacing: .09em; }
 .research-question strong { display: block; margin: .8rem 0; color: var(--cream); font-size: 1.12rem; line-height: 1.35; }
@@ -695,4 +693,3 @@ footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.25
   font-size: clamp(3rem, 5vw, 6rem);
   line-height: .9;
 }
-.docs-stack-panel .research-overview-link { margin-top: 1rem; width: 100%; }

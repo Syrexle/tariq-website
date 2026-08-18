@@ -817,11 +817,6 @@ function App() {
                 <a href={researchLinks.venice} target="_blank" rel="noreferrer">VENICE AI ↗</a>
               </div>
 
-              <a className="research-overview-link" href={researchLinks.overview} target="_blank" rel="noreferrer">
-                <span>VIEW RESEARCH OVERVIEW</span>
-                <span aria-hidden="true">→</span>
-              </a>
-
             </article>
 
             <article className="research-card research-brief-card">
@@ -833,11 +828,6 @@ function App() {
                 <a href={researchLinks.jpmd} target="_blank" rel="noreferrer">JPMD ↗</a>
                 <a href={researchLinks.usdc} target="_blank" rel="noreferrer">USDC ↗</a>
               </div>
-
-              <a className="research-overview-link" href={researchLinks.bankDepositOverview} target="_blank" rel="noreferrer">
-                <span>VIEW RESEARCH OVERVIEW</span>
-                <span aria-hidden="true">→</span>
-              </a>
 
             </article>
           </div>

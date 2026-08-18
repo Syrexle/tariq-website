@@ -70,10 +70,8 @@ test('research links are safe and the piece index is complete', () => {
   assert.doesNotMatch(researchSection, /<iframe/i)
 
   const externalResearchLinks = [...researchSection.matchAll(/<a[\s\S]*?href=\{researchLinks\.[a-z]+\}[\s\S]*?>/g)]
-  assert.equal(externalResearchLinks.length, 5)
+  assert.equal(externalResearchLinks.length, 4)
   for (const [link] of externalResearchLinks) assert.match(link, /target="_blank" rel="noreferrer"/)
-  assert.match(researchSection, /className="research-overview-link"/)
-  assert.match(researchSection, /VIEW RESEARCH OVERVIEW/)
   assert.match(researchSection, /className="research-file-list"/)
   const piecesBlock = mainSource.match(/const researchPieces = \[[\s\S]*?\n\]/)?.[0] ?? ''
   assert.equal(piecesBlock.match(/title:/g)?.length, 2)
