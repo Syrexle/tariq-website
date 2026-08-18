@@ -579,10 +579,6 @@ function ContentPortfolioShowcase() {
 
         <section id="social-proof" className="content-showcase-section">
           <p className="eyebrow">[ SELECTED SOCIAL CONTENT ]</p>
-          <div className="showcase-intro">
-            <h2>Three representative posts from each account.</h2>
-            <p>These examples show account-level coordination, launch content, product education, ecosystem updates, and builder-facing storytelling across crypto-native teams.</p>
-          </div>
           <div className="client-showcase-list">
             {showcaseClients.map((client, index) => (
               <article className="client-showcase-card" key={client.name}>
