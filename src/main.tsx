@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client'
 import Lenis from 'lenis'
 import { gsap } from 'gsap'
 import './styles.css'
-import { HoldingsWheel } from './components/HoldingsWheel'
 import { ImpactRail } from './components/ImpactRail'
 import { ProjectsPage } from './pages/ProjectsPage'
 import { resolveRoute } from './routes'
@@ -24,80 +23,6 @@ const socialLinks = [
   { label: 'TikTok: @tariq.waseem', href: 'https://www.tiktok.com/@tariq.waseem' },
 ]
 
-const experience = [
-  {
-    company: 'xyexle.capital',
-    category: 'Investing',
-    role: 'Founder & Digital Asset Fund Operator',
-    location: 'Atlanta, GA / Onchain',
-    dates: '2017 – Present',
-    bullets: [
-      'Run a personal digital asset fund focused on Bitcoin, financial NFT technology, memecoins, and liquid crypto opportunities across multiple market cycles.',
-      'Generated $100K+ in realized and unrealized gains using my own capital over nine years of active research, allocation, and risk management.',
-      'Built an investing track record around early narrative discovery, onchain behavior, liquidity cycles, and ecosystem-led asset formation.',
-    ],
-  },
-  {
-    company: 'CAPACITR',
-    role: 'Strategic Advisor, GTM & Liquidity Systems',
-    location: 'Atlanta, GA / Remote',
-    dates: 'May 2026 – Present',
-    bullets: [
-      'Advise on GTM, token access design, and product positioning for a Base-native signal-to-position platform spanning market discovery, x402 analysis, and trading workflows.',
-      'Built operating systems for liquidity strategy, including Hydrex vote-incentive reporting, weekly pool health dashboards, Doppler fee tracking, and sustainable incentive planning.',
-      'Created holder and ecosystem intelligence workflows that reconstruct public CAPACITR balances, enrich wallets with social/contact signals, and support respectful outreach around liquidity and app adoption.',
-      'Developed content and launch execution infrastructure across Airtable, Excalidraw, reports, alpha feedback loops, roadmap posts, token updates, and investor-facing traction narratives.',
-    ],
-  },
-  {
-    company: '40Acres Finance',
-    role: 'GTM, Growth & Marketing Lead',
-    location: 'Atlanta, GA',
-    dates: 'Nov 2025 – May 2026',
-    bullets: [
-      'Drove $5M+ in assets through OP grant campaigns, partner education, and user activation.',
-      'Led OP grants GTM strategy across borrower/lender messaging, communications, and weekly updates.',
-      'Identified and mapped target accounts across protocols, asset issuers, vault curators, and onboarded new revenue-generating collateral types to 40Acres.',
-      'Rebuilt the brand system, positioning, visual identity, and product story for institutional DeFi credit.',
-      'Wrote outreach, launch copy, tutorials, social campaigns, and technical explainers for buyer education.',
-      'Supported integration and collateral campaigns across routing venues, ve(3,3) assets, and partner ecosystems.',
-    ],
-  },
-  {
-    company: 'SCRIB3',
-    role: 'Senior Community Manager',
-    location: 'Atlanta, GA',
-    dates: 'Nov 2025 – Present',
-    bullets: [
-      'Managed a team of 5 ecosystem associates operating across 3 time zones for highly technical DeFi protocols.',
-      'Created and ran the agency\'s first-of-its-kind ecosystem operations service offering.',
-      'Handled new client onboarding calls, managed client relationships, and led ecosystem audits.',
-      'Supported clients including ReadyGG, Citrea, Spectral AI, Possum Finance, and Siren Protocol.',
-    ],
-  },
-  {
-    company: 'Revest Finance',
-    role: 'Head of Ecosystem / Business Development',
-    location: 'Atlanta, GA',
-    dates: 'Jan 2023 – Sept 2023',
-    bullets: [
-      'Owned ecosystem and investor education across Revest and Resonate products.',
-      'Expanded ecosystem visibility in collaboration with Frax Finance and GMX.',
-      'Translated vaults, yield, and structured-finance concepts into clear user and partner messaging.',
-    ],
-  },
-  {
-    company: 'Atlanta Blockchain Center',
-    role: 'Co-founder & Chief Operating Officer',
-    location: 'Atlanta, GA',
-    dates: 'May 2022 – Oct 2022',
-    bullets: [
-      'Incubated 2 startups and helped them raise a combined $1M in pre-seed capital across AI & Infrastructure sectors.',
-      'Managed socials, ecosystem operations, support, events, coworking operations, and business development.',
-      'Cultivated relationships with local teams at BitPay, Dapper Labs, CleanSpark, Coinbase Ventures, and Ledgible.',
-    ],
-  },
-]
 
 const skillGroups = [
   {
@@ -719,7 +644,6 @@ function App() {
           <a href="#research">[ RESEARCH ]</a>
           <a href="/content-portfolio/">[ CONTENT WORK ]</a>
           <a href="#ai-skills">[ AI SKILLS ]</a>
-          <a href="#experience">[ EXPERIENCE ]</a>
           <a href="#contact">[ CONTACT ]</a>
         </nav>
         <a className="mono-link hide-mobile" href={resumeHref} target="_blank" rel="noreferrer">[ RESUME PDF → ]</a>
@@ -742,7 +666,7 @@ function App() {
               {contact.map((item) => <span key={item}>{item}</span>)}
             </div>
             <div className="cta-row">
-              <a href="#experience">[ VIEW EXPERIENCE → ]</a>
+              <a href={resumeHref} target="_blank" rel="noreferrer">[ VIEW RESUME → ]</a>
               <a href="mailto:tariqawaseem@gmail.com">[ EMAIL TARIQ → ]</a>
             </div>
           </div>
@@ -951,48 +875,6 @@ function App() {
                 )}
               </article>
             ))}
-          </div>
-        </section>
-
-        <section id="experience" className="timeline-section">
-          <p className="eyebrow">[ EXPERIENCE ]</p>
-          <div className="timeline">
-            {experience.map((job) => (
-              <article className="timeline-item" key={`${job.company}-${job.dates}`}>
-                <div className="timeline-meta">
-                  <span>{job.dates}</span>
-                  <small>{job.location}</small>
-                </div>
-                <div className="timeline-content">
-                  <div className="timeline-title-row">
-                    <h3>{job.company}</h3>
-                    {'category' in job && typeof job.category === 'string' && job.category && <span>[ {job.category} ]</span>}
-                  </div>
-                  <p className="role">{job.role}</p>
-                  <ul>
-                    {job.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
-                  </ul>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="fund" className="fund-section section-grid">
-          <div>
-            <p className="eyebrow">[ XYEXLE.CAPITAL / FUND TRANSPARENCY ]</p>
-            <h2>Personal capital deployed across Bitcoin, financial NFT technology, memecoins, and liquid crypto markets since 2017.</h2>
-            <p className="fund-copy">
-              xyexle.capital is my long-running personal digital asset fund and market research vehicle. It reflects nine years of managing my own capital through cycle timing, narrative discovery, onchain liquidity, and high-conviction crypto allocations.
-            </p>
-            <div className="fund-stat-grid">
-              <div><span>$100K+</span><small>own-capital gains</small></div>
-              <div><span>9 yrs</span><small>active market history</small></div>
-              <a className="fund-email-card" href="mailto:xyexle.capital@gmail.com"><span>Email me</span><small>xyexle.capital@gmail.com</small></a>
-            </div>
-          </div>
-          <div className="holdings-panel">
-            <HoldingsWheel />
           </div>
         </section>
 
