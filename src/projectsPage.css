@@ -33,7 +33,18 @@
   height: 100%;
 }
 
+/* The standalone build loads no other stylesheet, so the base reset the main
+   site's styles.css would otherwise provide lives here too. */
+[data-page='projects'] *,
+[data-page='projects'] *::before,
+[data-page='projects'] *::after {
+  box-sizing: border-box;
+}
+
 [data-page='projects'] body {
+  margin: 0;
+  min-width: 320px;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--pp-bg);
   color: var(--pp-ink);
   display: grid;
