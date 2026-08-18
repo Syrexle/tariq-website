@@ -398,6 +398,20 @@ const showcaseClients: ShowcaseClient[] = [
     ],
   },
   {
+    name: 'Spectral AI',
+    handle: '@Spectral_Labs',
+    followers: '158.9K followers',
+    followerCount: 158900,
+    accountUrl: 'https://x.com/Spectral_Labs',
+    role: 'AI infrastructure, agent economy narratives, technical ecosystem content',
+    summary: 'Translated AI infrastructure, agent-market primitives, and protocol positioning into social content that made complex intelligence-market concepts legible for builders and crypto audiences.',
+    posts: [
+      'https://x.com/Spectral_Labs/status/1765026904913191310',
+      'https://x.com/Spectral_Labs/status/1782416124379844816',
+      'https://x.com/Spectral_Labs/status/1772660677049532563',
+    ],
+  },
+  {
     name: '40acres Finance',
     handle: '@40acres_Finance',
     followers: '1,889 followers',
@@ -523,7 +537,7 @@ function ContentPortfolioShowcase() {
           <div className="hero-copy">
             <p className="eyebrow">[ CONTENT MARKETING PORTFOLIO ]</p>
             <p className="hero-subcopy">
-              A curated sample of social campaigns, ecosystem posts, product education, and technical writing I created across eight crypto-native communities and protocols.
+              A curated sample of social campaigns, ecosystem posts, product education, and technical writing I created across nine crypto-native communities and protocols.
             </p>
             <div className="chain-context-strip" aria-label="Chains and ecosystems worked across">
               <span>Chains worked across</span>
@@ -537,8 +551,8 @@ function ContentPortfolioShowcase() {
               <p>{combinedFollowerReachExact} current followers across accounts I’ve helped market.</p>
             </div>
             <div className="contact-ribbon" aria-label="Content proof summary">
-              <span>8 client/operator contexts</span>
-              <span>24 selected X posts</span>
+              <span>9 client/operator contexts</span>
+              <span>27 selected X posts</span>
               <span>4 long-form technical pieces</span>
               <span>1 Mintlify docs system</span>
             </div>

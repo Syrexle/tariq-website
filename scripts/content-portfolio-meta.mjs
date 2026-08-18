@@ -12,10 +12,10 @@ const replacements = new Map([
   ['<title>Tariq — Visual Development Portfolio</title>', '<title>Tariq Waseem — Content Portfolio</title>'],
   ['<meta name="description" content="Visual development portfolio for prototypes, web systems, onchain dashboards, and AI-assisted product experiments by Tariq." />', '<meta name="description" content="Tariq Waseem’s crypto content portfolio: social campaigns, protocol writing, documentation, and ecosystem marketing across major chains." />'],
   ['<meta property="og:title" content="Tariq — Visual Development Portfolio" />', '<meta property="og:title" content="Tariq Waseem’s Content Portfolio" />'],
-  ['<meta property="og:description" content="Cinematic product interfaces, data-rich dashboards, and visual systems for frontier teams." />', '<meta property="og:description" content="Crypto-native social campaigns, long-form product writing, Mintlify docs, and ecosystem marketing examples across 240K+ combined follower reach." />'],
+  ['<meta property="og:description" content="Cinematic product interfaces, data-rich dashboards, and visual systems for frontier teams." />', '<meta property="og:description" content="Crypto-native social campaigns, long-form product writing, Mintlify docs, and ecosystem marketing examples across 399K+ combined follower reach." />'],
   ['<meta property="og:url" content="https://tariqwaseem.com/" />', '<meta property="og:url" content="https://tariqwaseem.com/content-portfolio/" />'],
   ['<meta name="twitter:title" content="Tariq — Visual Development Portfolio" />', '<meta name="twitter:title" content="Tariq Waseem’s Content Portfolio" />'],
-  ['<meta name="twitter:description" content="Cinematic product interfaces, data-rich dashboards, and visual systems for frontier teams." />', '<meta name="twitter:description" content="Crypto-native social campaigns, long-form product writing, Mintlify docs, and ecosystem marketing examples across 240K+ combined follower reach." />'],
+  ['<meta name="twitter:description" content="Cinematic product interfaces, data-rich dashboards, and visual systems for frontier teams." />', '<meta name="twitter:description" content="Crypto-native social campaigns, long-form product writing, Mintlify docs, and ecosystem marketing examples across 399K+ combined follower reach." />'],
 ])
 
 for (const [from, to] of replacements) {
