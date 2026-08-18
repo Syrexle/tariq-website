@@ -611,27 +611,24 @@ function ContentPortfolioShowcase() {
         <section id="longform" className="longform-section">
           <p className="eyebrow">[ TECHNICAL WRITING / 40ACRES FINANCE ]</p>
           <div className="showcase-intro">
-            <h2>Long-form product education for technical DeFi credit.</h2>
-            <p>Four long-form pieces showing the other half of the portfolio: not just posts, but deeper product narrative, mechanism explanation, yield education, and user education.</p>
+            <h2>Long-form writing.</h2>
+            <p>A concise file-list of technical product education, mechanism explainers, and user-facing DeFi writing.</p>
           </div>
-          <div className="longform-grid">
-            {longformPieces.map((piece) => (
-              <article className="longform-card" key={piece.url}>
-                <span>{piece.label}</span>
-                <h3>{piece.title}</h3>
-                <p>{piece.summary}</p>
-                <div className="substack-preview" aria-label={`${piece.title} Substack article embed`}>
-                  <span>{piece.publication ?? '40ACRES FINANCE SUBSTACK'}</span>
-                  <strong>{piece.title}</strong>
-                  <small>{piece.label}</small>
-                </div>
-                <a className="research-overview-link" href={piece.url} target="_blank" rel="noreferrer">
-                  <span>READ ON SUBSTACK</span>
-                  <span aria-hidden="true">→</span>
+          <ul className="longform-file-list" aria-label="Long-form writing links">
+            {longformPieces.map((piece, index) => (
+              <li key={piece.url}>
+                <a href={piece.url} target="_blank" rel="noreferrer">
+                  <span className="file-index">{String(index + 1).padStart(2, '0')}</span>
+                  <span className="file-main">
+                    <strong>{piece.title}</strong>
+                    <small>{piece.label}</small>
+                  </span>
+                  <span className="file-source">{piece.publication ?? '40ACRES'}</span>
+                  <span className="file-arrow" aria-hidden="true">→</span>
                 </a>
-              </article>
+              </li>
             ))}
-          </div>
+          </ul>
         </section>
 
         <section id="documentation" className="documentation-section">
