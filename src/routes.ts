@@ -1,0 +1,12 @@
+export type Route = 'home' | 'content-portfolio' | 'projects'
+
+const ROUTES: Record<string, Route> = {
+  '/content-portfolio': 'content-portfolio',
+  '/projects': 'projects',
+}
+
+/** Maps a pathname to a page, tolerating a trailing slash. Anything else is home. */
+export function resolveRoute(pathname: string): Route {
+  const normalized = pathname.replace(/\/+$/, '')
+  return ROUTES[normalized] ?? 'home'
+}

@@ -5,6 +5,8 @@ import { gsap } from 'gsap'
 import './styles.css'
 import { HoldingsWheel } from './components/HoldingsWheel'
 import { ImpactRail } from './components/ImpactRail'
+import { ProjectsPage } from './pages/ProjectsPage'
+import { resolveRoute } from './routes'
 
 const contact = ['Atlanta, GA', 'tariqawaseem@gmail.com', 'tariqw.eth']
 
@@ -682,10 +684,11 @@ function ContentPortfolioShowcase() {
 }
 
 function App() {
-  const isContentPortfolioPage = window.location.pathname.replace(/\/$/, '') === '/content-portfolio'
+  const route = resolveRoute(window.location.pathname)
+  const isHome = route === 'home'
 
   useEffect(() => {
-    if (isContentPortfolioPage) return
+    if (!isHome) return
 
     const lenis = new Lenis({ lerp: 0.08, smoothWheel: true })
     const raf = (time: number) => {
@@ -697,9 +700,10 @@ function App() {
     gsap.fromTo('.hero-copy > *', { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.12, ease: 'power3.out' })
     gsap.fromTo('.terrain-card', { scale: 0.96, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.2 })
     return () => lenis.destroy()
-  }, [isContentPortfolioPage])
+  }, [isHome])
 
-  if (isContentPortfolioPage) return <ContentPortfolioShowcase />
+  if (route === 'content-portfolio') return <ContentPortfolioShowcase />
+  if (route === 'projects') return <ProjectsPage />
 
   return (
     <>

@@ -1,0 +1,422 @@
+/* Every rule is scoped under [data-page='projects'], which the page sets on <html>
+   while it is mounted, so nothing here can reach the main site. */
+
+[data-page='projects'] {
+  --pp-bg: #030504;
+  --pp-ink: #f2eee6;
+  --pp-mute: #b6b4aa;
+  --pp-rule: rgba(242, 238, 230, 0.16);
+  --pp-action: #58e5e8;
+  --pp-frame: #3d5a4f;
+  --pp-win: #0a241c;
+  --pp-bub: rgba(10, 22, 18, 0.94);
+  --pp-t-fast: 0.15s;
+  --pp-t-enter: 0.7s;
+  --pp-t-float: 6s;
+  --pp-ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+  --pp-sheen-a: 0.34;
+  --pp-e-card: 0 24px 26px rgba(0, 0, 0, 0.6);
+  --pp-e-bub: 0 2px 12px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--pp-rule);
+  --pp-e-tip: 0 6px 20px rgba(0, 0, 0, 0.65);
+}
+
+/* Motion Primitives spring, sampled to 16 stops (stiffness 300 / damping 20).
+   The bezier above is the fallback where linear() is unsupported. */
+@supports (animation-timing-function: linear(0, 1)) {
+  [data-page='projects'] {
+    --pp-ease-enter: linear(0, .146, .44, .73, .944, 1.064, 1.106, 1.1, 1.07, 1.038, 1.012, .996, .989, .989, .991, .995, 1);
+  }
+}
+
+[data-page='projects'],
+[data-page='projects'] body {
+  height: 100%;
+}
+
+[data-page='projects'] body {
+  background: var(--pp-bg);
+  color: var(--pp-ink);
+  display: grid;
+  place-items: start center;
+  min-height: 100dvh;
+  text-align: center;
+}
+
+[data-page='projects'] ::selection {
+  background: var(--pp-action);
+  color: var(--pp-bg);
+}
+
+[data-page='projects'] :focus-visible {
+  outline: 2px solid var(--pp-action);
+  outline-offset: 2px;
+}
+
+/* styles.css sets `main { overflow: hidden }`, which would clip the bubble
+   where it reaches past the card. */
+.pp-main {
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: min(6vh, 3.5rem) 2rem 2.5rem;
+}
+
+.pp-pfp-wrap {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 0.9rem;
+  animation: pp-rise var(--pp-t-enter) var(--pp-ease-enter) both;
+}
+
+.pp-parallax {
+  will-change: transform;
+  filter: drop-shadow(var(--pp-e-card));
+}
+
+.pp-float {
+  position: relative;
+  width: fit-content;
+  animation: pp-float var(--pp-t-float) ease-in-out 1s infinite;
+  /* Declared here and not on .pp-hex: a custom property resolves its own var()
+     references on the element that declares it, and this is where the tilt hook
+     writes --gx and --gy. */
+  --pp-sheen: radial-gradient(farthest-corner circle at var(--gx, 50%) var(--gy, 40%),
+    rgba(255, 255, 255, var(--pp-sheen-a)) 0%,
+    rgba(255, 255, 255, calc(var(--pp-sheen-a) * 0.34)) 30%,
+    rgba(255, 255, 255, 0) 62%);
+}
+
+.pp-hex {
+  position: relative;
+  clip-path: url(#pp-hexclip);
+  background: linear-gradient(160deg, var(--pp-frame), #1a3a30 60%, var(--pp-frame));
+  padding: 6px;
+}
+
+.pp-win {
+  width: min(58vmin, 350px);
+  aspect-ratio: 1;
+  position: relative;
+  clip-path: url(#pp-hexclip);
+  background: var(--pp-win);
+  overflow: hidden;
+}
+
+.pp-pfp {
+  position: absolute;
+  top: 9.3%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 84%;
+  height: auto;
+  display: block;
+}
+
+/* Stands in until public/assets/pfp.png exists, so a missing file is never a
+   broken image icon. */
+.pp-monogram {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: min(16vmin, 6rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: var(--pp-action);
+  background: radial-gradient(circle at 50% 34%, rgba(88, 229, 232, 0.16), transparent 62%);
+}
+
+.pp-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: var(--go, 0);
+  background: radial-gradient(farthest-corner circle at var(--gx, 50%) var(--gy, 40%),
+    rgba(255, 255, 255, 0.75) 5%,
+    rgba(255, 255, 255, 0.25) 28%,
+    rgba(255, 255, 255, 0) 62%);
+  mix-blend-mode: soft-light;
+}
+
+/* The plate is the h1, moved onto the card rather than sitting under it, so the
+   page still has exactly one heading. */
+.pp-plate {
+  position: absolute;
+  left: 50%;
+  top: 93.3%;
+  transform: translate(-50%, -25%);
+  width: 72%;
+  margin: 0;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: clamp(0.95rem, 3vmin, 1.3rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  padding: 0.5em 0.7em;
+  white-space: nowrap;
+  display: grid;
+  place-items: center;
+  border: 2px solid #7e858e;
+  border-radius: 8px;
+  color: #23272b;
+  background:
+    var(--pp-sheen),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.13) 0 1px, rgba(17, 20, 23, 0.015) 1px 2px),
+    linear-gradient(160deg, #f2f5f8 0%, #c7ced6 28%, #8e97a2 54%, #dfe4ea 76%, #f8fafc 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -2px 3px rgba(90, 98, 108, 0.45),
+    0 3px 8px rgba(0, 0, 0, 0.45);
+}
+
+.pp-bubble {
+  position: absolute;
+  z-index: 3;
+  left: 100%;
+  top: 3%;
+  margin-left: -3.9rem;
+  width: min(16rem, calc((100vw - 100%) / 2 + 1.9rem));
+  min-height: 7.5rem;
+  display: grid;
+  align-items: center;
+  padding: 1.05rem 1.15rem;
+  text-align: left;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  border-radius: 18px;
+  background: var(--pp-bub);
+  box-shadow: var(--pp-e-bub);
+}
+
+.pp-bubble .pp-q {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.pp-bubble .pp-qt { white-space: pre-line; }
+
+.pp-bubble .pp-ts {
+  align-self: flex-end;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--pp-mute);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color var(--pp-t-fast) ease, border-color var(--pp-t-fast) ease;
+}
+
+.pp-bubble .pp-ts:hover,
+.pp-bubble .pp-ts:focus-visible {
+  color: var(--pp-ink);
+  border-bottom-color: var(--pp-action);
+}
+
+/* A spike rather than the default border triangle: at 45 degrees a base wider
+   than the reach crosses the bubble's edge and reads as a notch. */
+.pp-bubble::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-right: 40px solid var(--pp-bub);
+  left: 10px;
+  bottom: -16px;
+  transform: rotate(-45deg);
+}
+
+/* Below this there is no room beside a centred card. The bubble cannot simply
+   move under it: a flow child would make .pp-float taller, and .pp-plate sits at
+   top: 93.3% of .pp-float, so the plate would slide down onto it. */
+@media (max-width: 940px) {
+  .pp-bubble { display: none; }
+}
+
+.pp-drift {
+  max-width: 24rem;
+  margin: 0;
+  color: var(--pp-mute);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  animation: pp-rise var(--pp-t-enter) 0.18s var(--pp-ease-enter) both;
+}
+
+/* styles.css styles the bare `nav` element for the main site's header — mono,
+   uppercase, letterspaced, and muted. Reset all of it. */
+.pp-social {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--pp-ink);
+  animation: pp-rise var(--pp-t-enter) 0.22s var(--pp-ease-enter) both;
+}
+
+.pp-social a {
+  color: var(--pp-ink);
+  font-weight: 400;
+  text-decoration: none;
+  padding-bottom: 2px;
+  box-shadow: inset 0 -1px 0 var(--pp-ink);
+  transition: box-shadow var(--pp-t-fast) ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+}
+
+.pp-social a:hover,
+.pp-social a:focus-visible {
+  box-shadow: inset 0 -2px 0 var(--pp-action);
+}
+
+.pp-ico {
+  fill: currentColor;
+  flex: none;
+  width: 0.95em;
+  height: 0.95em;
+}
+
+.pp-sep {
+  user-select: none;
+  opacity: 0.55;
+  color: var(--pp-mute);
+}
+
+.pp-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  width: min(54rem, calc(100vw - 5rem));
+  text-align: left;
+  animation: pp-rise var(--pp-t-enter) 0.32s var(--pp-ease-enter) both;
+}
+
+.pp-row {
+  display: grid;
+  grid-template-columns: 4.3rem 1fr;
+  column-gap: 0.7rem;
+  align-items: baseline;
+  position: relative;
+  margin: 0;
+}
+
+.pp-label {
+  text-align: right;
+  color: var(--pp-mute);
+  font-weight: 500;
+  cursor: help;
+}
+
+.pp-label::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.5rem);
+  width: 16rem;
+  max-width: 62vw;
+  background: var(--pp-ink);
+  color: var(--pp-bg);
+  font-size: 0.74rem;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: left;
+  padding: 0.55rem 0.7rem;
+  border-radius: 9px;
+  box-shadow: var(--pp-e-tip);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--pp-t-fast) ease;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.pp-label:hover::after,
+.pp-label:focus::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* The first row has nothing above it on screen, so its tooltip opens upward. */
+.pp-projects .pp-row:first-child .pp-label::after {
+  top: auto;
+  bottom: calc(100% + 0.55rem);
+}
+
+.pp-label:focus { outline: none; }
+
+.pp-label:focus-visible {
+  outline: 2px solid var(--pp-action);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.pp-items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.55rem;
+  row-gap: 0.15rem;
+}
+
+.pp-items a {
+  color: var(--pp-ink);
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-thickness var(--pp-t-fast) ease;
+}
+
+.pp-items a:hover,
+.pp-items a:focus-visible { text-decoration-thickness: 2px; }
+
+.pp-nw { white-space: nowrap; }
+
+.pp-soon {
+  display: inline-block;
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pp-mute);
+  border: 1px solid var(--pp-rule);
+  border-radius: 999px;
+  padding: 0.14em 0.55em 0.12em;
+  margin-left: 0.38em;
+  vertical-align: 0.22em;
+}
+
+.pp-dot {
+  margin-left: 0.55rem;
+  color: var(--pp-mute);
+  user-select: none;
+}
+
+@keyframes pp-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pp-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-pfp-wrap,
+  .pp-float,
+  .pp-drift,
+  .pp-social,
+  .pp-projects { animation: none; }
+}
