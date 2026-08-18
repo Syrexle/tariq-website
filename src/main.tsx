@@ -488,7 +488,7 @@ const longformPieces = [
 ]
 
 
-const chainContexts = ['Arbitrum', 'Polygon', 'Optimism', 'Base', 'Avalanche', 'Ethereum', 'Custom L2s']
+const chainContexts = ['Arbitrum', 'Polygon', 'Optimism', 'Base', 'Avalanche', 'Ethereum']
 const platformContexts = ['X', 'Instagram', 'TikTok', 'LinkedIn', 'Telegram']
 
 const combinedFollowerReach = showcaseClients.reduce((sum, client) => sum + client.followerCount, 0)
