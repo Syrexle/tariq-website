@@ -42,7 +42,7 @@ export const socials: SocialLink[] = [
  * bubble links the date through to the post.
  */
 export const quotes: Quote[] = [
-  { text: 'good god man, i’m in the kitchen, but despite cooking, i’m eating everything' },
+  { text: 'i’m in the kitchen cooking as you can see 🐊' },
 ]
 
 export const projectGroups: ProjectGroup[] = [
