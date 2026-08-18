@@ -1,9 +1,3 @@
-export type Holding = {
-  asset: string
-  allocation: number
-  color: string
-}
-
 export type ImpactSector = {
   company: string
   focus: string
@@ -16,15 +10,6 @@ export type ImpactMilestone = {
   proofUrl?: string
   sectors?: ImpactSector[]
 }
-
-export const portfolioAsOf = 'July 19, 2026'
-
-export const holdings: Holding[] = [
-  { asset: 'BTC', allocation: 80, color: '#f5a43b' },
-  { asset: 'veAERO', allocation: 10, color: '#58e5e8' },
-  { asset: 'FLR', allocation: 5, color: '#cf6f35' },
-  { asset: 'Others', allocation: 5, color: '#9caf8d' },
-]
 
 export const impactMilestones: ImpactMilestone[] = [
   {
