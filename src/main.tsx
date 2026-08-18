@@ -406,9 +406,9 @@ const showcaseClients: ShowcaseClient[] = [
     role: 'GTM, grant activation, institutional DeFi credit education',
     summary: 'Turned a technical revenue-based lending product into launch posts, borrower/lender education, grant updates, and institutional-facing positioning.',
     posts: [
-      'https://x.com/40acres_Finance/status/1998127571909906756',
-      'https://x.com/40acres_Finance/status/1997772481172570357',
-      'https://x.com/40acres_Finance/status/2009361609563754615',
+      'https://x.com/40acres_Finance/status/2053882886944960825',
+      'https://x.com/40acres_Finance/status/2045200717804134538',
+      'https://x.com/40acres_Finance/status/2042721597388464434',
     ],
   },
   {
@@ -420,9 +420,9 @@ const showcaseClients: ShowcaseClient[] = [
     role: 'AI finance positioning, ecosystem updates, product education',
     summary: 'Built social and builder-facing content systems that package AI financial intelligence, launch updates, demos, and ecosystem narratives into public-facing momentum.',
     posts: [
-      'https://x.com/capacitr_xyz/status/2087549904507843053',
-      'https://x.com/capacitr_xyz/status/2082625731666817434',
-      'https://x.com/capacitr_xyz/status/2075982892790890722',
+      'https://x.com/capacitr_xyz/status/2076037845664289200',
+      'https://x.com/capacitr_xyz/status/2074201717751578649',
+      'https://x.com/capacitr_xyz/status/2069201265192485365',
     ],
   },
 ]
