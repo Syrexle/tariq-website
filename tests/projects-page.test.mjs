@@ -71,7 +71,7 @@ test('both project groups render every entry', () => {
     assert.ok(group.tip.length > 20, `${group.label} needs a tooltip`)
     for (const item of group.items) assert.match(item.href, /^(https:\/\/|\/#)/)
   }
-  assert.deepEqual(socials.map((social) => social.icon), ['x', 'linkedin', 'github'])
+  assert.deepEqual(socials.map((social) => social.icon), ['x', 'linkedin', 'github', 'website'])
   assert.match(pageSource, /projectGroups\.map/)
   assert.match(pageSource, /data-tip=\{group\.tip\}/)
 })

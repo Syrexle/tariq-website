@@ -1,7 +1,7 @@
 export type SocialLink = {
   label: string
   href: string
-  icon: 'x' | 'linkedin' | 'github'
+  icon: 'x' | 'linkedin' | 'github' | 'website'
 }
 
 export type Quote = {
@@ -35,6 +35,7 @@ export const socials: SocialLink[] = [
   { label: 'twitter', href: 'https://x.com/0x_Tariq', icon: 'x' },
   { label: 'linkedin', href: 'https://www.linkedin.com/in/tariqwaseem', icon: 'linkedin' },
   { label: 'github', href: 'https://github.com/Syrexle', icon: 'github' },
+  { label: 'website', href: 'https://tariqwaseem.com/', icon: 'website' },
 ]
 
 /**
