@@ -307,6 +307,7 @@ type ShowcaseClient = {
   followers: string
   followerCount: number
   accountUrl: string
+  designTools: string[]
   role: string
   summary: string
   posts: string[]
@@ -319,6 +320,7 @@ const showcaseClients: ShowcaseClient[] = [
     followers: '2,229 followers',
     followerCount: 2229,
     accountUrl: 'https://x.com/AtlantaChain',
+    designTools: ['Canva'],
     role: 'Ecosystem launch, local community, event/content operations',
     summary: 'Built early social proof for Atlanta’s Web3 hub through founder-facing education, event momentum, and community-led blockchain storytelling.',
     posts: [
@@ -333,6 +335,7 @@ const showcaseClients: ShowcaseClient[] = [
     followers: '25.8K followers',
     followerCount: 25800,
     accountUrl: 'https://x.com/RevestFinance',
+    designTools: ['Canva'],
     role: 'Ecosystem education, partner-facing content, DeFi product messaging',
     summary: 'Translated structured DeFi, yield, FNFTs, and partner narratives into social content that could educate both users and protocol collaborators.',
     posts: [
@@ -347,6 +350,7 @@ const showcaseClients: ShowcaseClient[] = [
     followers: '135.4K followers',
     followerCount: 135400,
     accountUrl: 'https://x.com/0xplay_network',
+    designTools: ['Figma'],
     role: 'Gaming infrastructure, ecosystem content, technical community campaigns',
     summary: 'Created ecosystem-facing content around modular gaming infrastructure, helping translate technical network ideas into accessible social narratives for builders, users, and partners.',
     posts: [
@@ -361,6 +365,7 @@ const showcaseClients: ShowcaseClient[] = [
     followers: '70.4K followers',
     followerCount: 70400,
     accountUrl: 'https://x.com/citrea_xyz',
+    designTools: ['Figma'],
     role: 'Bitcoin L2 ecosystem content, technical launch support, builder education',
     summary: 'Supported content and ecosystem storytelling for Bitcoin-native infrastructure, making ZK/L2 concepts clearer for technical communities and broader crypto audiences.',
     posts: [
@@ -375,6 +380,7 @@ const showcaseClients: ShowcaseClient[] = [
     followers: '1,731 followers',
     followerCount: 1731,
     accountUrl: 'https://x.com/Possum_Finance',
+    designTools: ['Canva'],
     role: 'DeFi protocol education, social content, community-facing product narratives',
     summary: 'Helped package DeFi mechanics and protocol updates into social-first educational content that could serve community members, partners, and ecosystem followers.',
     posts: [
@@ -389,6 +395,7 @@ const showcaseClients: ShowcaseClient[] = [
     followers: '1,512 followers',
     followerCount: 1512,
     accountUrl: 'https://x.com/LiquidAgentAI',
+    designTools: ['Figma', 'After Effects'],
     role: 'AI + DeFi product storytelling, content calendar, launch education',
     summary: 'Packaged an automated USDC yield product into simple “money working on autopilot” hooks across social, product education, and user-facing rollout content.',
     posts: [
@@ -403,6 +410,7 @@ const showcaseClients: ShowcaseClient[] = [
     followers: '158.9K followers',
     followerCount: 158900,
     accountUrl: 'https://x.com/Spectral_Labs',
+    designTools: ['Figma', 'After Effects'],
     role: 'AI infrastructure, agent economy narratives, technical ecosystem content',
     summary: 'Translated AI infrastructure, agent-market primitives, and protocol positioning into social content that made complex intelligence-market concepts legible for builders and crypto audiences.',
     posts: [
@@ -417,6 +425,7 @@ const showcaseClients: ShowcaseClient[] = [
     followers: '1,889 followers',
     followerCount: 1889,
     accountUrl: 'https://x.com/40acres_Finance',
+    designTools: ['Figma'],
     role: 'GTM, grant activation, institutional DeFi credit education',
     summary: 'Turned a technical revenue-based lending product into launch posts, borrower/lender education, grant updates, and institutional-facing positioning.',
     posts: [
@@ -431,6 +440,7 @@ const showcaseClients: ShowcaseClient[] = [
     followers: '1,427 followers',
     followerCount: 1427,
     accountUrl: 'https://x.com/capacitr_xyz',
+    designTools: ['Figma'],
     role: 'AI finance positioning, ecosystem updates, product education',
     summary: 'Built social and builder-facing content systems that package AI financial intelligence, launch updates, demos, and ecosystem narratives into public-facing momentum.',
     posts: [
@@ -468,10 +478,18 @@ const longformPieces = [
     publication: 'YIELDVERSE SUBSTACK',
     summary: 'Turns ETH yield strategy into approachable user-facing education: clear premise, practical hook, and a path from passive asset to productive capital.',
   },
+  {
+    title: '40acres Mintlify documentation',
+    url: 'https://docs.40acres.finance/home-page',
+    label: 'Documentation / product docs system',
+    publication: 'MINTLIFY DOCS',
+    summary: 'Structured product documentation for onboarding, protocol concepts, and self-serve user education.',
+  },
 ]
 
 
 const chainContexts = ['Arbitrum', 'Polygon', 'Optimism', 'Base', 'Avalanche', 'Ethereum', 'Custom L2s']
+const platformContexts = ['X', 'Instagram', 'TikTok', 'LinkedIn', 'Telegram']
 
 const combinedFollowerReach = showcaseClients.reduce((sum, client) => sum + client.followerCount, 0)
 const combinedFollowerReachLabel = `${Math.floor(combinedFollowerReach / 1000)}K+`
@@ -545,6 +563,12 @@ function ContentPortfolioShowcase() {
                 {chainContexts.map((chain) => <strong key={chain}>{chain}</strong>)}
               </div>
             </div>
+            <div className="chain-context-strip platform-context-strip" aria-label="Platforms worked across">
+              <span>Platforms worked across</span>
+              <div>
+                {platformContexts.map((platform) => <strong key={platform}>{platform}</strong>)}
+              </div>
+            </div>
             <div className="content-reach-counter" aria-label="Combined follower reach">
               <span>Combined follower reach</span>
               <strong>
@@ -585,9 +609,16 @@ function ContentPortfolioShowcase() {
                 <div className="client-showcase-header">
                   <div className="client-showcase-meta">
                     <span>{String(index + 1).padStart(2, '0')}</span>
-                    <div className="client-follow-block">
-                      <strong>{client.followers}</strong>
-                      <a href={client.accountUrl} target="_blank" rel="noreferrer">{client.handle}</a>
+                    <div className="client-meta-row">
+                      <div className="client-follow-block">
+                        <strong>{client.followers}</strong>
+                        <a href={client.accountUrl} target="_blank" rel="noreferrer">{client.handle}</a>
+                      </div>
+                      <div className="design-tool-tags" aria-label={`${client.name} design tools`}>
+                        {client.designTools.map((tool) => (
+                          <strong className={`design-tool-tag design-tool-tag-${tool.toLowerCase().replace(/\s+/g, '-')}`} key={tool}>{tool}</strong>
+                        ))}
+                      </div>
                     </div>
                   </div>
                   <div className="client-showcase-copy">
@@ -607,8 +638,8 @@ function ContentPortfolioShowcase() {
         <section id="longform" className="longform-section">
           <p className="eyebrow">[ TECHNICAL WRITING / 40ACRES FINANCE ]</p>
           <div className="showcase-intro">
-            <h2>Long-form writing.</h2>
-            <p>A concise file-list of technical product education, mechanism explainers, and user-facing DeFi writing.</p>
+            <h2>Long-form writing & docs.</h2>
+            <p>A concise file-list of technical product education, mechanism explainers, documentation, and user-facing DeFi writing.</p>
           </div>
           <ul className="longform-file-list" aria-label="Long-form writing links">
             {longformPieces.map((piece, index) => (

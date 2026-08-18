@@ -541,9 +541,44 @@ footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.25
 .client-showcase-header { display: grid; grid-template-columns: minmax(12rem, .34fr) minmax(0, 1fr); gap: 1px; background: var(--line); }
 .client-showcase-meta, .client-showcase-copy, .tweet-grid { background: rgba(3,5,4,.78); }
 .client-showcase-meta { display: flex; flex-direction: column; justify-content: space-between; gap: 1.2rem; padding: 1.25rem; }
-.client-showcase-meta span { color: var(--amber); font-size: 1rem; }
+.client-showcase-meta > span { color: var(--amber); font-size: 1rem; }
 .client-showcase-meta a { color: var(--cyan); overflow-wrap: anywhere; }
 .client-showcase-meta a:hover { color: var(--cream); }
+.client-meta-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: .9rem;
+}
+.design-tool-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: .4rem;
+}
+.design-tool-tag {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(242,238,230,.18);
+  background: rgba(242,238,230,.045);
+  color: var(--sage);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .58rem;
+  line-height: 1;
+  letter-spacing: .08em;
+  padding: .38rem .46rem;
+  white-space: nowrap;
+}
+.design-tool-tag-figma {
+  border-color: rgba(245,164,59,.5);
+  background: rgba(245,164,59,.11);
+  color: var(--amber);
+}
+.design-tool-tag-canva {
+  border-color: rgba(88,229,232,.5);
+  background: rgba(88,229,232,.105);
+  color: var(--cyan);
+}
 .client-showcase-copy { padding: clamp(1.25rem, 2.6vw, 2rem); }
 .client-showcase-copy h3 { font-size: clamp(2.35rem, 4vw, 4.8rem); }
 .client-showcase-copy > p:not(.role) { max-width: 58rem; color: rgba(242,238,230,.78); line-height: 1.7; margin: 0; }
@@ -617,6 +652,7 @@ footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.25
   gap: .65rem;
   margin: 1.15rem 0 .85rem;
 }
+.platform-context-strip { margin-top: .65rem; }
 .chain-context-strip > span {
   color: var(--sage);
   font-family: 'IBM Plex Mono', monospace;
