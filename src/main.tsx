@@ -654,9 +654,9 @@ function App() {
           <a href="#impact">[ IMPACT ]</a>
           <a href="#projects">[ PROJECTS ]</a>
           <a href="#research">[ RESEARCH ]</a>
-          <a href="/content-portfolio/">[ CONTENT WORK ]</a>
           <a href="#ai-skills">[ AI SKILLS ]</a>
           <a href="#contact">[ CONTACT ]</a>
+          <a href="/content-portfolio/">[ CONTENT-PORTFOLIO ]</a>
         </nav>
         <a className="mono-link hide-mobile" href={resumeHref} target="_blank" rel="noreferrer">[ RESUME PDF → ]</a>
       </header>
