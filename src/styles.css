@@ -645,7 +645,7 @@ footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.25
   background: linear-gradient(135deg, rgba(88,229,232,.105), rgba(245,164,59,.055));
   box-shadow: 0 0 32px rgba(88,229,232,.08);
 }
-.content-reach-counter span, .content-reach-counter p {
+.content-reach-counter > span, .content-reach-counter p {
   margin: 0;
   color: var(--sage);
   font-family: 'IBM Plex Mono', monospace;
@@ -654,13 +654,20 @@ footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.25
   font-size: .66rem;
 }
 .content-reach-counter strong {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .02em;
   color: var(--cyan);
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(3.2rem, 6vw, 6.8rem);
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'lnum' 1;
   line-height: .86;
   transform: translateY(-0.08em);
   text-shadow: 0 0 24px rgba(88,229,232,.28);
 }
+.reach-counter-digits { transform: translateY(-0.04em); }
+.reach-counter-suffix { line-height: 1; }
 .content-reach-counter p { max-width: 28rem; color: rgba(242,238,230,.74); line-height: 1.45; }
 .client-follow-block { display: grid; gap: .35rem; }
 .client-follow-block strong {

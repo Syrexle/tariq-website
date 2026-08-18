@@ -547,7 +547,10 @@ function ContentPortfolioShowcase() {
             </div>
             <div className="content-reach-counter" aria-label="Combined follower reach">
               <span>Combined follower reach</span>
-              <strong>{combinedFollowerReachLabel}</strong>
+              <strong>
+                <span className="reach-counter-digits">{combinedFollowerReachLabel.replace(/K\+$/, '')}</span>
+                <span className="reach-counter-suffix">K+</span>
+              </strong>
               <p>{combinedFollowerReachExact} current followers across accounts I’ve helped market.</p>
             </div>
             <div className="contact-ribbon" aria-label="Content proof summary">
