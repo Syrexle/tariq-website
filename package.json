@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "test": "node --test tests/*.test.mjs",
-    "build": "tsc -b && vite build && cp dist/index.html dist/404.html",
+    "build": "tsc -b && vite build && cp dist/index.html dist/404.html && mkdir -p dist/bankr-content && cp dist/index.html dist/bankr-content/index.html",
     "preview": "vite preview --host 127.0.0.1",
     "deploy": "npm run build && gh-pages -d dist"
   },
