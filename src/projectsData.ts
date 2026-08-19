@@ -70,9 +70,9 @@ export const projectGroups: ProjectGroup[] = [
     tip: 'Agent skills I wrote to do research, tracing, and outbound work repeatably.',
     items: [
       { name: 'Excalidraw This', href: 'https://docs.google.com/document/d/1J3cGuCIVG7rxaq-smeYUNlTI1MGIBajgUIefQ3t4eqU/edit?tab=t.0' },
-      { name: 'Onchain Transaction Tracing', href: '/#ai-skills' },
-      { name: 'Lock Voting Performance', href: '/#ai-skills' },
-      { name: 'Cold DM Research', href: '/#ai-skills' },
+      { name: 'Onchain Transaction Tracing', href: 'https://tariqwaseem.com/#ai-skills' },
+      { name: 'Lock Voting Performance', href: 'https://tariqwaseem.com/#ai-skills' },
+      { name: 'Cold DM Research', href: 'https://tariqwaseem.com/#ai-skills' },
     ],
   },
 ]
