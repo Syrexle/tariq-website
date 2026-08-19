@@ -62,6 +62,7 @@ export const projectGroups: ProjectGroup[] = [
     items: [
       { name: 'tradeLead AI', href: 'https://tradelead-ai.vercel.app/' },
       { name: 'Tweetframe', href: 'https://tweet-frame-print.vercel.app/' },
+      { name: 'url-bundler', href: 'https://url-bundler.vercel.app/' },
     ],
   },
   {
