@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import '../projectsPage.css'
+import { Butterfly } from '../components/Butterfly'
+import { Garden } from '../components/Garden'
 import { useTiltParallax } from '../useTiltParallax'
 import { profile, projectGroups, quotes, socials, type SocialLink } from '../projectsData'
 
@@ -49,6 +51,9 @@ export function ProjectsPage() {
           </clipPath>
         </defs>
       </svg>
+
+      <Garden />
+      <Butterfly />
 
       <main className="pp-main">
         <div className="pp-pfp-wrap">
