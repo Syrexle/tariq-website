@@ -45,8 +45,35 @@ export function stepButterfly(state: ButterflyState, targetX: number, targetY: n
   }
 }
 
+export type RestSpot = { x: number; y: number }
+
+/** How close counts as landed. */
+export const LANDED = 6
+
 /**
- * Where the butterfly drifts with no pointer to follow. Two periods that do not
+ * Which flower to make for. The nearest one keeps the flight short and readable
+ * rather than sending the butterfly across the whole page to a far corner.
+ */
+export function pickRestSpot(x: number, y: number, spots: RestSpot[]): RestSpot | null {
+  let best: RestSpot | null = null
+  let bestDistance = Infinity
+  for (const spot of spots) {
+    const distance = Math.hypot(spot.x - x, spot.y - y)
+    if (distance < bestDistance) {
+      bestDistance = distance
+      best = spot
+    }
+  }
+  return best
+}
+
+/** Eases a heading back to upright, for a butterfly settling onto a bloom. */
+export function settleAngle(angle: number, rate = 0.08): number {
+  return angle + angleDelta(angle, 0) * rate
+}
+
+/**
+ * Fallback drift, used only when there is no garden to land in. Two periods that do not
  * divide evenly, so the path never visibly loops.
  */
 export function wanderTarget(now: number, width: number, height: number) {

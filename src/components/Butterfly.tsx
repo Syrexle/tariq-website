@@ -1,5 +1,13 @@
 import { useEffect, useRef } from 'react'
-import { createButterflyState, stepButterfly, wanderTarget } from '../butterflyMotion'
+import {
+  LANDED,
+  createButterflyState,
+  pickRestSpot,
+  settleAngle,
+  stepButterfly,
+  wanderTarget,
+  type RestSpot,
+} from '../butterflyMotion'
 
 /**
  * A butterfly that trails the cursor. It never quite catches up, banks into its
@@ -16,6 +24,11 @@ export function Butterfly() {
     const el = ref.current
     if (!el) return
 
+    // How long a still cursor waits before the butterfly gives up and lands.
+    const IDLE_MS = 2200
+    let pointerX = 0
+    let pointerY = 0
+
     let state = createButterflyState(window.innerWidth * 0.5, window.innerHeight * 0.55)
     let targetX = state.x
     let targetY = state.y
@@ -23,17 +36,56 @@ export function Butterfly() {
     const wanderPhase = Math.random() * 1000
     let hasPointer = false
     let idleSince = performance.now()
+    let restSpot: RestSpot | null = null
+    let landed = false
+
+    // Read the blooms from the DOM rather than duplicating the garden's layout, so
+    // this stays right through resizes and the stems' sway.
+    const blooms = (): RestSpot[] =>
+      [...document.querySelectorAll('.pp-garden .pp-petals')].map((petals) => {
+        const box = petals.getBoundingClientRect()
+        // Perch just above the bloom rather than sitting inside it.
+        return { x: box.left + box.width / 2, y: box.top + box.height / 2 - 7 }
+      })
+
+    const setLanded = (value: boolean) => {
+      if (landed === value) return
+      landed = value
+      el.classList.toggle('is-resting', value)
+    }
 
     const tick = (now: number) => {
-      // A cursor that has sat still for a moment hands control back to the wander,
-      // so the butterfly keeps living instead of parking on the pointer.
-      if (!hasPointer || now - idleSince > 2600) {
-        const drift = wanderTarget(now + wanderPhase, window.innerWidth, window.innerHeight)
-        targetX = drift.x
-        targetY = drift.y
+      const idle = !hasPointer || now - idleSince > IDLE_MS
+
+      if (idle) {
+        if (!restSpot) restSpot = pickRestSpot(state.x, state.y, blooms())
+        if (restSpot) {
+          targetX = restSpot.x
+          targetY = restSpot.y
+        } else {
+          // No garden to land in; fall back to drifting.
+          const drift = wanderTarget(now + wanderPhase, window.innerWidth, window.innerHeight)
+          targetX = drift.x
+          targetY = drift.y
+        }
+      } else {
+        restSpot = null
+        setLanded(false)
+        targetX = pointerX
+        targetY = pointerY
       }
 
       state = stepButterfly(state, targetX, targetY)
+
+      if (restSpot && Math.hypot(restSpot.x - state.x, restSpot.y - state.y) < LANDED) {
+        setLanded(true)
+      }
+
+      if (landed) {
+        // Perched: fold upright and breathe, instead of holding a banked pose.
+        state = { ...state, angle: settleAngle(state.angle), bank: state.bank * 0.9 }
+        state.y += Math.sin(now * 0.0022) * 1.1
+      }
 
       el.style.transform =
         `translate3d(${state.x.toFixed(1)}px, ${state.y.toFixed(1)}px, 0)` +
@@ -46,8 +98,8 @@ export function Butterfly() {
     const onPointerMove = (event: PointerEvent) => {
       hasPointer = true
       idleSince = performance.now()
-      targetX = event.clientX
-      targetY = event.clientY
+      pointerX = event.clientX
+      pointerY = event.clientY
     }
 
     window.addEventListener('pointermove', onPointerMove, { passive: true })

@@ -2,8 +2,11 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import {
+  LANDED,
   angleDelta,
   createButterflyState,
+  pickRestSpot,
+  settleAngle,
   stepButterfly,
   wanderTarget,
 } from '../src/butterflyMotion.ts'
@@ -87,4 +90,53 @@ test('the garden is decorative and inert', () => {
   assert.match(page, /<Butterfly \/>/)
   const reduced = styles.match(/@media \(prefers-reduced-motion: reduce\) \{([\s\S]*?)\n\}/g).join('\n')
   assert.match(reduced, /pp-grass span/)
+})
+
+test('it makes for the nearest bloom rather than the far side of the garden', () => {
+  const blooms = [
+    { x: 60, y: 700 },
+    { x: 640, y: 690 },
+    { x: 1220, y: 705 },
+  ]
+  assert.deepEqual(pickRestSpot(80, 400, blooms), blooms[0])
+  assert.deepEqual(pickRestSpot(600, 300, blooms), blooms[1])
+  assert.deepEqual(pickRestSpot(1200, 200, blooms), blooms[2])
+  assert.equal(pickRestSpot(0, 0, []), null, 'no garden means nothing to land on')
+})
+
+test('it actually reaches the bloom it picked', () => {
+  const bloom = { x: 640, y: 690 }
+  let state = createButterflyState(120, 180)
+  let frames = 0
+  while (Math.hypot(bloom.x - state.x, bloom.y - state.y) >= LANDED && frames < 600) {
+    state = stepButterfly(state, bloom.x, bloom.y)
+    frames++
+  }
+  assert.ok(frames < 600, 'should land within a reasonable flight')
+  assert.ok(Math.hypot(bloom.x - state.x, bloom.y - state.y) < LANDED)
+})
+
+test('a landed butterfly folds upright', () => {
+  let angle = Math.PI / 2
+  for (let i = 0; i < 200; i++) angle = settleAngle(angle)
+  assert.ok(Math.abs(angle) < 0.05, `expected upright, got ${angle}`)
+
+  // And it settles from the other direction too, without spinning the long way.
+  let other = -2.6
+  for (let i = 0; i < 200; i++) other = settleAngle(other)
+  assert.ok(Math.abs(other) < 0.05, `expected upright, got ${other}`)
+})
+
+test('the resting pose is wired to a class the component toggles', () => {
+  assert.match(styles, /\.pp-butterfly\.is-resting \.pp-wing \{[^}]*animation-duration/)
+  assert.match(component, /classList\.toggle\('is-resting'/)
+  assert.match(component, /pickRestSpot/)
+  // Landing is the idle behaviour; drifting is only the no-garden fallback.
+  const idleBranch = component.match(/if \(idle\) \{([\s\S]*?)\n      \} else \{/)?.[1] ?? ''
+  assert.match(idleBranch, /pickRestSpot/)
+  assert.ok(
+    idleBranch.indexOf('pickRestSpot') < idleBranch.indexOf('wanderTarget'),
+    'a bloom should be preferred over drifting',
+  )
+  assert.match(idleBranch, /No garden to land in/)
 })

@@ -469,6 +469,10 @@
   50% { transform: scaleX(0.26) skewY(-7deg); }
 }
 
+/* Perched on a bloom: wings idle slowly instead of beating for flight. */
+.pp-butterfly.is-resting .pp-wing { animation-duration: 2.4s; }
+.pp-butterfly.is-resting { filter: drop-shadow(0 3px 7px rgba(0, 0, 0, 0.5)); }
+
 @keyframes pp-flap-r {
   0%, 100% { transform: scaleX(-1) skewY(0deg); }
   50% { transform: scaleX(-0.26) skewY(7deg); }
