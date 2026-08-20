@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react'
 import {
   LANDED,
   createButterflyState,
-  pickRestSpot,
   settleAngle,
   stepButterfly,
   wanderTarget,
@@ -39,14 +38,15 @@ export function Butterfly() {
     let restSpot: RestSpot | null = null
     let landed = false
 
-    // Read the blooms from the DOM rather than duplicating the garden's layout, so
-    // this stays right through resizes and the stems' sway.
-    const blooms = (): RestSpot[] =>
-      [...document.querySelectorAll('.pp-garden .pp-petals')].map((petals) => {
-        const box = petals.getBoundingClientRect()
-        // Perch just above the bloom rather than sitting inside it.
-        return { x: box.left + box.width / 2, y: box.top + box.height / 2 - 7 }
-      })
+    // The nameplate is read live rather than measured once: it floats and tilts, so
+    // a perched butterfly has to ride it instead of hovering where it used to be.
+    const perch = (): RestSpot | null => {
+      const plate = document.querySelector('.pp-plate')
+      if (!plate) return null
+      const box = plate.getBoundingClientRect()
+      // Sit on the top edge rather than in the middle of the key.
+      return { x: box.left + box.width / 2, y: box.top - 9 }
+    }
 
     const setLanded = (value: boolean) => {
       if (landed === value) return
@@ -58,12 +58,12 @@ export function Butterfly() {
       const idle = !hasPointer || now - idleSince > IDLE_MS
 
       if (idle) {
-        if (!restSpot) restSpot = pickRestSpot(state.x, state.y, blooms())
+        restSpot = perch()
         if (restSpot) {
           targetX = restSpot.x
           targetY = restSpot.y
         } else {
-          // No garden to land in; fall back to drifting.
+          // No nameplate to land on; fall back to drifting.
           const drift = wanderTarget(now + wanderPhase, window.innerWidth, window.innerHeight)
           targetX = drift.x
           targetY = drift.y
@@ -81,10 +81,15 @@ export function Butterfly() {
         setLanded(true)
       }
 
-      if (landed) {
-        // Perched: fold upright and breathe, instead of holding a banked pose.
-        state = { ...state, angle: settleAngle(state.angle), bank: state.bank * 0.9 }
-        state.y += Math.sin(now * 0.0022) * 1.1
+      if (landed && restSpot) {
+        // Perched: ride the plate exactly, fold upright, and breathe.
+        state = {
+          ...state,
+          x: restSpot.x,
+          y: restSpot.y + Math.sin(now * 0.0022) * 1.1,
+          angle: settleAngle(state.angle),
+          bank: state.bank * 0.9,
+        }
       }
 
       el.style.transform =

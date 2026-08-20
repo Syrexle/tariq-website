@@ -5,7 +5,6 @@ import {
   LANDED,
   angleDelta,
   createButterflyState,
-  pickRestSpot,
   settleAngle,
   stepButterfly,
   wanderTarget,
@@ -92,20 +91,8 @@ test('the garden is decorative and inert', () => {
   assert.match(reduced, /pp-grass span/)
 })
 
-test('it makes for the nearest bloom rather than the far side of the garden', () => {
-  const blooms = [
-    { x: 60, y: 700 },
-    { x: 640, y: 690 },
-    { x: 1220, y: 705 },
-  ]
-  assert.deepEqual(pickRestSpot(80, 400, blooms), blooms[0])
-  assert.deepEqual(pickRestSpot(600, 300, blooms), blooms[1])
-  assert.deepEqual(pickRestSpot(1200, 200, blooms), blooms[2])
-  assert.equal(pickRestSpot(0, 0, []), null, 'no garden means nothing to land on')
-})
-
-test('it actually reaches the bloom it picked', () => {
-  const bloom = { x: 640, y: 690 }
+test('it actually reaches the perch it aimed for', () => {
+  const bloom = { x: 640, y: 300 }
   let state = createButterflyState(120, 180)
   let frames = 0
   while (Math.hypot(bloom.x - state.x, bloom.y - state.y) >= LANDED && frames < 600) {
@@ -130,13 +117,22 @@ test('a landed butterfly folds upright', () => {
 test('the resting pose is wired to a class the component toggles', () => {
   assert.match(styles, /\.pp-butterfly\.is-resting \.pp-wing \{[^}]*animation-duration/)
   assert.match(component, /classList\.toggle\('is-resting'/)
-  assert.match(component, /pickRestSpot/)
+  assert.match(component, /const perch = /)
   // Landing is the idle behaviour; drifting is only the no-garden fallback.
   const idleBranch = component.match(/if \(idle\) \{([\s\S]*?)\n      \} else \{/)?.[1] ?? ''
-  assert.match(idleBranch, /pickRestSpot/)
+  assert.match(idleBranch, /restSpot = perch\(\)/)
   assert.ok(
-    idleBranch.indexOf('pickRestSpot') < idleBranch.indexOf('wanderTarget'),
-    'a bloom should be preferred over drifting',
+    idleBranch.indexOf('perch()') < idleBranch.indexOf('wanderTarget'),
+    'the nameplate should be preferred over drifting',
   )
-  assert.match(idleBranch, /No garden to land in/)
+  assert.match(idleBranch, /No nameplate to land on/)
+})
+
+test('the perch is measured every frame so it rides the floating plate', () => {
+  // Measuring once would leave the butterfly hovering where the plate used to be.
+  assert.match(component, /const perch = \(\): RestSpot \| null =>/)
+  assert.match(component, /querySelector\('\.pp-plate'\)/)
+  assert.match(component, /restSpot = perch\(\)/)
+  assert.match(component, /x: restSpot\.x,\n\s*y: restSpot\.y \+ Math\.sin/)
+  assert.doesNotMatch(component, /pp-petals/, 'the garden is no longer the perch')
 })
