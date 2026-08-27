@@ -347,22 +347,6 @@
     transform 0.24s ease;
 }
 
-.pp-website-menu::after {
-  content: '';
-  position: absolute;
-  right: calc(100% - 3.3rem);
-  top: 50%;
-  width: 1px;
-  height: calc(100% - 1.1rem);
-  background: var(--pp-action);
-  transform: translateY(-50%) scaleY(0);
-  transform-origin: center center;
-  opacity: 0;
-  transition:
-    opacity var(--pp-t-fast) ease 0.08s,
-    transform 0.2s ease 0.08s;
-}
-
 .pp-social-item:hover .pp-website-menu,
 .pp-social-item:focus-within .pp-website-menu {
   opacity: 1;
@@ -375,12 +359,6 @@
 .pp-social-item:focus-within .pp-website-menu::before {
   opacity: 1;
   transform: translateY(-50%) scaleX(1);
-}
-
-.pp-social-item:hover .pp-website-menu::after,
-.pp-social-item:focus-within .pp-website-menu::after {
-  opacity: 0.75;
-  transform: translateY(-50%) scaleY(1);
 }
 
 .pp-website-menu a {
