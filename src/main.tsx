@@ -356,6 +356,13 @@ const longformPieces = [
     label: 'Documentation / product docs system',
     publication: 'MINTLIFY DOCS',
     summary: 'Structured product documentation for onboarding, protocol concepts, and self-serve user education.',
+    // The docs send x-frame-options: DENY, so this is a captured screenshot rather
+    // than a live embed.
+    preview: {
+      src: '/assets/40acres-docs.webp',
+      alt: '40acres documentation home page: sidebar navigation and the 40 Acres Finance introduction',
+      host: 'docs.40acres.finance',
+    },
   },
 ]
 
@@ -627,6 +634,18 @@ function ContentPortfolioShowcase() {
                   <span className="file-source">{piece.publication ?? '40ACRES'}</span>
                   <span className="file-arrow" aria-hidden="true">→</span>
                 </a>
+                {'preview' in piece && piece.preview && (
+                  <figure className="longform-preview">
+                    <a href={piece.url} target="_blank" rel="noreferrer">
+                      <span className="longform-preview-chrome" aria-hidden="true">
+                        <i /><i /><i />
+                        <code>{piece.preview.host}</code>
+                      </span>
+                      <img src={piece.preview.src} alt={piece.preview.alt} loading="lazy" width="1600" height="860" />
+                    </a>
+                    <figcaption>Preview of the live documentation — opens {piece.preview.host}</figcaption>
+                  </figure>
+                )}
               </li>
             ))}
           </ul>
