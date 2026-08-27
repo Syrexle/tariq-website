@@ -12,8 +12,6 @@ const contact = ['Atlanta, GA', 'tariqawaseem@gmail.com', 'tariqw.eth']
 const socialLinks = [
   { label: 'X: @0x_Tariq', href: 'https://x.com/0x_Tariq' },
   { label: 'LinkedIn: @tariqwaseem', href: 'https://www.linkedin.com/in/tariqwaseem' },
-  { label: 'Instagram: @yvs.tariq', href: 'https://www.instagram.com/yvs.tariq' },
-  { label: 'TikTok: @tariq.waseem', href: 'https://www.tiktok.com/@tariq.waseem' },
 ]
 
 
@@ -363,7 +361,7 @@ const longformPieces = [
 
 
 const chainContexts = ['Arbitrum', 'Polygon', 'Optimism', 'Base', 'Avalanche', 'Ethereum']
-const platformContexts = ['X', 'Instagram', 'TikTok', 'LinkedIn', 'Telegram']
+const platformContexts = ['X', 'LinkedIn', 'Telegram']
 
 const combinedFollowerReach = showcaseClients.reduce((sum, client) => sum + client.followerCount, 0)
 const combinedFollowerReachLabel = `${Math.floor(combinedFollowerReach / 1000)}K+`
