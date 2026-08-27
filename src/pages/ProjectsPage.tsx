@@ -30,6 +30,11 @@ const monogram = profile.name
   .slice(0, 2)
   .toUpperCase()
 
+const websiteLinks = [
+  { label: 'main portfolio', href: 'https://tariqwaseem.com/content-portfolio/' },
+  { label: 'growth portfolio', href: 'https://tariqwaseem.com/growth-portfolio/' },
+]
+
 export function ProjectsPage() {
   const { parallaxRef, floatRef } = useTiltParallax()
   const [avatarFailed, setAvatarFailed] = useState(false)
@@ -103,14 +108,29 @@ export function ProjectsPage() {
 
         <nav className="pp-social" aria-label="social links">
           {socials.map((social, index) => (
-            <span key={social.href} style={{ display: 'contents' }}>
+            <span className="pp-social-item" key={social.href}>
               {index > 0 && <span className="pp-sep" aria-hidden="true">✦</span>}
-              <a href={social.href} target="_blank" rel="noreferrer">
+              <a
+                className="pp-social-link"
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-haspopup={social.icon === 'website' ? 'true' : undefined}
+              >
                 <svg className="pp-ico" viewBox="0 0 24 24" aria-hidden="true">
                   {ICONS[social.icon]}
                 </svg>
                 {social.label}
               </a>
+              {social.icon === 'website' && (
+                <span className="pp-website-menu" role="menu" aria-label="website pages">
+                  {websiteLinks.map((link) => (
+                    <a key={link.href} role="menuitem" href={link.href} target="_blank" rel="noreferrer">
+                      {link.label}
+                    </a>
+                  ))}
+                </span>
+              )}
             </span>
           ))}
         </nav>
