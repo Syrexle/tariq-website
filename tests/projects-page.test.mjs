@@ -3,7 +3,6 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { resolveRoute } from '../src/routes.ts'
 import { buildRouteHtml, routes } from '../scripts/route-meta.mjs'
-import { projectGroups, socials } from '../src/projectsData.ts'
 
 const read = (path) => readFileSync(path, 'utf8')
 const mainSource = read('src/main.tsx')
@@ -11,6 +10,9 @@ const pageSource = read('src/pages/ProjectsPage.tsx')
 const pageStyles = read('src/projectsPage.css')
 const tiltSource = read('src/useTiltParallax.ts')
 const indexHtml = read('index.html')
+// projectsData is .tsx since it embeds JSX, which node cannot import, so it is
+// asserted as source text like the rest of this suite.
+const data = read('src/projectsData.tsx')
 
 test('the projects route resolves with or without a trailing slash', () => {
   assert.equal(resolveRoute('/projects'), 'projects')
@@ -71,13 +73,20 @@ test('page styles cannot reach the rest of the site', () => {
 })
 
 test('both project groups render every entry', () => {
-  assert.deepEqual(projectGroups.map((group) => group.label), ['on-chain', 'off-chain', 'skills'])
-  assert.deepEqual(projectGroups.map((group) => group.items.length), [3, 3, 4])
-  for (const group of projectGroups) {
+  const groups = [...data.matchAll(/label: '([^']+)',\n\s*tip: '([^']+)',\n\s*items: \[([\s\S]*?)\n    \],/g)]
+    .map(([, label, tip, items]) => ({ label, tip, hrefs: [...items.matchAll(/href: '([^']+)'/g)].map((m) => m[1]) }))
+
+  assert.deepEqual(groups.map((g) => g.label), ['on-chain', 'off-chain', 'skills'])
+  assert.deepEqual(groups.map((g) => g.hrefs.length), [3, 3, 4])
+  for (const group of groups) {
     assert.ok(group.tip.length > 20, `${group.label} needs a tooltip`)
-    for (const item of group.items) assert.match(item.href, /^(https:\/\/|\/#)/)
+    for (const href of group.hrefs) assert.match(href, /^https:\/\//, 'links must be absolute')
   }
-  assert.deepEqual(socials.map((social) => social.icon), ['x', 'linkedin', 'github', 'website'])
+
+  // Scoped to the array: the type union above it lists the same names.
+  const socialsBlock = data.match(/export const socials: SocialLink\[\] = \[([\s\S]*?)\n\]/)?.[1] ?? ''
+  const icons = [...socialsBlock.matchAll(/icon: '([a-z]+)'/g)].map((m) => m[1])
+  assert.deepEqual(icons, ['x', 'linkedin', 'github', 'website'])
   assert.match(pageSource, /projectGroups\.map/)
   assert.match(pageSource, /data-tip=\{group\.tip\}/)
 })
