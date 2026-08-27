@@ -31,8 +31,8 @@ const monogram = profile.name
   .toUpperCase()
 
 const websiteLinks = [
-  { label: 'main portfolio', href: 'https://tariqwaseem.com/content-portfolio/' },
-  { label: 'growth portfolio', href: 'https://tariqwaseem.com/growth-portfolio/' },
+  { label: 'content', href: 'https://tariqwaseem.com/content-portfolio/' },
+  { label: 'growth', href: 'https://tariqwaseem.com/growth-portfolio/' },
 ]
 
 export function ProjectsPage() {
