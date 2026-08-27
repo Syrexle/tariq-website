@@ -518,7 +518,6 @@ function ContentPortfolioShowcase() {
           <span>Tariq Waseem</span>
         </a>
         <nav aria-label="Content portfolio navigation">
-          <a href="#growth">[ GROWTH ]</a>
           <a href="#social-proof">[ SOCIAL PROOF ]</a>
           <a href="#longform">[ LONGFORM ]</a>
           <a href="/">[ MAIN SITE ]</a>
@@ -574,95 +573,6 @@ function ContentPortfolioShowcase() {
               <li>Comfortable with memetic social energy and serious DeFi education.</li>
             </ul>
           </aside>
-        </section>
-
-        <section id="growth" className="growth-section">
-          <p className="eyebrow">[ GROWTH / OUTCOMES ]</p>
-          <div className="research-intro">
-            <h2>What the content was in service of.</h2>
-            <p>Reach is the top of a funnel, not the result. These are the outcomes the campaigns, docs, and incentive programs were measured against.</p>
-          </div>
-
-          <div className="growth-outcome-grid">
-            {growthOutcomes.map((item) => (
-              <div className="growth-outcome" key={item.label}>
-                <strong>{item.value}</strong>
-                <span>{item.label}</span>
-                <small>{item.sub}</small>
-              </div>
-            ))}
-          </div>
-
-          <div className="growth-funnel" aria-label="Funnel stages owned">
-            {funnelStages.map((stage) => (
-              <article className="growth-funnel-stage" key={stage.stage}>
-                <span className="growth-stage-label">{stage.stage}</span>
-                <p className="growth-stage-owned">{stage.owned}</p>
-                <p className="growth-stage-evidence">{stage.evidence}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="case-studies" className="growth-section growth-cases">
-          <p className="eyebrow">[ CASE STUDIES ]</p>
-          <div className="growth-case-grid">
-            {growthCaseStudies.map((study) => (
-              <article className="growth-case" key={study.id}>
-                <span className="growth-case-org">{study.org}</span>
-                <h3>{study.title}</h3>
-                <dl>
-                  <div><dt>Context</dt><dd>{study.context}</dd></div>
-                  <div><dt>Constraint</dt><dd>{study.constraint}</dd></div>
-                  <div><dt>Hypothesis</dt><dd>{study.hypothesis}</dd></div>
-                  <div>
-                    <dt>What I did</dt>
-                    <dd>
-                      <ul>{study.intervention.map((step) => <li key={step}>{step}</li>)}</ul>
-                    </dd>
-                  </div>
-                  <div><dt>Result</dt><dd className="growth-case-result">{study.result}</dd></div>
-                  <div><dt>What generalizes</dt><dd>{study.generalizes}</dd></div>
-                </dl>
-                {study.needsInput && (
-                  <p className="growth-needs-input">[ NEEDS YOUR INPUT ] {study.needsInput}</p>
-                )}
-              </article>
-            ))}
-          </div>
-
-          <div className="growth-experiments">
-            <h3>Experiment log</h3>
-            <div className="growth-table-scroll">
-              <table>
-                <thead>
-                  <tr><th>Hypothesis</th><th>Channel</th><th>Result</th><th>Learning</th></tr>
-                </thead>
-                <tbody>
-                  {experimentLog.map((row) => (
-                    <tr key={row.hypothesis}>
-                      <td>{row.hypothesis}</td>
-                      <td>{row.channel}</td>
-                      <td>{row.result || <span className="growth-blank">[ NEEDS YOUR INPUT ]</span>}</td>
-                      <td>{row.learning || <span className="growth-blank">[ NEEDS YOUR INPUT ]</span>}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div className="growth-stack">
-            <h3>Instrumentation I built or ran</h3>
-            <div className="mini-pill-list">
-              {instrumentation.map((tool) => <span key={tool}>{tool}</span>)}
-            </div>
-            <p className="growth-attribution">
-              Attribution note: the AUM and origination figures above are program-level outcomes I contributed to as GTM lead, not
-              single-channel attribution. Where a number reflects a team effort I have said so. Detailed campaign economics are
-              available on request.
-            </p>
-          </div>
         </section>
 
         <section id="social-proof" className="content-showcase-section">
@@ -747,6 +657,151 @@ function ContentPortfolioShowcase() {
   )
 }
 
+function GrowthOutcomesPage() {
+  return (
+    <>
+      <header className="site-header showcase-header">
+        <a className="brand" href="/" aria-label="Tariq Waseem portfolio home">
+          <span className="brand-mark" />
+          <span>Tariq Waseem</span>
+        </a>
+        <nav aria-label="Growth outcomes navigation">
+          <a href="#outcomes">[ OUTCOMES ]</a>
+          <a href="#case-studies">[ CASE STUDIES ]</a>
+          <a href="#instrumentation">[ INSTRUMENTATION ]</a>
+        </nav>
+        <a className="mono-link hide-mobile" href="mailto:tariqawaseem@gmail.com">[ EMAIL → ]</a>
+      </header>
+
+      <main id="top" className="showcase-page">
+        <section className="showcase-hero section-grid">
+          <div className="hero-copy">
+            <p className="eyebrow">[ GROWTH / OUTCOMES ]</p>
+            <h1>Growth systems, measurable outcomes, and crypto-native GTM loops.</h1>
+            <p className="hero-subcopy">
+              A direct-share page for the acquisition, activation, retention, and monetization work behind selected campaigns, docs, incentive programs, and onchain audience systems.
+            </p>
+            <div className="contact-ribbon" aria-label="Growth proof summary">
+              <span>200K OP incentive program</span>
+              <span>Holder intelligence pipeline</span>
+              <span>ve(3,3) incentive reporting</span>
+              <span>Docs + product education</span>
+            </div>
+            <div className="cta-row">
+              <a href="#case-studies">[ VIEW CASE STUDIES → ]</a>
+              <a href="mailto:tariqawaseem@gmail.com">[ REQUEST DETAILS → ]</a>
+            </div>
+          </div>
+          <aside className="showcase-proof-card" aria-label="Growth role fit summary">
+            <span>GROWTH FIT</span>
+            <h2>Built for teams that need content tied to outcomes.</h2>
+            <ul>
+              <li>Connects campaigns to acquisition, activation, retention, and monetization.</li>
+              <li>Turns incentive programs into clear GTM and education loops.</li>
+              <li>Builds onchain audience intelligence before outreach starts.</li>
+              <li>Pairs content execution with reporting and operating cadence.</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section id="outcomes" className="growth-section">
+          <p className="eyebrow">[ GROWTH / OUTCOMES ]</p>
+          <div className="research-intro">
+            <h2>What the content was in service of.</h2>
+            <p>Reach is the top of a funnel, not the result. These are the outcomes the campaigns, docs, and incentive programs were measured against.</p>
+          </div>
+
+          <div className="growth-outcome-grid">
+            {growthOutcomes.map((item) => (
+              <div className="growth-outcome" key={item.label}>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+                <small>{item.sub}</small>
+              </div>
+            ))}
+          </div>
+
+          <div className="growth-funnel" aria-label="Funnel stages owned">
+            {funnelStages.map((stage) => (
+              <article className="growth-funnel-stage" key={stage.stage}>
+                <span className="growth-stage-label">{stage.stage}</span>
+                <p className="growth-stage-owned">{stage.owned}</p>
+                <p className="growth-stage-evidence">{stage.evidence}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="case-studies" className="growth-section growth-cases">
+          <p className="eyebrow">[ CASE STUDIES ]</p>
+          <div className="growth-case-grid">
+            {growthCaseStudies.map((study) => (
+              <article className="growth-case" key={study.id}>
+                <span className="growth-case-org">{study.org}</span>
+                <h3>{study.title}</h3>
+                <dl>
+                  <div><dt>Context</dt><dd>{study.context}</dd></div>
+                  <div><dt>Constraint</dt><dd>{study.constraint}</dd></div>
+                  <div><dt>Hypothesis</dt><dd>{study.hypothesis}</dd></div>
+                  <div>
+                    <dt>What I did</dt>
+                    <dd>
+                      <ul>{study.intervention.map((step) => <li key={step}>{step}</li>)}</ul>
+                    </dd>
+                  </div>
+                  <div><dt>Result</dt><dd className="growth-case-result">{study.result}</dd></div>
+                  <div><dt>What generalizes</dt><dd>{study.generalizes}</dd></div>
+                </dl>
+                {study.needsInput && (
+                  <p className="growth-needs-input">[ NEEDS YOUR INPUT ] {study.needsInput}</p>
+                )}
+              </article>
+            ))}
+          </div>
+
+          <div className="growth-experiments">
+            <h3>Experiment log</h3>
+            <div className="growth-table-scroll">
+              <table>
+                <thead>
+                  <tr><th>Hypothesis</th><th>Channel</th><th>Result</th><th>Learning</th></tr>
+                </thead>
+                <tbody>
+                  {experimentLog.map((row) => (
+                    <tr key={row.hypothesis}>
+                      <td>{row.hypothesis}</td>
+                      <td>{row.channel}</td>
+                      <td>{row.result || <span className="growth-blank">[ NEEDS YOUR INPUT ]</span>}</td>
+                      <td>{row.learning || <span className="growth-blank">[ NEEDS YOUR INPUT ]</span>}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="instrumentation" className="growth-stack">
+            <h3>Instrumentation I built or ran</h3>
+            <div className="mini-pill-list">
+              {instrumentation.map((tool) => <span key={tool}>{tool}</span>)}
+            </div>
+            <p className="growth-attribution">
+              Attribution note: the AUM and origination figures above are program-level outcomes I contributed to as GTM lead, not
+              single-channel attribution. Where a number reflects a team effort I have said so. Detailed campaign economics are
+              available on request.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <span>© 2026 Tariq Waseem</span>
+        <a href="#top">Back to top</a>
+      </footer>
+    </>
+  )
+}
+
 function App() {
   const route = resolveRoute(window.location.pathname)
   const isHome = route === 'home'
@@ -767,6 +822,7 @@ function App() {
   }, [isHome])
 
   if (route === 'content-portfolio') return <ContentPortfolioShowcase />
+  if (route === 'growth') return <GrowthOutcomesPage />
   if (route === 'projects') return <ProjectsPage />
 
   return (

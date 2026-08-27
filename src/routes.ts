@@ -1,7 +1,8 @@
-export type Route = 'home' | 'content-portfolio' | 'projects'
+export type Route = 'home' | 'content-portfolio' | 'growth' | 'projects'
 
 const ROUTES: Record<string, Route> = {
   '/content-portfolio': 'content-portfolio',
+  '/growth': 'growth',
   '/projects': 'projects',
 }
 

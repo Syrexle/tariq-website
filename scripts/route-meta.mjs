@@ -21,6 +21,14 @@ export const routes = [
     stripSocialPreview: true,
   },
   {
+    dir: 'growth',
+    title: 'Tariq Waseem — Growth Outcomes',
+    description:
+      'Tariq Waseem’s growth outcomes and case studies across crypto GTM, incentive programs, ecosystem campaigns, and onchain audience intelligence.',
+    // Hidden direct-share page; no social unfurl by default.
+    stripSocialPreview: true,
+  },
+  {
     dir: 'projects',
     title: 'Tariq Waseem — Projects',
     description:

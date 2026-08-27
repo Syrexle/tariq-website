@@ -16,6 +16,7 @@ test('the projects route resolves with or without a trailing slash', () => {
   assert.equal(resolveRoute('/projects'), 'projects')
   assert.equal(resolveRoute('/projects/'), 'projects')
   assert.equal(resolveRoute('/content-portfolio/'), 'content-portfolio')
+  assert.equal(resolveRoute('/growth/'), 'growth')
   assert.equal(resolveRoute('/'), 'home')
   assert.equal(resolveRoute('/projects-archive'), 'home')
   assert.equal(mainSource.match(/if \(route === 'projects'\) return <ProjectsPage \/>/g).length, 1)
@@ -26,10 +27,11 @@ test('the projects page is reachable only by direct URL', () => {
   const navMarkup = nav.slice(0, nav.indexOf('</nav>'))
   assert.match(navMarkup, /href="\/content-portfolio\/"/)
   assert.doesNotMatch(navMarkup, /href="\/projects/)
+  assert.doesNotMatch(navMarkup, /href="\/growth/)
 })
 
 test('the build emits a static file per hidden route', () => {
-  assert.deepEqual(routes.map((route) => route.dir), ['content-portfolio', 'projects'])
+  assert.deepEqual(routes.map((route) => route.dir), ['content-portfolio', 'growth', 'projects'])
 
   const projects = buildRouteHtml(indexHtml, routes.find((route) => route.dir === 'projects'))
   assert.match(projects, /<title>Tariq Waseem — Projects<\/title>/)
@@ -39,6 +41,10 @@ test('the build emits a static file per hidden route', () => {
   const content = buildRouteHtml(indexHtml, routes.find((route) => route.dir === 'content-portfolio'))
   assert.match(content, /<title>Tariq Waseem — Content Portfolio<\/title>/)
   assert.doesNotMatch(content, /og:image|twitter:card/)
+
+  const growth = buildRouteHtml(indexHtml, routes.find((route) => route.dir === 'growth'))
+  assert.match(growth, /<title>Tariq Waseem — Growth Outcomes<\/title>/)
+  assert.doesNotMatch(growth, /og:image|twitter:card/)
 })
 
 test('page styles cannot reach the rest of the site', () => {
