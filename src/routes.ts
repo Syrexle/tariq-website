@@ -2,7 +2,7 @@ export type Route = 'home' | 'content-portfolio' | 'growth' | 'projects'
 
 const ROUTES: Record<string, Route> = {
   '/content-portfolio': 'content-portfolio',
-  '/growth': 'growth',
+  '/growth-portfolio': 'growth',
   '/projects': 'projects',
 }
 

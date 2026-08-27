@@ -16,7 +16,7 @@ test('the projects route resolves with or without a trailing slash', () => {
   assert.equal(resolveRoute('/projects'), 'projects')
   assert.equal(resolveRoute('/projects/'), 'projects')
   assert.equal(resolveRoute('/content-portfolio/'), 'content-portfolio')
-  assert.equal(resolveRoute('/growth/'), 'growth')
+  assert.equal(resolveRoute('/growth-portfolio/'), 'growth')
   assert.equal(resolveRoute('/'), 'home')
   assert.equal(resolveRoute('/projects-archive'), 'home')
   assert.equal(mainSource.match(/if \(route === 'projects'\) return <ProjectsPage \/>/g).length, 1)
@@ -27,11 +27,11 @@ test('the projects page is reachable only by direct URL', () => {
   const navMarkup = nav.slice(0, nav.indexOf('</nav>'))
   assert.match(navMarkup, /href="\/content-portfolio\/"/)
   assert.doesNotMatch(navMarkup, /href="\/projects/)
-  assert.doesNotMatch(navMarkup, /href="\/growth/)
+  assert.doesNotMatch(navMarkup, /href="\/growth-portfolio/)
 })
 
 test('the build emits a static file per hidden route', () => {
-  assert.deepEqual(routes.map((route) => route.dir), ['content-portfolio', 'growth', 'projects'])
+  assert.deepEqual(routes.map((route) => route.dir), ['content-portfolio', 'growth-portfolio', 'projects'])
 
   const projects = buildRouteHtml(indexHtml, routes.find((route) => route.dir === 'projects'))
   assert.match(projects, /<title>Tariq Waseem — Projects<\/title>/)
@@ -42,7 +42,7 @@ test('the build emits a static file per hidden route', () => {
   assert.match(content, /<title>Tariq Waseem — Content Portfolio<\/title>/)
   assert.doesNotMatch(content, /og:image|twitter:card/)
 
-  const growth = buildRouteHtml(indexHtml, routes.find((route) => route.dir === 'growth'))
+  const growth = buildRouteHtml(indexHtml, routes.find((route) => route.dir === 'growth-portfolio'))
   assert.match(growth, /<title>Tariq Waseem — Growth Outcomes<\/title>/)
   assert.doesNotMatch(growth, /og:image|twitter:card/)
 })
