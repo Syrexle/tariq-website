@@ -176,8 +176,8 @@ const resumeHref = `${import.meta.env.BASE_URL}${resumeFileName}`
 type ShowcaseClient = {
   name: string
   handle: string
-  followers: string
-  followerCount: number
+  followers?: string
+  followerCount?: number
   accountUrl: string
   designTools: string[]
   role: string
@@ -321,6 +321,18 @@ const showcaseClients: ShowcaseClient[] = [
       'https://x.com/capacitr_xyz/status/2075982892790890722',
     ],
   },
+  {
+    name: 'Tropic Vote',
+    handle: '@tropicvote',
+    accountUrl: 'https://x.com/tropicvote',
+    designTools: ['Claude Design'],
+    role: 'Brand system, product positioning, epoch reward reporting',
+    summary: 'Built the public identity and content system for non-custodial veHYDX vote automation on Hydrex: the design system and wordmark, delegator-facing education, and the weekly epoch reward reporting that shows what voting through it returns.',
+    posts: [
+      'https://x.com/tropicvote/status/2092280847558672679',
+      'https://x.com/tropicvote/status/2092759775251509666',
+    ],
+  },
 ]
 
 const longformPieces = [
@@ -370,7 +382,7 @@ const longformPieces = [
 const chainContexts = ['Arbitrum', 'Polygon', 'Optimism', 'Base', 'Avalanche', 'Ethereum']
 const platformContexts = ['X', 'LinkedIn', 'Telegram']
 
-const combinedFollowerReach = showcaseClients.reduce((sum, client) => sum + client.followerCount, 0)
+const combinedFollowerReach = showcaseClients.reduce((sum, client) => sum + (client.followerCount ?? 0), 0)
 const combinedFollowerReachLabel = `${Math.floor(combinedFollowerReach / 1000)}K+`
 const combinedFollowerReachExact = new Intl.NumberFormat('en-US').format(combinedFollowerReach)
 
@@ -560,8 +572,8 @@ function ContentPortfolioShowcase() {
               <p>{combinedFollowerReachExact} current followers across accounts I’ve helped market.</p>
             </div>
             <div className="contact-ribbon" aria-label="Content proof summary">
-              <span>9 client/operator contexts</span>
-              <span>27 selected X posts</span>
+              <span>{showcaseClients.length} client/operator contexts</span>
+              <span>{showcaseClients.reduce((sum, client) => sum + client.posts.length, 0)} selected X posts</span>
               <span>4 long-form technical pieces</span>
               <span>1 Mintlify docs system</span>
             </div>
@@ -592,7 +604,7 @@ function ContentPortfolioShowcase() {
                     <span>{String(index + 1).padStart(2, '0')}</span>
                     <div className="client-meta-row">
                       <div className="client-follow-block">
-                        <strong>{client.followers}</strong>
+                        {client.followers && <strong>{client.followers}</strong>}
                         <a href={client.accountUrl} target="_blank" rel="noreferrer">{client.handle}</a>
                       </div>
                       <div className="design-tool-tags" aria-label={`${client.name} design tools`}>
