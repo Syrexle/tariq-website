@@ -108,7 +108,7 @@ export function ProjectsPage() {
 
         <nav className="pp-social" aria-label="social links">
           {socials.map((social, index) => (
-            <span className="pp-social-item" key={social.href}>
+            <span className={`pp-social-item${social.icon === 'website' ? ' pp-website-item' : ''}`} key={social.href}>
               {index > 0 && <span className="pp-sep" aria-hidden="true">✦</span>}
               <a
                 className="pp-social-link"

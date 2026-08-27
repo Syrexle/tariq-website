@@ -281,6 +281,18 @@
   gap: 0.9rem;
 }
 
+.pp-website-item::after {
+  content: '';
+  position: absolute;
+  z-index: 9;
+  left: 100%;
+  top: 50%;
+  width: 4.2rem;
+  height: 5.6rem;
+  transform: translateY(-50%);
+  pointer-events: auto;
+}
+
 .pp-social-link {
   color: var(--pp-ink);
   font-weight: 400;
