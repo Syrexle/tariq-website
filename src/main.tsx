@@ -316,9 +316,9 @@ const showcaseClients: ShowcaseClient[] = [
     role: 'AI finance positioning, ecosystem updates, product education',
     summary: 'Built social and builder-facing content systems that package AI financial intelligence, launch updates, demos, and ecosystem narratives into public-facing momentum.',
     posts: [
-      'https://x.com/capacitr_xyz/status/2076037845664289200',
-      'https://x.com/capacitr_xyz/status/2074201717751578649',
-      'https://x.com/capacitr_xyz/status/2069201265192485365',
+      'https://x.com/capacitr_xyz/status/2092726278562476270',
+      'https://x.com/capacitr_xyz/status/2090414184445939952',
+      'https://x.com/capacitr_xyz/status/2075982892790890722',
     ],
   },
 ]
