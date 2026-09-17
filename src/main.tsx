@@ -331,6 +331,7 @@ const showcaseClients: ShowcaseClient[] = [
     posts: [
       'https://x.com/tropicvote/status/2092280847558672679',
       'https://x.com/tropicvote/status/2092759775251509666',
+      'https://x.com/tropicvote/status/2097025695729819946',
     ],
   },
   {
