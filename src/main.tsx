@@ -333,6 +333,21 @@ const showcaseClients: ShowcaseClient[] = [
       'https://x.com/tropicvote/status/2092759775251509666',
     ],
   },
+  {
+    name: 'Hover',
+    handle: '@on_hover',
+    followers: '1,683 followers',
+    followerCount: 1683,
+    accountUrl: 'https://x.com/on_hover',
+    designTools: ['Figma'],
+    role: 'Social swapping launch content, memetic product education, crypto-native activation',
+    summary: 'Created social-first launch content for Hover’s X-native swapping extension, translating the “swap at the speed of X” product hook into concise user education and timeline-native momentum.',
+    posts: [
+      'https://x.com/on_hover/status/2100635668133089309',
+      'https://x.com/on_hover/status/2098516160337555689',
+      'https://x.com/on_hover/status/2097353494910939525',
+    ],
+  },
 ]
 
 const longformPieces = [
@@ -415,7 +430,7 @@ const growthOutcomes = [
   { value: '$5M', label: 'new AUM from a 200K OP incentive budget', sub: 'Velodrome on Optimism, Aerodrome on Base' },
   { value: '$3–5M', label: 'loan originations from the same program', sub: 'Borrower and lender activation' },
   { value: '$25M+', label: 'AUM contributed to across ve(3,3) locks', sub: 'Aerodrome, Velodrome, Blackhole, Pharaoh' },
-  { value: '399K', label: 'combined reach across 9 protocol accounts', sub: 'Top of the same funnel' },
+  { value: '400K+', label: 'combined reach across 10 protocol accounts', sub: 'Top of the same funnel' },
 ]
 
 const funnelStages = [
@@ -549,7 +564,7 @@ function ContentPortfolioShowcase() {
           <div className="hero-copy">
             <p className="eyebrow">[ CONTENT MARKETING PORTFOLIO ]</p>
             <p className="hero-subcopy">
-              A curated sample of social campaigns, ecosystem posts, product education, and technical writing I created across nine crypto-native communities and protocols.
+              A curated sample of social campaigns, ecosystem posts, product education, and technical writing I created across eleven crypto-native communities and protocols.
             </p>
             <div className="chain-context-strip" aria-label="Chains and ecosystems worked across">
               <span>Chains worked across</span>
